@@ -19,4 +19,4 @@ clean:
 	find . -name __pycache__ -type d -prune -exec rm -rf {} +
 
 zip: clean       ## package the submission
-	mkdir -p dist && zip -qr dist/creaition_assessment.zip . -x '.venv/*' 'dist/*' '.env' '.env.*' '*.pyc' '*/__pycache__/*' '.DS_Store' '*/.DS_Store'
+	mkdir -p dist && zip -qr dist/creaition_assessment.zip . -x '.git/*' '.venv/*' 'dist/*' '.env' '.env.*' '*.pyc' '*/__pycache__/*' '.DS_Store' '*/.DS_Store'
