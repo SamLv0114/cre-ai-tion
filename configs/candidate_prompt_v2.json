@@ -1,0 +1,5 @@
+{
+  "name": "candidate_prompt_v2",
+  "description": "v2 prompts: numeric DFM checklist in the structural prompt + a DFM-safe reference concept as a few-shot example",
+  "prompt_version": "v2"
+}

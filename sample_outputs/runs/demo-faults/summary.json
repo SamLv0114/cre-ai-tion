@@ -1,0 +1,162 @@
+{
+  "run_id": "demo-faults",
+  "config": "fault_demo",
+  "llm_mode": "mock",
+  "prompt_version": "v1",
+  "variants": 5,
+  "status_counts": {
+    "needs_human": 1,
+    "pending_approval": 2,
+    "rejected": 2
+  },
+  "production_ready": 0,
+  "briefs": {
+    "B2": {
+      "title": "Construction-site handheld (rugged)",
+      "conflict_detected": false,
+      "requires_human_resolution": false,
+      "cost_ceiling_cny": 18.0,
+      "floor_cost_cny": 12.55,
+      "assumptions": [
+        "Q1 default: Use the CNY 18 housing BOM ceiling"
+      ],
+      "infeasible": false,
+      "infeasible_reasons": [],
+      "variants_planned": 5,
+      "quality_paused": null,
+      "statuses": {
+        "needs_human": 1,
+        "pending_approval": 2,
+        "rejected": 2
+      },
+      "shortlist": [
+        "B2-v005",
+        "B2-v002",
+        "B2-v001"
+      ]
+    }
+  },
+  "shortlist": {
+    "B2": [
+      "B2-v005",
+      "B2-v002",
+      "B2-v001"
+    ]
+  },
+  "first_pass_dfm_rate": 0.0,
+  "avg_llm_revisions": 1.2,
+  "avg_autofixes": 0.8,
+  "fallback_rate": 0.0,
+  "tokens_total": 95602,
+  "llm_calls": 26,
+  "model_cost_cny_total": 0.294,
+  "model_cost_cny_per_variant": 0.0588,
+  "modeled_latency_ms_p50": 34542.8,
+  "modeled_latency_ms_p95": 50700.0,
+  "wall_clock_s": 1.86,
+  "faults_injected": {
+    "malformed_prose": 1,
+    "malformed_truncated": 1,
+    "server_error": 18,
+    "tool_error": 1,
+    "rate_limit": 4,
+    "malformed_types": 2,
+    "timeout": 3
+  },
+  "breakers": {
+    "llm:deepseek:deepseek-flash": "closed",
+    "llm:deepseek:deepseek-v4-pro": "open",
+    "tool:materials_lookup": "closed",
+    "tool:dfm_validate": "closed",
+    "tool:tooling_quote": "closed"
+  },
+  "steps_executed": 54,
+  "steps_replayed": 0,
+  "lessons_learned": [],
+  "contracts": {
+    "B2": {
+      "brief_id": "B2",
+      "intent": {
+        "brief_id": "B2",
+        "summary": "Rugged handheld air quality detector for construction-site supervisors who carry it all day outdoors. It must survive a 1.5 m drop onto concrete, dust and driving rain (IP65), UV exposure and use with work gloves. Tough, grippy textured surfaces, high-visibility colour, protected corners. Durable ov",
+        "priorities": {
+          "cost": 0.25,
+          "durability": 1.0,
+          "aesthetics": 0.25,
+          "sustainability": 0.25
+        },
+        "environment": "outdoor",
+        "allowed_materials": [
+          "PC-ABS",
+          "ABS"
+        ],
+        "preferred_finishes": [
+          "textured_heavy",
+          "textured_light"
+        ],
+        "style_keywords": [
+          "rugged",
+          "durable"
+        ],
+        "target_unit_cost_cny": null,
+        "max_thickness_mm": null,
+        "max_mass_g": null,
+        "ip_rating": "IP65",
+        "drop_height_m": 1.5,
+        "must_haves": [
+          "survive a 1"
+        ],
+        "conflicts": [],
+        "open_questions": [
+          {
+            "question_id": "Q1",
+            "question": "Is there a unit cost target below the CNY 18 ceiling?",
+            "default_assumption": "Use the CNY 18 housing BOM ceiling",
+            "blocking": false
+          }
+        ]
+      },
+      "cost_ceiling_cny": 18.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "max_mass_g": 180.0,
+      "allowed_materials": [
+        "PC-ABS",
+        "ABS"
+      ],
+      "ip_rating": "IP65",
+      "floor_cost_cny": 12.55,
+      "conflicts": [
+        {
+          "conflict_id": "R-vent",
+          "description": "IP65 sealing vs. >= 15% open intake",
+          "requirements": [
+            "ingress rating",
+            "vent open area"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "gasket + ePTFE membrane vent (adds ~CNY 2.7/unit)",
+          "source": "rule"
+        }
+      ],
+      "open_questions": [
+        {
+          "question_id": "Q1",
+          "question": "Is there a unit cost target below the CNY 18 ceiling?",
+          "default_assumption": "Use the CNY 18 housing BOM ceiling",
+          "blocking": false
+        }
+      ],
+      "relaxations": [],
+      "platform_blockers": [],
+      "infeasible_reasons": [],
+      "assumptions": [
+        "Q1 default: Use the CNY 18 housing BOM ceiling"
+      ],
+      "requires_human_resolution": false
+    }
+  }
+}

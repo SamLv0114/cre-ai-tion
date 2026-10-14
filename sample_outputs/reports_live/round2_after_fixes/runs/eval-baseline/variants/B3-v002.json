@@ -1,0 +1,1031 @@
+{
+  "variant_id": "B3-v002",
+  "brief_id": "B3",
+  "status": "production_ready",
+  "result": {
+    "run_id": "eval-baseline",
+    "variant_id": "B3-v002",
+    "brief_id": "B3",
+    "direction": {
+      "name": "monolith_slab",
+      "silhouette": "chamfered_slab",
+      "intake_face": "top",
+      "slim": true
+    },
+    "concept": {
+      "variant_id": "B3-v002",
+      "brief_id": "B3",
+      "direction": "monolith_slab",
+      "name": "Monolith Slab Air Detector",
+      "form_language": "A single, calm, chamfered slab that reads as a quiet piece of furniture rather than a gadget. The front face is a continuous, unperforated plane interrupted only by a flush, recessed display window; the top face carries the intake as a fine, horizontal slot array that disappears into the chamfer shadow. Side walls are near-vertical with a subtle 2\u00b0 draft, soft 1.5 mm chamfers on all edges, and a continuous parting line at the lower third so the upper shell can be one clean moulding. A shallow recessed foot band on the bottom gives the object a floating stance. No visible screws, no logos on the front face, no glossy accents.",
+      "silhouette": "chamfered_slab",
+      "envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "corner_radius_mm": 3.0,
+      "display": {
+        "face": "front",
+        "x_pct": 50.0,
+        "y_pct": 42.0
+      },
+      "display_window_mm": {
+        "width": 62.0,
+        "height": 24.0
+      },
+      "intake": {
+        "face": "top",
+        "x_pct": 50.0,
+        "y_pct": 55.0
+      },
+      "usb": {
+        "face": "back",
+        "x_pct": 50.0,
+        "y_pct": 40.0
+      },
+      "cmf": {
+        "material": "rABS",
+        "finish": "textured_light",
+        "color": "Warm off-white (NCS S 1002-Y, ~RAL 9010 adjusted warmer) with a matching warm-grey lower shell; display window bezel in\u2026",
+        "secondary_ops": [
+          "pad_print",
+          "laser_etch"
+        ]
+      },
+      "intent_anchors": [
+        {
+          "anchor_id": "IA1",
+          "statement": "Front face must remain a single unperforated plane; the only interruption is the flush display window. No speaker grilles, logos, or fasteners on the front.",
+          "category": "form",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA2",
+          "statement": "Intake is a horizontal slot array on the top face, set back from the front edge so it is not visible from a normal standing or seated eye height; slot width and pitch must read as a fine texture, not a grille.",
+          "category": "form",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA3",
+          "statement": "Display window is 62 x 24 mm, centred horizontally, with its optical centre at 42% of front-face height; this geometry is tuned for readability at 2.5\u20133 m and must not be shrunk or moved without re-validating legibility.",
+          "category": "usability",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA4",
+          "statement": "All fasteners are hidden: upper and lower shells join via internal snap fits and a single concealed screw under the rear foot pad. No visible screws, no adhesive on the main seam.",
+          "category": "usability",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA5",
+          "statement": "Housing material is rABS with a light mould texture (VDI 27\u201330 equivalent) on all cosmetic surfaces; no secondary soft-touch coating, no gloss, no paint on the main shells.",
+          "category": "cmf",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA6",
+          "statement": "Wall thickness nominal 2.0 mm, ribs at 1.2 mm, and a 2\u00b0 draft on all vertical walls; the 3 mm edge chamfer and 1.5 mm internal radii are the minimum that still read as 'soft' at arm's length.",
+          "category": "cost",
+          "must_preserve": true
+        }
+      ],
+      "rationale": "The monolith_slab direction is resolved as a chamfered slab with a fully blank front face: at 2.5\u20133 m the display is the only thing the user needs to read, so everything else is suppressed. Putting the intake on the top face keeps the front plane uninterrupted and uses the top chamfer as a natural shadow line that hides the slot array from seated eye height. The 62 x 24 mm window at 42% height gives a large enough character height for a 2\u20133 m read while keeping the front proportion calm. rABS with a light mould texture hits the sustainability priority and the 'fine matte' brief at zero secondary-coating cost, and the two-shell snap-fit architecture keeps tooling and assembly inside the CNY 18 ceiling at 10k/year. The warm off-white colour and matching lower shell prevent the object from reading as a plastic box, supporting the furniture-like intent."
+    },
+    "structure": {
+      "variant_id": "B3-v002",
+      "brief_id": "B3",
+      "concept_name": "Monolith Slab Air Detector",
+      "revision": 2,
+      "envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "parting": "front_back",
+      "parts": [
+        {
+          "part_id": "upper_shell",
+          "role": "front_housing",
+          "material": "rABS",
+          "finish": "textured_light",
+          "nominal_wall_mm": 2.0,
+          "min_wall_mm": 1.5,
+          "max_wall_mm": 2.5,
+          "inner_radius_mm": 1.5,
+          "drafts": [
+            {
+              "face": "outer_sides",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "front",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "back",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "top",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "bottom",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "left",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "right",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "inner_sides",
+              "draft_deg": 1.5,
+              "textured": false
+            }
+          ],
+          "ribs": [
+            {
+              "rib_id": "upper_rib_1",
+              "thickness_mm": 1.2,
+              "height_mm": 5.0,
+              "length_mm": 30.0,
+              "count": 4
+            },
+            {
+              "rib_id": "upper_rib_2",
+              "thickness_mm": 1.2,
+              "height_mm": 5.0,
+              "length_mm": 20.0,
+              "count": 2
+            }
+          ],
+          "bosses": [
+            {
+              "boss_id": "upper_boss_1",
+              "outer_d_mm": 6.0,
+              "inner_d_mm": 2.8,
+              "height_mm": 8.0,
+              "count": 4
+            }
+          ],
+          "undercuts": [
+            {
+              "undercut_id": "upper_snap_undercut",
+              "feature": "Internal snap-fit hooks on upper shell perimeter",
+              "mechanism": "lifter",
+              "side_action_cost_cny": 0.0
+            }
+          ],
+          "secondary_ops": [
+            "pad_print",
+            "laser_etch"
+          ]
+        },
+        {
+          "part_id": "lower_shell",
+          "role": "rear_housing",
+          "material": "rABS",
+          "finish": "textured_light",
+          "nominal_wall_mm": 2.0,
+          "min_wall_mm": 1.5,
+          "max_wall_mm": 2.5,
+          "inner_radius_mm": 1.5,
+          "drafts": [
+            {
+              "face": "outer_sides",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "front",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "back",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "top",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "bottom",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "left",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "right",
+              "draft_deg": 2.5,
+              "textured": true
+            },
+            {
+              "face": "inner_sides",
+              "draft_deg": 1.5,
+              "textured": false
+            }
+          ],
+          "ribs": [
+            {
+              "rib_id": "lower_rib_1",
+              "thickness_mm": 1.2,
+              "height_mm": 5.0,
+              "length_mm": 30.0,
+              "count": 4
+            },
+            {
+              "rib_id": "lower_rib_2",
+              "thickness_mm": 1.2,
+              "height_mm": 5.0,
+              "length_mm": 20.0,
+              "count": 2
+            }
+          ],
+          "bosses": [
+            {
+              "boss_id": "lower_boss_1",
+              "outer_d_mm": 6.0,
+              "inner_d_mm": 2.8,
+              "height_mm": 8.0,
+              "count": 4
+            }
+          ],
+          "undercuts": [
+            {
+              "undercut_id": "lower_snap_undercut",
+              "feature": "Internal snap-fit recesses on lower shell perimeter",
+              "mechanism": "lifter",
+              "side_action_cost_cny": 0.0
+            }
+          ],
+          "secondary_ops": [
+            "pad_print",
+            "laser_etch"
+          ]
+        }
+      ],
+      "display_window_mm": {
+        "width": 62.0,
+        "height": 24.0
+      },
+      "vent": {
+        "face": "top",
+        "zone_w_mm": 60.0,
+        "zone_h_mm": 20.0,
+        "slot_count": 8,
+        "slot_w_mm": 1.2,
+        "slot_l_mm": 56.0
+      },
+      "usb_opening_mm": {
+        "width": 10.0,
+        "height": 5.0
+      },
+      "internal_layout": "stacked",
+      "closure": "screws_and_snaps",
+      "screw_count": 1,
+      "sealing": "none",
+      "intent_trace": [
+        {
+          "anchor_id": "IA1",
+          "realized_by": [
+            "upper_shell",
+            "display_window"
+          ],
+          "note": "Front face of upper shell is unperforated except for display window; no other openings on front."
+        },
+        {
+          "anchor_id": "IA2",
+          "realized_by": [
+            "vent"
+          ],
+          "note": "Vent slots on top face, set back from front edge, fine texture."
+        },
+        {
+          "anchor_id": "IA3",
+          "realized_by": [
+            "display_window"
+          ],
+          "note": "Display window dimensions and position as specified."
+        },
+        {
+          "anchor_id": "IA4",
+          "realized_by": [
+            "upper_shell",
+            "lower_shell",
+            "closure",
+            "screw_count"
+          ],
+          "note": "Snap fits and one concealed screw under rear foot pad; no visible fasteners."
+        },
+        {
+          "anchor_id": "IA5",
+          "realized_by": [
+            "upper_shell.finish",
+            "lower_shell.finish",
+            "upper_shell.material",
+            "lower_shell.material"
+          ],
+          "note": "rABS with light mold texture, no secondary coating."
+        },
+        {
+          "anchor_id": "IA6",
+          "realized_by": [
+            "upper_shell",
+            "lower_shell",
+            "upper_rib_1",
+            "lower_rib_1",
+            "upper_boss_1",
+            "lower_boss_1"
+          ],
+          "note": "Wall thickness 2.0 mm nominal (1.5-2.5 mm range), ribs at 1.2 mm (60% of nominal), 2.5 deg draft on textured outer faces and 1.5 deg on inner faces, 1.5 mm inner radii."
+        }
+      ],
+      "change_log": [
+        "Initial structural specification for B3-v002.",
+        "autofix DRAFT_COVERAGE",
+        "autofix VENT_SLOTS_FIT",
+        "autofix VENT_ZONE_MIN",
+        "Remapped intent anchor IA6 realized_by from dotted sub-attribute paths (upper_shell.nominal_wall_mm, upper_shell.ribs, upper_shell.drafts, upper_shell.inner_radius_mm, etc.) to valid structural ids from the allowed list: upper_shell, lower_shell, upper_rib_1, lower_rib_1, upper_boss_1, lower_boss_1. No geometry, material, finish, or cost-affecting change; all other anchors and the concept intent are preserved."
+      ]
+    },
+    "structure_source": "reviser",
+    "dfm": {
+      "variant_id": "B3-v002",
+      "revision": 2,
+      "results": [
+        {
+          "rule_id": "WALL_RANGE",
+          "description": "Wall thickness within 1.5-3.0 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": 2.0,
+          "limit": "[1.5, 3.0] mm (min 1.5, max 2.5)",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'outer_sides' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'front' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'back' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'top' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'bottom' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'left' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'right' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'inner_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_COVERAGE",
+          "description": "Draft declared for the outer and inner side walls",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": null,
+          "limit": "outer + inner faces",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "TEXTURE_DECLARED",
+          "description": "Textured finish declared on at least one moulded face",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": null,
+          "limit": "textured face present",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'upper_rib_1' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": 0.6,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'upper_rib_2' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": 0.6,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INNER_RADIUS",
+          "description": "Inner radius >= 0.5 x wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": 1.5,
+          "limit": ">= 1.00 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "UNDERCUT_DECLARED",
+          "description": "Undercut 'upper_snap_undercut' declares side action and cost",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "upper_shell",
+          "measured": null,
+          "limit": "mechanism + tooling cost declared",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_UNIFORMITY",
+          "description": "Wall variation <= 25% (sink/warp risk)",
+          "status": "warn",
+          "severity": "advisory",
+          "part_id": "upper_shell",
+          "measured": 1.667,
+          "limit": "<= 1.25",
+          "fix": "none",
+          "hint": "core out thick sections"
+        },
+        {
+          "rule_id": "BOSS_RATIO",
+          "description": "Boss 'upper_boss_1' OD/ID <= 2.5",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": "upper_shell",
+          "measured": 2.143,
+          "limit": "<= 2.5",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_RANGE",
+          "description": "Wall thickness within 1.5-3.0 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": 2.0,
+          "limit": "[1.5, 3.0] mm (min 1.5, max 2.5)",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'outer_sides' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'front' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'back' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'top' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'bottom' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'left' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'right' >= 2.0 deg (textured)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": 2.5,
+          "limit": ">= 2.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'inner_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_COVERAGE",
+          "description": "Draft declared for the outer and inner side walls",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": null,
+          "limit": "outer + inner faces",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "TEXTURE_DECLARED",
+          "description": "Textured finish declared on at least one moulded face",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": null,
+          "limit": "textured face present",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'lower_rib_1' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": 0.6,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'lower_rib_2' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": 0.6,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INNER_RADIUS",
+          "description": "Inner radius >= 0.5 x wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": 1.5,
+          "limit": ">= 1.00 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "UNDERCUT_DECLARED",
+          "description": "Undercut 'lower_snap_undercut' declares side action and cost",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "lower_shell",
+          "measured": null,
+          "limit": "mechanism + tooling cost declared",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_UNIFORMITY",
+          "description": "Wall variation <= 25% (sink/warp risk)",
+          "status": "warn",
+          "severity": "advisory",
+          "part_id": "lower_shell",
+          "measured": 1.667,
+          "limit": "<= 1.25",
+          "fix": "none",
+          "hint": "core out thick sections"
+        },
+        {
+          "rule_id": "BOSS_RATIO",
+          "description": "Boss 'lower_boss_1' OD/ID <= 2.5",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": "lower_shell",
+          "measured": 2.143,
+          "limit": "<= 2.5",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DISPLAY_WINDOW_MIN",
+          "description": "Display window >= 42 x 18 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 1488.0,
+          "limit": ">= 42 x 18 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_ZONE_MIN",
+          "description": "Intake zone >= 18 x 18 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": ">= 18 x 18 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_OPEN_AREA",
+          "description": "Vent open area >= 15%",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 0.448,
+          "limit": ">= 0.15",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_FITS_FACE",
+          "description": "Intake zone fits on the top face with 2 mm margins",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": "<= 121 x 26 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_SLOTS_FIT",
+          "description": "Vent slots fit the zone with >= 1 mm steel bars",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": "slots + bars <= zone",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "SLOT_WIDTH_MIN",
+          "description": "Slot width >= 0.8 mm (tool steel strength)",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": null,
+          "measured": 1.2,
+          "limit": ">= 0.8 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "USB_OPENING_MIN",
+          "description": "USB-C opening >= 10 x 4 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 50.0,
+          "limit": ">= 10 x 4 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "USB_CLEARANCE",
+          "description": "USB clearance >= 0.5 mm per side",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 0.53,
+          "limit": ">= 0.5 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "SNAP_FIT_UNDERCUT",
+          "description": "Snap-fit closure declares its hooks as undercuts",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": ">= 1 undercut",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "ENVELOPE_MAX",
+          "description": "Envelope <= 125 x 75 x 30 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 281250.0,
+          "limit": "<= 125 x 75 x 30",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "PACKAGING_FIT",
+          "description": "PCB + battery stack fits the inner cavity",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 4.0,
+          "limit": "cavity >= 93.0 x 46.0 x 22.0 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "MASS_MAX",
+          "description": "Product mass <= 180 g",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 155.16,
+          "limit": "<= 180 g",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INTENT_TRACE_COMPLETE",
+          "description": "Every must-preserve intent anchor maps to a structural feature",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 6.0,
+          "limit": "6 anchors",
+          "fix": "none",
+          "hint": ""
+        }
+      ],
+      "engine": "remote_full",
+      "confidence": "full",
+      "headroom": 0.2845,
+      "housing_mass_g": 61.16,
+      "product_mass_g": 155.16,
+      "open_area_ratio": 0.448,
+      "usb_clearance_mm": 0.53
+    },
+    "cost": {
+      "variant_id": "B3-v002",
+      "revision": 2,
+      "lines": [
+        {
+          "item": "material:upper_shell",
+          "cny": 0.533
+        },
+        {
+          "item": "moulding:upper_shell",
+          "cny": 1.003
+        },
+        {
+          "item": "op:upper_shell:pad_print",
+          "cny": 0.4
+        },
+        {
+          "item": "op:upper_shell:laser_etch",
+          "cny": 0.3
+        },
+        {
+          "item": "material:lower_shell",
+          "cny": 0.59
+        },
+        {
+          "item": "moulding:lower_shell",
+          "cny": 1.003
+        },
+        {
+          "item": "op:lower_shell:pad_print",
+          "cny": 0.4
+        },
+        {
+          "item": "op:lower_shell:laser_etch",
+          "cny": 0.3
+        },
+        {
+          "item": "tooling_amortised",
+          "cny": 6.45
+        },
+        {
+          "item": "window_lens",
+          "cny": 1.0
+        },
+        {
+          "item": "screws",
+          "cny": 0.12
+        },
+        {
+          "item": "assembly",
+          "cny": 0.88
+        },
+        {
+          "item": "qa_overhead",
+          "cny": 0.389
+        }
+      ],
+      "total_cny": 13.37,
+      "ceiling_cny": 18.0,
+      "within_budget": true,
+      "tooling_total_cny": 129000.0,
+      "housing_mass_g": 61.16,
+      "price_source": "live",
+      "quote_source": "live"
+    },
+    "review": {
+      "variant_id": "B3-v002",
+      "scores": {
+        "brief_adherence": 5,
+        "form_coherence": 5,
+        "cmf_fit": 5,
+        "usability": 4,
+        "intent_preservation": 5
+      },
+      "verdict": "accept",
+      "rationale": "The variant delivers a calm, minimal, furniture-like slab with a clean front face, hidden fasteners, and a display sized for sofa readability. The top intake is set back and fine-textured, reducing the risk of accidental blockage while preserving the aesthetic. rABS with a light texture meets sustainability and cost priorities. The only minor concern is that the top intake could still be covered if an object is placed on the unit, but this is acceptable for a living-room device. All intent anchors are preserved.",
+      "flags": [],
+      "judge_model": "deepseek-v4-pro"
+    },
+    "judge_attempted": true,
+    "first_dfm_failures": [
+      "DRAFT_COVERAGE",
+      "INTENT_TRACE_COMPLETE",
+      "VENT_SLOTS_FIT",
+      "VENT_ZONE_MIN"
+    ],
+    "llm_revisions": 1,
+    "autofixes": 1,
+    "reviser_failures": 0,
+    "step_errors": 0,
+    "steps": 10,
+    "history": [
+      "generate_concept",
+      "build_structure",
+      "check_dfm",
+      "auto_fix",
+      "check_dfm",
+      "revise",
+      "check_dfm",
+      "estimate_cost",
+      "review_quality",
+      "finalize"
+    ],
+    "spec_hashes": [
+      "2bf5eede0b7bfc23",
+      "127f1564d6ce139a",
+      "a7d103c82fd6c29b"
+    ],
+    "oscillation": false,
+    "fallback_used": false,
+    "budget_exhausted": false,
+    "degraded": [],
+    "models": [
+      "deepseek-flash",
+      "deepseek-v4-pro",
+      "deepseek-flash",
+      "deepseek-v4-pro"
+    ],
+    "usage": {
+      "prompt_tokens": 18557,
+      "completion_tokens": 4967,
+      "cost_cny": 0.185494,
+      "calls": 4,
+      "latency_ms": 29877.303124871105
+    },
+    "status": "production_ready",
+    "reason": "approved by auto-policy:clean: all gates passed, no degraded evidence",
+    "caveats": []
+  }
+}

@@ -1,0 +1,9 @@
+$ python -m creaition eval --out sample_outputs/reports --benchmark
+# exit code 0, 13.1s
+
+[eval] 6 briefs x 6 variants | baseline='baseline' candidate='candidate_prompt_v2' | mode=mock
+[eval] baseline done: pass 77%, judge 4.03
+[eval] candidate done: pass 97%, judge 4.14
+[eval] benchmark done
+[eval] verdict: REVIEW  report: sample_outputs/reports/eval_report.md  json: sample_outputs/reports/eval_report.json
+[eval]   - concept diversity -51% (mode collapse) while pass rate held

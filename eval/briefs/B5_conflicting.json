@@ -1,0 +1,7 @@
+{
+  "brief_id": "B5",
+  "archetype": "conflicting",
+  "title": "Flagship that wants everything (intentionally conflicting)",
+  "text": "Flagship model: premium soft-touch painted finish, fully waterproof to IP67, ultra-slim 18 mm thick profile, 100% recycled plastic, weighing under 120 g, and it must cost no more than CNY 9 per housing. Launch in six weeks.",
+  "expect": {"conflict": true}
+}

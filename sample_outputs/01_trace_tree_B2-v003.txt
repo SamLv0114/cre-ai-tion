@@ -1,0 +1,42 @@
+$ python -m creaition trace demo-faults --variant B2-v003
+# exit code 0, 0.2s
+
+- variant [151 ms] tokens=8617 cost_cny=0.0256 status_out=rejected
+  * plan: -> generate_concept: no concept yet
+  * plan: -> build_structure: no structural spec yet
+  * plan: -> check_dfm: structure r0 not yet checked
+  * plan: -> auto_fix: closed-form fixes for ['INNER_RADIUS', 'RIB_RATIO']
+  * plan: -> check_dfm: structure r1 not yet checked
+  * plan: -> estimate_cost: DFM passed; cost next
+  * plan: -> review_quality: all deterministic gates passed; judge quality
+  * plan: -> finalize: all checks complete
+  * variant.done: REJECTED - off-brief: judge brief_adherence 3 < 4 (durability-led brief; 3/4 key brief signals present in the spec (chamfered_slab,) | BOM CNY 15.79 | judge 3.83 | 8 steps, 0 LLM rev, 1 autofix | 8617 tok
+  - step.generate_concept [15 ms] model=deepseek-flash tokens=2258 cost_cny=0.007225 replayed=False degraded=None status_out=ok
+    - llm.call [13 ms] model=deepseek-flash tokens=2258 cost_cny=0.007225 fallback_depth=0
+  - step.build_structure [111 ms] model=deepseek-flash tokens=3866 cost_cny=0.012567 replayed=False degraded=None status_out=ok
+    - llm.call [85 ms] model=deepseek-v4-pro fallback_depth=0
+      * fault.injected: server_error on structural_modeler via deepseek-v4-pro (attempt 1)
+      * retry: deepseek-v4-pro attempt 1 failed (LLMServerError); backoff 16 ms
+      * fault.injected: server_error on structural_modeler via deepseek-v4-pro (attempt 2)
+      * retry: deepseek-v4-pro attempt 2 failed (LLMServerError); backoff 67 ms
+      * fault.injected: server_error on structural_modeler via deepseek-v4-pro (attempt 3)
+      * circuit: breaker llm:deepseek:deepseek-v4-pro: closed -> open
+      * fallback: deepseek:deepseek-v4-pro gave up (LLMServerError) -> next route in 'structural_modeler' chain
+    - llm.call [22 ms] model=deepseek-flash tokens=3866 cost_cny=0.012567 fallback_depth=1
+      * repair.ok: served by fallback route #1 (deepseek:deepseek-flash)
+  - step.check_dfm [6 ms] model=None tokens=0 cost_cny=0.0 replayed=False degraded=None status_out=ok
+    - tool.call [2 ms] tool=materials_lookup attempts=1 source=live
+    - tool.call [3 ms] tool=dfm_validate attempts=1 source=live
+  - step.auto_fix [0 ms] model=None tokens=0 cost_cny=0.0 replayed=False degraded=None status_out=ok
+  - step.check_dfm [5 ms] model=None tokens=0 cost_cny=0.0 replayed=False degraded=None status_out=ok
+    - tool.call [2 ms] tool=materials_lookup attempts=1 source=live
+    - tool.call [3 ms] tool=dfm_validate attempts=1 source=live
+  - step.estimate_cost [5 ms] model=None tokens=0 cost_cny=0.0 replayed=False degraded=None status_out=ok
+    - tool.call [2 ms] tool=materials_lookup attempts=1 source=live
+    - tool.call [2 ms] tool=tooling_quote attempts=1 source=live
+  - step.review_quality [7 ms] model=deepseek-flash tokens=2493 cost_cny=0.005809 replayed=False degraded=None status_out=ok
+    - llm.call [0 ms] model=deepseek-v4-pro fallback_depth=0
+      * circuit: deepseek:deepseek-v4-pro circuit open -> next route
+    - llm.call [4 ms] model=deepseek-flash tokens=2493 cost_cny=0.005809 fallback_depth=1
+      * repair.ok: served by fallback route #1 (deepseek:deepseek-flash)
+  - step.finalize [0 ms] model=None tokens=0 cost_cny=0.0 replayed=False degraded=None status_out=ok

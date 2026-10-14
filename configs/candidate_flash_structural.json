@@ -1,0 +1,26 @@
+{
+  "name": "candidate_flash_structural",
+  "description": "Model swap: route the 3D-readiness modeler to deepseek-flash first (about 4x cheaper) instead of deepseek-v4-pro",
+  "routes": {
+    "structural_modeler": [
+      {
+        "model": "deepseek-flash",
+        "provider": "deepseek",
+        "params": {
+          "thinking": {
+            "type": "disabled"
+          }
+        }
+      },
+      {
+        "model": "deepseek-v4-pro",
+        "provider": "deepseek",
+        "params": {
+          "thinking": {
+            "type": "disabled"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,966 @@
+{
+  "baseline": {
+    "label": "baseline",
+    "config": "baseline",
+    "description": "v1 prompts, default DeepSeek routing (flash concepts, v4-pro structure + judge, flash reviser)",
+    "metrics": {
+      "variants": 32,
+      "schema_valid_rate": 1.0,
+      "dfm_pass_rate": 1.0,
+      "cost_pass_rate": 1.0,
+      "passing_meet_hard_checks": 1.0,
+      "gate_pass_rate": 0.7667,
+      "production_ready_rate": 0.6667,
+      "first_pass_dfm_rate": 0.25,
+      "avg_llm_revisions": 0.5625,
+      "avg_autofixes": 0.6562,
+      "fallback_rate": 0.0,
+      "degraded_rate": 0.0,
+      "status_counts": {
+        "rejected": 9,
+        "production_ready": 20,
+        "needs_human": 3
+      },
+      "avg_model_cost_cny": 0.10356,
+      "avg_tokens": 14246.9375,
+      "avg_latency_ms": 40273.2125,
+      "p95_latency_ms": 62743.0,
+      "avg_bom_cny": 13.6791,
+      "bom_headroom": 0.2003,
+      "dfm_headroom": 0.4591,
+      "diversity": 0.4537,
+      "repair_rate": 0.0,
+      "route_fallback_rate": 0.0,
+      "judge_mean": 4.0261,
+      "judge_scores": [
+        3.667,
+        4.0,
+        4.0,
+        3.667,
+        3.667,
+        3.667,
+        4.0,
+        4.167,
+        3.667,
+        3.5,
+        4.333,
+        4.333,
+        4.667,
+        4.5,
+        4.0,
+        4.333,
+        4.167,
+        4.5,
+        4.5,
+        4.5,
+        4.167,
+        4.167,
+        4.333,
+        4.333,
+        2.667,
+        3.333,
+        4.333,
+        3.333,
+        4.333,
+        4.167,
+        4.0,
+        3.833
+      ],
+      "intent_preservation_mean": 4.375,
+      "judge_gt_agreement": 0.9333,
+      "judge_gt_kappa": 0.793,
+      "judge_gt_n": 30,
+      "judge_confusion": {
+        "judge=not|gt=not": 5,
+        "judge=adherent|gt=adherent": 23,
+        "judge=not|gt=adherent": 2
+      },
+      "conflict_detection_accuracy": 1.0,
+      "conflicts_missed": 0,
+      "false_conflicts_code": 0,
+      "false_conflicts_model": 0,
+      "conflicting_brief_auto_approved": 0,
+      "conflicting_brief_held_for_human": 1.0,
+      "per_brief": {
+        "B1": {
+          "rejected": 3,
+          "production_ready": 3
+        },
+        "B2": {
+          "needs_human": 2,
+          "production_ready": 2,
+          "rejected": 2
+        },
+        "B3": {
+          "production_ready": 5,
+          "needs_human": 1
+        },
+        "B4": {
+          "production_ready": 6
+        },
+        "B5": {
+          "rejected": 2
+        },
+        "B6": {
+          "production_ready": 4,
+          "rejected": 2
+        }
+      },
+      "feasible_briefs": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B6"
+      ],
+      "judge_planted_sensitivity": 1.0,
+      "judge_self_consistency_mad": 0.208
+    },
+    "calibration": {
+      "planted_probes": [
+        {
+          "variant_id": "B1-v002",
+          "archetype": "cost_sensitive",
+          "gt_after_mutation": false,
+          "original_adherence": 4,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B1-v003",
+          "archetype": "cost_sensitive",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B1-v004",
+          "archetype": "cost_sensitive",
+          "gt_after_mutation": false,
+          "original_adherence": 4,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B2-v001",
+          "archetype": "rugged",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B2-v002",
+          "archetype": "rugged",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 2,
+          "detected": true
+        },
+        {
+          "variant_id": "B2-v005",
+          "archetype": "rugged",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B2-v006",
+          "archetype": "rugged",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B3-v001",
+          "archetype": "premium_home",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        }
+      ],
+      "planted_sensitivity": 1.0,
+      "self_consistency": [
+        {
+          "variant_id": "B1-v001",
+          "first": 3.667,
+          "second": 3.833,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B1-v002",
+          "first": 4.0,
+          "second": 4.333,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B1-v003",
+          "first": 4.0,
+          "second": 4.333,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B1-v004",
+          "first": 3.667,
+          "second": 3.667,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B1-v005",
+          "first": 3.667,
+          "second": 4.0,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B1-v006",
+          "first": 3.667,
+          "second": 3.5,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B2-v001",
+          "first": 4.0,
+          "second": 4.167,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B2-v002",
+          "first": 4.167,
+          "second": 4.333,
+          "verdict_flip": false
+        }
+      ],
+      "self_consistency_mad": 0.208,
+      "self_consistency_flip_rate": 0.0
+    },
+    "summary": {
+      "run_id": "eval-baseline",
+      "config": "baseline",
+      "llm_mode": "mock",
+      "prompt_version": "v1",
+      "variants": 32,
+      "status_counts": {
+        "rejected": 9,
+        "production_ready": 20,
+        "needs_human": 3
+      },
+      "production_ready": 20,
+      "briefs": {
+        "B1": {
+          "title": "Retail apartment detector (cost first)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 12.0,
+          "floor_cost_cny": 9.36,
+          "assumptions": [],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 6,
+          "quality_paused": null,
+          "statuses": {
+            "rejected": 3,
+            "production_ready": 3
+          },
+          "shortlist": [
+            "B1-v003",
+            "B1-v002",
+            "B1-v004"
+          ]
+        },
+        "B2": {
+          "title": "Construction-site handheld (rugged)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 12.55,
+          "assumptions": [
+            "Q1 default: Use the CNY 18 housing BOM ceiling"
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 6,
+          "quality_paused": null,
+          "statuses": {
+            "needs_human": 2,
+            "production_ready": 2,
+            "rejected": 2
+          },
+          "shortlist": [
+            "B2-v005",
+            "B2-v002",
+            "B2-v006"
+          ]
+        },
+        "B3": {
+          "title": "Living-room sideboard object (premium)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 9.36,
+          "assumptions": [
+            "Q1 default: Use the CNY 18 housing BOM ceiling"
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 6,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 5,
+            "needs_human": 1
+          },
+          "shortlist": [
+            "B3-v001",
+            "B3-v006",
+            "B3-v004"
+          ]
+        },
+        "B4": {
+          "title": "Circular edition (sustainable)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 9.4,
+          "assumptions": [
+            "Q1 default: Use the CNY 18 housing BOM ceiling",
+            "Q2 default: Manufacturability and budget win; aesthetics adapts"
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 6,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 6
+          },
+          "shortlist": [
+            "B4-v001",
+            "B4-v002",
+            "B4-v005"
+          ]
+        },
+        "B5": {
+          "title": "Flagship that wants everything (intentionally conflicting)",
+          "conflict_detected": true,
+          "requires_human_resolution": true,
+          "cost_ceiling_cny": 16.0,
+          "floor_cost_cny": 12.59,
+          "assumptions": [
+            "Relaxed cost_ceiling_cny: 9 -> 16 (cheapest feasible housing costs CNY 12.59 > target CNY 9)",
+            "Relaxed max_height_mm: 18 -> 26 (PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls)",
+            "Relaxed max_mass_g: 120 -> 151 (lightest feasible product weighs 120.5 g > 120 g)",
+            "Q2 default: Manufacturability and budget win; aesthetics adapts"
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "rejected": 2
+          },
+          "shortlist": []
+        },
+        "B6": {
+          "title": "Open-plan office desk unit (balanced control)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 9.36,
+          "assumptions": [
+            "Q1 default: Use the CNY 18 housing BOM ceiling"
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 6,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 4,
+            "rejected": 2
+          },
+          "shortlist": [
+            "B6-v001",
+            "B6-v004",
+            "B6-v005"
+          ]
+        }
+      },
+      "shortlist": {
+        "B1": [
+          "B1-v003",
+          "B1-v002",
+          "B1-v004"
+        ],
+        "B2": [
+          "B2-v005",
+          "B2-v002",
+          "B2-v006"
+        ],
+        "B3": [
+          "B3-v001",
+          "B3-v006",
+          "B3-v004"
+        ],
+        "B4": [
+          "B4-v001",
+          "B4-v002",
+          "B4-v005"
+        ],
+        "B5": [],
+        "B6": [
+          "B6-v001",
+          "B6-v004",
+          "B6-v005"
+        ]
+      },
+      "first_pass_dfm_rate": 0.25,
+      "avg_llm_revisions": 0.562,
+      "avg_autofixes": 0.656,
+      "fallback_rate": 0.0,
+      "tokens_total": 465384,
+      "llm_calls": 130,
+      "model_cost_cny_total": 3.3139,
+      "model_cost_cny_per_variant": 0.09967,
+      "modeled_latency_ms_p50": 33414.3,
+      "modeled_latency_ms_p95": 62743.0,
+      "wall_clock_s": 0.86,
+      "faults_injected": {},
+      "breakers": {
+        "llm:deepseek:deepseek-v4-pro": "closed",
+        "llm:deepseek:deepseek-flash": "closed",
+        "tool:materials_lookup": "closed",
+        "tool:dfm_validate": "closed",
+        "tool:tooling_quote": "closed"
+      },
+      "steps_executed": 290,
+      "steps_replayed": 0,
+      "lessons_learned": []
+    }
+  },
+  "candidate": {
+    "label": "candidate",
+    "config": "candidate_prompt_v2",
+    "description": "v2 prompts: numeric DFM checklist in the structural prompt + a DFM-safe reference concept as a few-shot example",
+    "metrics": {
+      "variants": 32,
+      "schema_valid_rate": 1.0,
+      "dfm_pass_rate": 1.0,
+      "cost_pass_rate": 1.0,
+      "passing_meet_hard_checks": 1.0,
+      "gate_pass_rate": 0.9667,
+      "production_ready_rate": 0.9,
+      "first_pass_dfm_rate": 0.5938,
+      "avg_llm_revisions": 0.4375,
+      "avg_autofixes": 0.2812,
+      "fallback_rate": 0.0,
+      "degraded_rate": 0.0,
+      "status_counts": {
+        "production_ready": 27,
+        "needs_human": 2,
+        "rejected": 3
+      },
+      "avg_model_cost_cny": 0.10114,
+      "avg_tokens": 13048.4375,
+      "avg_latency_ms": 37591.0844,
+      "p95_latency_ms": 60885.8,
+      "avg_bom_cny": 13.1007,
+      "bom_headroom": 0.2099,
+      "dfm_headroom": 0.4705,
+      "diversity": 0.2209,
+      "repair_rate": 0.0,
+      "route_fallback_rate": 0.0,
+      "judge_mean": 4.1406,
+      "judge_scores": [
+        4.0,
+        4.333,
+        4.333,
+        4.167,
+        4.333,
+        4.5,
+        4.167,
+        4.0,
+        4.5,
+        4.167,
+        4.0,
+        4.333,
+        4.0,
+        4.5,
+        3.167,
+        4.0,
+        4.333,
+        3.833,
+        4.333,
+        4.5,
+        3.667,
+        4.167,
+        4.5,
+        4.333,
+        3.0,
+        3.833,
+        4.333,
+        4.333,
+        3.833,
+        4.333,
+        4.0,
+        4.667
+      ],
+      "intent_preservation_mean": 4.5,
+      "judge_gt_agreement": 1.0,
+      "judge_gt_kappa": 1.0,
+      "judge_gt_n": 30,
+      "judge_confusion": {
+        "judge=adherent|gt=adherent": 29,
+        "judge=not|gt=not": 1
+      },
+      "conflict_detection_accuracy": 1.0,
+      "conflicts_missed": 0,
+      "false_conflicts_code": 0,
+      "false_conflicts_model": 0,
+      "conflicting_brief_auto_approved": 0,
+      "conflicting_brief_held_for_human": 1.0,
+      "per_brief": {
+        "B1": {
+          "production_ready": 6
+        },
+        "B2": {
+          "needs_human": 2,
+          "production_ready": 4
+        },
+        "B3": {
+          "production_ready": 5,
+          "rejected": 1
+        },
+        "B4": {
+          "production_ready": 6
+        },
+        "B5": {
+          "rejected": 2
+        },
+        "B6": {
+          "production_ready": 6
+        }
+      },
+      "feasible_briefs": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B6"
+      ],
+      "judge_planted_sensitivity": 1.0,
+      "judge_self_consistency_mad": 0.167
+    },
+    "calibration": {
+      "planted_probes": [
+        {
+          "variant_id": "B1-v001",
+          "archetype": "cost_sensitive",
+          "gt_after_mutation": false,
+          "original_adherence": 4,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B1-v002",
+          "archetype": "cost_sensitive",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B1-v003",
+          "archetype": "cost_sensitive",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B1-v004",
+          "archetype": "cost_sensitive",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B1-v005",
+          "archetype": "cost_sensitive",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B1-v006",
+          "archetype": "cost_sensitive",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B2-v001",
+          "archetype": "rugged",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B2-v002",
+          "archetype": "rugged",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        }
+      ],
+      "planted_sensitivity": 1.0,
+      "self_consistency": [
+        {
+          "variant_id": "B1-v001",
+          "first": 4.0,
+          "second": 4.167,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B1-v002",
+          "first": 4.333,
+          "second": 4.333,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B1-v003",
+          "first": 4.333,
+          "second": 4.5,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B1-v004",
+          "first": 4.167,
+          "second": 4.0,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B1-v005",
+          "first": 4.333,
+          "second": 4.333,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B1-v006",
+          "first": 4.5,
+          "second": 4.167,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B2-v001",
+          "first": 4.167,
+          "second": 3.833,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B2-v002",
+          "first": 4.0,
+          "second": 4.167,
+          "verdict_flip": false
+        }
+      ],
+      "self_consistency_mad": 0.167,
+      "self_consistency_flip_rate": 0.0
+    },
+    "summary": {
+      "run_id": "eval-candidate",
+      "config": "candidate_prompt_v2",
+      "llm_mode": "mock",
+      "prompt_version": "v2",
+      "variants": 32,
+      "status_counts": {
+        "production_ready": 27,
+        "needs_human": 2,
+        "rejected": 3
+      },
+      "production_ready": 27,
+      "briefs": {
+        "B1": {
+          "title": "Retail apartment detector (cost first)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 12.0,
+          "floor_cost_cny": 9.36,
+          "assumptions": [],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 6,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 6
+          },
+          "shortlist": [
+            "B1-v006",
+            "B1-v002",
+            "B1-v004"
+          ]
+        },
+        "B2": {
+          "title": "Construction-site handheld (rugged)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 12.55,
+          "assumptions": [
+            "Q1 default: Use the CNY 18 housing BOM ceiling"
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 6,
+          "quality_paused": null,
+          "statuses": {
+            "needs_human": 2,
+            "production_ready": 4
+          },
+          "shortlist": [
+            "B2-v003",
+            "B2-v001",
+            "B2-v006"
+          ]
+        },
+        "B3": {
+          "title": "Living-room sideboard object (premium)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 9.36,
+          "assumptions": [
+            "Q1 default: Use the CNY 18 housing BOM ceiling"
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 6,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 5,
+            "rejected": 1
+          },
+          "shortlist": [
+            "B3-v002",
+            "B3-v005",
+            "B3-v004"
+          ]
+        },
+        "B4": {
+          "title": "Circular edition (sustainable)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 9.4,
+          "assumptions": [
+            "Q1 default: Use the CNY 18 housing BOM ceiling",
+            "Q2 default: Manufacturability and budget win; aesthetics adapts"
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 6,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 6
+          },
+          "shortlist": [
+            "B4-v005",
+            "B4-v006",
+            "B4-v004"
+          ]
+        },
+        "B5": {
+          "title": "Flagship that wants everything (intentionally conflicting)",
+          "conflict_detected": true,
+          "requires_human_resolution": true,
+          "cost_ceiling_cny": 16.0,
+          "floor_cost_cny": 12.59,
+          "assumptions": [
+            "Relaxed cost_ceiling_cny: 9 -> 16 (cheapest feasible housing costs CNY 12.59 > target CNY 9)",
+            "Relaxed max_height_mm: 18 -> 26 (PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls)",
+            "Relaxed max_mass_g: 120 -> 151 (lightest feasible product weighs 120.5 g > 120 g)",
+            "Q2 default: Manufacturability and budget win; aesthetics adapts"
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "rejected": 2
+          },
+          "shortlist": []
+        },
+        "B6": {
+          "title": "Open-plan office desk unit (balanced control)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 9.36,
+          "assumptions": [
+            "Q1 default: Use the CNY 18 housing BOM ceiling"
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 6,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 6
+          },
+          "shortlist": [
+            "B6-v006",
+            "B6-v004",
+            "B6-v001"
+          ]
+        }
+      },
+      "shortlist": {
+        "B1": [
+          "B1-v006",
+          "B1-v002",
+          "B1-v004"
+        ],
+        "B2": [
+          "B2-v003",
+          "B2-v001",
+          "B2-v006"
+        ],
+        "B3": [
+          "B3-v002",
+          "B3-v005",
+          "B3-v004"
+        ],
+        "B4": [
+          "B4-v005",
+          "B4-v006",
+          "B4-v004"
+        ],
+        "B5": [],
+        "B6": [
+          "B6-v006",
+          "B6-v004",
+          "B6-v001"
+        ]
+      },
+      "first_pass_dfm_rate": 0.594,
+      "avg_llm_revisions": 0.438,
+      "avg_autofixes": 0.281,
+      "fallback_rate": 0.0,
+      "tokens_total": 427032,
+      "llm_calls": 122,
+      "model_cost_cny_total": 3.2366,
+      "model_cost_cny_per_variant": 0.09726,
+      "modeled_latency_ms_p50": 31128.6,
+      "modeled_latency_ms_p95": 60885.8,
+      "wall_clock_s": 0.91,
+      "faults_injected": {},
+      "breakers": {
+        "llm:deepseek:deepseek-v4-pro": "closed",
+        "llm:deepseek:deepseek-flash": "closed",
+        "tool:materials_lookup": "closed",
+        "tool:dfm_validate": "closed",
+        "tool:tooling_quote": "closed"
+      },
+      "steps_executed": 255,
+      "steps_replayed": 0,
+      "lessons_learned": []
+    }
+  },
+  "gate": {
+    "verdict": "REVIEW",
+    "hard_regressions": [],
+    "silent_regressions": [
+      "concept diversity -51% (mode collapse) while pass rate held"
+    ],
+    "judge_ks": 0.188,
+    "ci_pass_rate_diff": [
+      0.0333,
+      0.3667
+    ],
+    "ci_judge_mean_diff": [
+      -0.073,
+      0.3228
+    ]
+  },
+  "benchmark": {
+    "robustness": {
+      "faults_injected": {
+        "timeout": 39,
+        "malformed_prose": 4,
+        "malformed_types": 3,
+        "rate_limit": 6,
+        "tool_error": 40,
+        "server_error": 4,
+        "malformed_missing": 5,
+        "malformed_truncated": 4
+      },
+      "completion_rate": 1.0,
+      "gate_pass_rate": 0.7667,
+      "clean_gate_pass_rate": 0.7667,
+      "fallback_rate": 0.0,
+      "degraded_rate": 0.0312,
+      "repair_rate": 0.0845,
+      "route_fallback_rate": 0.0,
+      "avg_model_cost_cny": 0.11471,
+      "clean_avg_model_cost_cny": 0.10356,
+      "status_counts": {
+        "rejected": 9,
+        "production_ready": 19,
+        "needs_human": 4
+      },
+      "breakers": {
+        "llm:deepseek:deepseek-v4-pro": "closed",
+        "llm:deepseek:deepseek-flash": "closed",
+        "tool:materials_lookup": "closed",
+        "tool:dfm_validate": "closed",
+        "tool:tooling_quote": "closed"
+      }
+    },
+    "memory": {
+      "lessons": [
+        {
+          "id": "L-91a32d3325",
+          "source": "human",
+          "rule": "RIB_RATIO",
+          "text": "Size ribs at 50% of the nominal wall (40-60% allowed); designers saw sink marks."
+        },
+        {
+          "id": "L-auto-inner_radius",
+          "source": "auto",
+          "rule": "INNER_RADIUS",
+          "text": "Inner radius must be at least 0.5 x the wall thickness. (seen in 7/32 first drafts)"
+        },
+        {
+          "id": "L-auto-packaging_fit",
+          "source": "auto",
+          "rule": "PACKAGING_FIT",
+          "text": "Envelope height must be >= 22 mm + 2 x wall to fit the stacked PCB and battery. (seen in 7/32 first drafts)"
+        },
+        {
+          "id": "L-auto-vent_open_area",
+          "source": "auto",
+          "rule": "VENT_OPEN_AREA",
+          "text": "Intake vents need >= 15% open area; 7 slots of 1.2 x 16 mm in a 20 x 20 mm zone gives ~34%. (seen in 6/32 first drafts)"
+        }
+      ],
+      "before": {
+        "first_pass_dfm_rate": 0.25,
+        "avg_llm_revisions": 0.5625,
+        "avg_autofixes": 0.6562,
+        "avg_model_cost_cny": 0.10356,
+        "gate_pass_rate": 0.7667
+      },
+      "after": {
+        "first_pass_dfm_rate": 0.625,
+        "avg_llm_revisions": 0.5625,
+        "avg_autofixes": 0.2812,
+        "avg_model_cost_cny": 0.10472,
+        "gate_pass_rate": 0.7667
+      }
+    }
+  }
+}

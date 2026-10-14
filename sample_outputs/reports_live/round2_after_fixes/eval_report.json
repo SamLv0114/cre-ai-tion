@@ -1,0 +1,803 @@
+{
+  "baseline": {
+    "label": "baseline",
+    "config": "baseline",
+    "description": "v1 prompts, default DeepSeek routing (flash concepts, v4-pro structure + judge, flash reviser)",
+    "metrics": {
+      "variants": 12,
+      "schema_valid_rate": 1.0,
+      "dfm_pass_rate": 1.0,
+      "cost_pass_rate": 0.9167,
+      "gate_pass_rate": 0.9,
+      "production_ready_rate": 0.8,
+      "first_pass_dfm_rate": 0.0,
+      "avg_llm_revisions": 1.25,
+      "avg_autofixes": 1.0,
+      "fallback_rate": 0.0833,
+      "degraded_rate": 0.0833,
+      "status_counts": {
+        "needs_human": 1,
+        "rejected": 3,
+        "production_ready": 8
+      },
+      "avg_model_cost_cny": 0.25057,
+      "avg_tokens": 36155.75,
+      "avg_latency_ms": 36622.0641,
+      "p95_latency_ms": 50993.3,
+      "avg_bom_cny": 13.2633,
+      "bom_headroom": 0.227,
+      "dfm_headroom": 0.4379,
+      "diversity": 0.5225,
+      "repair_rate": 0.0448,
+      "route_fallback_rate": 0.0,
+      "judge_mean": 4.3937,
+      "judge_scores": [
+        4.833,
+        4.667,
+        3.833,
+        4.833,
+        4.833,
+        4.833,
+        4.833,
+        3.0,
+        3.0,
+        4.833,
+        4.833
+      ],
+      "intent_preservation_mean": 4.4545,
+      "judge_gt_agreement": 0.5556,
+      "judge_gt_kappa": 0.0,
+      "judge_gt_n": 9,
+      "judge_confusion": {
+        "judge=adherent|gt=not": 4,
+        "judge=adherent|gt=adherent": 5
+      },
+      "conflict_detection_accuracy": 0.8333,
+      "conflicting_brief_auto_approved": 0,
+      "conflicting_brief_held_for_human": 1.0,
+      "per_brief": {
+        "B1": {
+          "needs_human": 1,
+          "rejected": 1
+        },
+        "B2": {
+          "production_ready": 2
+        },
+        "B3": {
+          "production_ready": 2
+        },
+        "B4": {
+          "production_ready": 2
+        },
+        "B5": {
+          "rejected": 2
+        },
+        "B6": {
+          "production_ready": 2
+        }
+      },
+      "feasible_briefs": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B6"
+      ],
+      "judge_planted_sensitivity": 0.8,
+      "judge_self_consistency_mad": 0.292
+    },
+    "calibration": {
+      "planted_probes": [
+        {
+          "variant_id": "B2-v001",
+          "archetype": "rugged",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 4,
+          "detected": false
+        },
+        {
+          "variant_id": "B4-v001",
+          "archetype": "sustainable",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B4-v002",
+          "archetype": "sustainable",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B6-v001",
+          "archetype": "balanced",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 2,
+          "detected": true
+        },
+        {
+          "variant_id": "B6-v002",
+          "archetype": "balanced",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 2,
+          "detected": true
+        }
+      ],
+      "planted_sensitivity": 0.8,
+      "self_consistency": [
+        {
+          "variant_id": "B1-v001",
+          "first": 4.833,
+          "second": 4.333,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B2-v001",
+          "first": 4.667,
+          "second": 3.833,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B2-v002",
+          "first": 3.833,
+          "second": 4.5,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B3-v001",
+          "first": 4.833,
+          "second": 4.833,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B3-v002",
+          "first": 4.833,
+          "second": 4.833,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B4-v001",
+          "first": 4.833,
+          "second": 4.667,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B4-v002",
+          "first": 4.833,
+          "second": 4.667,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B5-v001",
+          "first": 3.0,
+          "second": 3.0,
+          "verdict_flip": false
+        }
+      ],
+      "self_consistency_mad": 0.292,
+      "self_consistency_flip_rate": 0.0
+    },
+    "summary": {
+      "run_id": "eval-baseline",
+      "config": "baseline",
+      "llm_mode": "live",
+      "prompt_version": "v1",
+      "variants": 12,
+      "status_counts": {
+        "needs_human": 1,
+        "rejected": 3,
+        "production_ready": 8
+      },
+      "production_ready": 8,
+      "briefs": {
+        "B1": {
+          "title": "Retail apartment detector (cost first)",
+          "conflict_detected": true,
+          "requires_human_resolution": true,
+          "cost_ceiling_cny": 12.0,
+          "floor_cost_cny": 9.36,
+          "assumptions": [
+            "Q1 default: Assume drops from desk height (~0.5 m) onto hard floor without functional damage.",
+            "Q2 default: No IP rating required; indoor use only.",
+            "Q3 default: Use a medium grey or dark matte colour with light texture.",
+            "Q4 default: Use standard uniform wall thickness of 2.0-2.5 mm for ABS."
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "needs_human": 1,
+            "rejected": 1
+          },
+          "shortlist": [
+            "B1-v001"
+          ]
+        },
+        "B2": {
+          "title": "Construction-site handheld (rugged)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 12.55,
+          "assumptions": [
+            "Q1 default: Assume standard UV stabilizers are sufficient for typical outdoor use, with no specific accelerated weathering test requirement.",
+            "Q2 default: Assume a bright safety orange or yellow is preferred, but any high-visibility color is acceptable.",
+            "Q3 default: Assume -10\u00b0C to 50\u00b0C operating range, typical for outdoor handheld devices."
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 2
+          },
+          "shortlist": [
+            "B2-v001",
+            "B2-v002"
+          ]
+        },
+        "B3": {
+          "title": "Living-room sideboard object (premium)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 9.36,
+          "assumptions": [
+            "Q1 default: Assume a typical living room viewing distance of 2.5 to 3 meters.",
+            "Q2 default: Use a matte finish achieved through mold texturing (e.g., SPI/VDI texture) rather than a secondary coating to control cost.",
+            "Q3 default: Design for basic disassembly using snap fits and minimal adhesives, but no formal recycling program required."
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 2
+          },
+          "shortlist": [
+            "B3-v001",
+            "B3-v002"
+          ]
+        },
+        "B4": {
+          "title": "Circular edition (sustainable)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 9.4,
+          "assumptions": [
+            "Q1 default: No IP rating required (indoor use only).",
+            "Q2 default: 1 meter drop onto concrete.",
+            "Q3 default: Natural recycled ABS with visible speckles, no added colorants."
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 2
+          },
+          "shortlist": [
+            "B4-v002",
+            "B4-v001"
+          ]
+        },
+        "B5": {
+          "title": "Flagship that wants everything (intentionally conflicting)",
+          "conflict_detected": true,
+          "requires_human_resolution": true,
+          "cost_ceiling_cny": 16.0,
+          "floor_cost_cny": 12.59,
+          "assumptions": [
+            "Relaxed cost_ceiling_cny: 9 -> 16 (cheapest feasible housing costs CNY 12.59 > target CNY 9)",
+            "Relaxed max_height_mm: 18 -> 26 (PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls)",
+            "Relaxed max_mass_g: 120 -> 151 (lightest feasible product weighs 120.5 g > 120 g)",
+            "Q1 default: Mixed indoor/outdoor use with occasional water exposure, but not continuous immersion.",
+            "Q2 default: Paint is applied only to visible exterior surfaces, with masked sealing and joining areas.",
+            "Q3 default: Cost is the highest priority, followed by IP rating, then finish and sustainability.",
+            "Q4 default: Six weeks is for design freeze; tooling and production will follow later."
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "rejected": 2
+          },
+          "shortlist": []
+        },
+        "B6": {
+          "title": "Open-plan office desk unit (balanced control)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 9.36,
+          "assumptions": [
+            "Q1 default: No IP rating required (indoor use only).",
+            "Q2 default: No drop test specified; assume standard office handling.",
+            "Q3 default: Use virgin ABS unless cost or sustainability targets dictate otherwise."
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 2
+          },
+          "shortlist": [
+            "B6-v002",
+            "B6-v001"
+          ]
+        }
+      },
+      "shortlist": {
+        "B1": [
+          "B1-v001"
+        ],
+        "B2": [
+          "B2-v001",
+          "B2-v002"
+        ],
+        "B3": [
+          "B3-v001",
+          "B3-v002"
+        ],
+        "B4": [
+          "B4-v002",
+          "B4-v001"
+        ],
+        "B5": [],
+        "B6": [
+          "B6-v002",
+          "B6-v001"
+        ]
+      },
+      "first_pass_dfm_rate": 0.0,
+      "avg_llm_revisions": 1.25,
+      "avg_autofixes": 1.0,
+      "fallback_rate": 0.083,
+      "tokens_total": 445059,
+      "llm_calls": 67,
+      "model_cost_cny_total": 3.0068,
+      "model_cost_cny_per_variant": 0.23545,
+      "modeled_latency_ms_p50": 34182.7,
+      "modeled_latency_ms_p95": 50993.3,
+      "wall_clock_s": 155.79,
+      "faults_injected": {},
+      "breakers": {
+        "llm:deepseek:deepseek-v4-pro": "closed",
+        "llm:deepseek:deepseek-flash": "closed",
+        "tool:materials_lookup": "closed",
+        "tool:dfm_validate": "closed",
+        "tool:tooling_quote": "closed"
+      },
+      "steps_executed": 145,
+      "steps_replayed": 0,
+      "lessons_learned": []
+    }
+  },
+  "candidate": {
+    "label": "candidate",
+    "config": "candidate_prompt_v2",
+    "description": "v2 prompts: numeric DFM checklist in the structural prompt + a DFM-safe reference concept as a few-shot example",
+    "metrics": {
+      "variants": 12,
+      "schema_valid_rate": 1.0,
+      "dfm_pass_rate": 1.0,
+      "cost_pass_rate": 1.0,
+      "gate_pass_rate": 1.0,
+      "production_ready_rate": 0.7,
+      "first_pass_dfm_rate": 0.0833,
+      "avg_llm_revisions": 1.0,
+      "avg_autofixes": 0.8333,
+      "fallback_rate": 0.0833,
+      "degraded_rate": 0.0833,
+      "status_counts": {
+        "needs_human": 3,
+        "production_ready": 7,
+        "rejected": 2
+      },
+      "avg_model_cost_cny": 0.2132,
+      "avg_tokens": 31010.1667,
+      "avg_latency_ms": 30291.275,
+      "p95_latency_ms": 44503.2,
+      "avg_bom_cny": 13.516,
+      "bom_headroom": 0.1843,
+      "dfm_headroom": 0.3929,
+      "diversity": 0.3912,
+      "repair_rate": 0.0161,
+      "route_fallback_rate": 0.0,
+      "judge_mean": 4.3887,
+      "judge_scores": [
+        4.333,
+        4.667,
+        5.0,
+        3.833,
+        4.833,
+        4.833,
+        4.833,
+        4.667,
+        3.0,
+        3.0,
+        4.833,
+        4.833
+      ],
+      "intent_preservation_mean": 4.5,
+      "judge_gt_agreement": 0.6,
+      "judge_gt_kappa": 0.0,
+      "judge_gt_n": 10,
+      "judge_confusion": {
+        "judge=adherent|gt=adherent": 6,
+        "judge=adherent|gt=not": 4
+      },
+      "conflict_detection_accuracy": 0.8333,
+      "conflicting_brief_auto_approved": 0,
+      "conflicting_brief_held_for_human": 1.0,
+      "per_brief": {
+        "B1": {
+          "needs_human": 2
+        },
+        "B2": {
+          "needs_human": 1,
+          "production_ready": 1
+        },
+        "B3": {
+          "production_ready": 2
+        },
+        "B4": {
+          "production_ready": 2
+        },
+        "B5": {
+          "rejected": 2
+        },
+        "B6": {
+          "production_ready": 2
+        }
+      },
+      "feasible_briefs": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B6"
+      ],
+      "judge_planted_sensitivity": 1.0,
+      "judge_self_consistency_mad": 0.146
+    },
+    "calibration": {
+      "planted_probes": [
+        {
+          "variant_id": "B1-v001",
+          "archetype": "cost_sensitive",
+          "gt_after_mutation": false,
+          "original_adherence": 4,
+          "mutated_adherence": 2,
+          "detected": true
+        },
+        {
+          "variant_id": "B1-v002",
+          "archetype": "cost_sensitive",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 2,
+          "detected": true
+        },
+        {
+          "variant_id": "B4-v001",
+          "archetype": "sustainable",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 2,
+          "detected": true
+        },
+        {
+          "variant_id": "B4-v002",
+          "archetype": "sustainable",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 1,
+          "detected": true
+        },
+        {
+          "variant_id": "B6-v001",
+          "archetype": "balanced",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 2,
+          "detected": true
+        },
+        {
+          "variant_id": "B6-v002",
+          "archetype": "balanced",
+          "gt_after_mutation": false,
+          "original_adherence": 5,
+          "mutated_adherence": 2,
+          "detected": true
+        }
+      ],
+      "planted_sensitivity": 1.0,
+      "self_consistency": [
+        {
+          "variant_id": "B1-v001",
+          "first": 4.333,
+          "second": 4.0,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B1-v002",
+          "first": 4.667,
+          "second": 5.0,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B2-v001",
+          "first": 5.0,
+          "second": 4.833,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B2-v002",
+          "first": 3.833,
+          "second": 3.833,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B3-v001",
+          "first": 4.833,
+          "second": 5.0,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B3-v002",
+          "first": 4.833,
+          "second": 4.833,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B4-v001",
+          "first": 4.833,
+          "second": 4.833,
+          "verdict_flip": false
+        },
+        {
+          "variant_id": "B4-v002",
+          "first": 4.667,
+          "second": 4.833,
+          "verdict_flip": false
+        }
+      ],
+      "self_consistency_mad": 0.146,
+      "self_consistency_flip_rate": 0.0
+    },
+    "summary": {
+      "run_id": "eval-candidate",
+      "config": "candidate_prompt_v2",
+      "llm_mode": "live",
+      "prompt_version": "v2",
+      "variants": 12,
+      "status_counts": {
+        "needs_human": 3,
+        "production_ready": 7,
+        "rejected": 2
+      },
+      "production_ready": 7,
+      "briefs": {
+        "B1": {
+          "title": "Retail apartment detector (cost first)",
+          "conflict_detected": true,
+          "requires_human_resolution": true,
+          "cost_ceiling_cny": 12.0,
+          "floor_cost_cny": 9.36,
+          "assumptions": [
+            "Q1 default: 0.75 m (typical desk height)",
+            "Q2 default: No IP rating (indoor use only)",
+            "Q3 default: Dark grey or black to hide scuffs and fingerprints"
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "needs_human": 2
+          },
+          "shortlist": [
+            "B1-v002",
+            "B1-v001"
+          ]
+        },
+        "B2": {
+          "title": "Construction-site handheld (rugged)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 12.55,
+          "assumptions": [
+            "Q1 default: Safety orange or yellow",
+            "Q2 default: Meet typical outdoor UV exposure standards for plastics",
+            "Q3 default: -10\u00b0C to 50\u00b0C",
+            "Q4 default: Buttons at least 12 mm diameter with 5 mm spacing"
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "needs_human": 1,
+            "production_ready": 1
+          },
+          "shortlist": [
+            "B2-v002",
+            "B2-v001"
+          ]
+        },
+        "B3": {
+          "title": "Living-room sideboard object (premium)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 9.36,
+          "assumptions": [
+            "Q1 default: Assume a typical living room viewing distance of 2.5-3 meters, requiring a display with sufficient size and contrast.",
+            "Q2 default: Assume a soft-touch paint or a matte texture achieved through mold texturing, avoiding secondary processes if possible.",
+            "Q3 default: Assume rABS is acceptable if it meets aesthetic and durability requirements, otherwise use virgin ABS."
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 2
+          },
+          "shortlist": [
+            "B3-v001",
+            "B3-v002"
+          ]
+        },
+        "B4": {
+          "title": "Circular edition (sustainable)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 9.4,
+          "assumptions": [
+            "Q1 default: No specific IP rating required; indoor use only.",
+            "Q2 default: Standard consumer electronics drop height of 1 meter onto concrete.",
+            "Q3 default: Natural or lightly tinted rABS with visible speckles, no added colorants."
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 2
+          },
+          "shortlist": [
+            "B4-v001",
+            "B4-v002"
+          ]
+        },
+        "B5": {
+          "title": "Flagship that wants everything (intentionally conflicting)",
+          "conflict_detected": true,
+          "requires_human_resolution": true,
+          "cost_ceiling_cny": 16.0,
+          "floor_cost_cny": 12.59,
+          "assumptions": [
+            "Relaxed cost_ceiling_cny: 9 -> 16 (cheapest feasible housing costs CNY 12.59 > target CNY 9)",
+            "Relaxed max_height_mm: 18 -> 26 (PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls)",
+            "Relaxed max_mass_g: 120 -> 151 (lightest feasible product weighs 120.5 g > 120 g)",
+            "Q1 default: Use a soft-touch paint coating on rABS.",
+            "Q2 default: Matte black or dark gray soft-touch finish.",
+            "Q3 default: No specific drop requirement beyond standard handling.",
+            "Q4 default: Entire product must be IP67.",
+            "Q5 default: Maximum overall thickness 18 mm, but local bosses may protrude slightly.",
+            "Q6 default: No certification required, but material must be 100% post-consumer recycled.",
+            "Q7 default: 10,000 units/year."
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "rejected": 2
+          },
+          "shortlist": []
+        },
+        "B6": {
+          "title": "Open-plan office desk unit (balanced control)",
+          "conflict_detected": false,
+          "requires_human_resolution": false,
+          "cost_ceiling_cny": 18.0,
+          "floor_cost_cny": 9.36,
+          "assumptions": [
+            "Q1 default: Display size will be optimized within the envelope to ensure readability from approximately 1.5 meters.",
+            "Q2 default: Standard office use durability; no specific drop test required.",
+            "Q3 default: rABS will be considered if it meets cost and durability requirements."
+          ],
+          "infeasible": false,
+          "infeasible_reasons": [],
+          "variants_planned": 2,
+          "quality_paused": null,
+          "statuses": {
+            "production_ready": 2
+          },
+          "shortlist": [
+            "B6-v001",
+            "B6-v002"
+          ]
+        }
+      },
+      "shortlist": {
+        "B1": [
+          "B1-v002",
+          "B1-v001"
+        ],
+        "B2": [
+          "B2-v002",
+          "B2-v001"
+        ],
+        "B3": [
+          "B3-v001",
+          "B3-v002"
+        ],
+        "B4": [
+          "B4-v001",
+          "B4-v002"
+        ],
+        "B5": [],
+        "B6": [
+          "B6-v001",
+          "B6-v002"
+        ]
+      },
+      "first_pass_dfm_rate": 0.083,
+      "avg_llm_revisions": 1.0,
+      "avg_autofixes": 0.833,
+      "fallback_rate": 0.083,
+      "tokens_total": 383615,
+      "llm_calls": 62,
+      "model_cost_cny_total": 2.5584,
+      "model_cost_cny_per_variant": 0.19738,
+      "modeled_latency_ms_p50": 27790.6,
+      "modeled_latency_ms_p95": 44503.2,
+      "wall_clock_s": 138.85,
+      "faults_injected": {},
+      "breakers": {
+        "llm:deepseek:deepseek-v4-pro": "closed",
+        "llm:deepseek:deepseek-flash": "closed",
+        "tool:materials_lookup": "closed",
+        "tool:dfm_validate": "closed",
+        "tool:tooling_quote": "closed"
+      },
+      "steps_executed": 136,
+      "steps_replayed": 0,
+      "lessons_learned": []
+    }
+  },
+  "gate": {
+    "verdict": "BLOCK",
+    "hard_regressions": [
+      "missed a conflicting brief"
+    ],
+    "silent_regressions": [
+      "concept diversity -25% (mode collapse) while pass rate held"
+    ],
+    "judge_ks": 0.136,
+    "ci_pass_rate_diff": [
+      0.0,
+      0.3
+    ],
+    "ci_judge_mean_diff": [
+      -0.5756,
+      0.5784
+    ]
+  },
+  "benchmark": null
+}

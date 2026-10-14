@@ -1,0 +1,81 @@
+$ python -m creaition run --variants 3 --run-id demo-designs
+# exit code 0, 1.2s
+
+
+=== run summary: demo-designs (config=baseline, mode=mock) ===
+variants: 17  status: {'rejected': 5, 'pending_approval': 10, 'needs_human': 2}
+first-pass DFM: 24%  avg LLM revisions: 0.824  avg autofixes: 0.647  fallback rate: 0%
+tokens: 295472  model cost: CNY 1.9647 (CNY 0.10825/variant)  modelled latency p50/p95: 41.0s / 72.2s  wall: 0.57s
+steps executed: 169  replayed from checkpoint: 0  faults injected: none
+  B1: ceiling CNY 12.0 | {'rejected': 1, 'pending_approval': 2} | shortlist ['B1-v003', 'B1-v002']
+  B2: ceiling CNY 18.0 | {'needs_human': 1, 'pending_approval': 1, 'rejected': 1} | shortlist ['B2-v002', 'B2-v001']
+  B3: ceiling CNY 18.0 | {'pending_approval': 2, 'needs_human': 1} | shortlist ['B3-v001', 'B3-v002', 'B3-v003']
+  B4: ceiling CNY 18.0 | {'pending_approval': 3} | shortlist ['B4-v001', 'B4-v002', 'B4-v003']
+  B5 CONFLICT: ceiling CNY 16.0 | {'rejected': 2} | shortlist []
+  B6: ceiling CNY 18.0 | {'pending_approval': 2, 'rejected': 1} | shortlist ['B6-v001', 'B6-v003']
+
+todos:
+[x] Plan run: 6 brief(s) x 3 variant(s), config 'baseline'
+[x] B1: interpret brief  (0 conflict(s) flagged by model)
+[x] B1: resolve constraints, ask/adopt defaults  (ceiling CNY 12, floor CNY 9.36, 0 relaxation(s), human resolution not needed)
+[x] B1: generate + critique 3 variants  (3/3 variants)
+[x] B2: interpret brief  (0 conflict(s) flagged by model)
+[x] B2: resolve constraints, ask/adopt defaults  (ceiling CNY 18, floor CNY 12.55, 0 relaxation(s), human resolution not needed)
+[x] B2: generate + critique 3 variants  (3/3 variants)
+[x] B3: interpret brief  (0 conflict(s) flagged by model)
+[x] B3: resolve constraints, ask/adopt defaults  (ceiling CNY 18, floor CNY 9.36, 0 relaxation(s), human resolution not needed)
+[x] B3: generate + critique 3 variants  (3/3 variants)
+[x] B4: interpret brief  (1 conflict(s) flagged by model)
+[x] B4: resolve constraints, ask/adopt defaults  (ceiling CNY 18, floor CNY 9.40, 0 relaxation(s), human resolution not needed)
+[x] B4: generate + critique 3 variants  (3/3 variants)
+[x] B5: interpret brief  (3 conflict(s) flagged by model)
+[x] B5: resolve constraints, ask/adopt defaults  (ceiling CNY 16, floor CNY 12.59, 3 relaxation(s), human resolution required)
+[x] B5: generate + critique 3 variants  (2/2 variants)
+[x] B6: interpret brief  (0 conflict(s) flagged by model)
+[x] B6: resolve constraints, ask/adopt defaults  (ceiling CNY 18, floor CNY 9.36, 0 relaxation(s), human resolution not needed)
+[x] B6: generate + critique 3 variants  (3/3 variants)
+[x] Apply approval policy (human-in-the-loop gate)  (0 auto-approved by policy 'never'; 12 awaiting a human)
+[x] Rank and shortlist per brief  (B1: B1-v003, B1-v002; B2: B2-v002, B2-v001; B3: B3-v001, B3-v002, B3-v003; B4: B4-v001, B4-v002, B4-v003; B5: -; B6: B6-v001, B6-v003)
+[-] Distil lessons into memory  (0 new lesson(s))
+[x] Write run summary  (sample_outputs/runs/demo-designs/summary.json)
+
+artifacts: sample_outputs/runs/demo-designs
+design report (the final output): sample_outputs/runs/demo-designs/report.md
+
+02:33:22.009 [TODO       ] -              -                      plan created with 23 items
+02:33:22.009 [RUN        ] -              -                      run demo-designs config='baseline' mode=mock prompts=v1 briefs=6 variants/brief=3 faults=off
+02:33:22.041 [ASK        ] B2::brief      step.resolve_contract  [batch default] Is there a unit cost target below the CNY 18 ceiling? -> Use the CNY 18 housing BOM ceiling
+02:33:22.043 [ASK        ] B3::brief      step.resolve_contract  [batch default] Is there a unit cost target below the CNY 18 ceiling? -> Use the CNY 18 housing BOM ceiling
+02:33:22.052 [ASK        ] B4::brief      step.resolve_contract  [batch default] Is there a unit cost target below the CNY 18 ceiling? -> Use the CNY 18 housing BOM ceiling
+02:33:22.052 [ASK        ] B4::brief      step.resolve_contract  [batch default] Which requirement wins when they conflict? -> Manufacturability and budget win; aesthetics adapts
+02:33:22.060 [ASK        ] B6::brief      step.resolve_contract  [batch default] Is there a unit cost target below the CNY 18 ceiling? -> Use the CNY 18 housing BOM ceiling
+02:33:22.071 [ASK        ] B5::brief      step.resolve_contract  [batch default] cheapest feasible housing costs CNY 12.59 > target CNY 9 -> relax cost_ceiling_cny to 16
+02:33:22.071 [ASK        ] B5::brief      step.resolve_contract  [batch default] PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls -> relax max_height_mm to 26
+02:33:22.071 [ASK        ] B5::brief      step.resolve_contract  [batch default] lightest feasible product weighs 120.5 g > 120 g -> relax max_mass_g to 151
+02:33:22.071 [ASK        ] B5::brief      step.resolve_contract  [batch default] Which requirement wins when they conflict? -> Manufacturability and budget win; aesthetics adapts
+02:33:22.071 [ASK        ] B5::brief      brief                  B5: hard conflicts -> Target CNY 9/unit is unrealistic with premium finish or sealing; Infeasible as written: cheapest feasible housing costs CNY 12.59 > target CNY 9; Infeasible as written: PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls; Infeasible as written: lightest feasible product weighs 120.5 g 
+02:33:22.071 [GUARD      ] -              run                    B5 needs relaxing / has hard conflicts: generating 2 example variants instead of 3
+02:33:22.230 [TOOL       ] B1-v003        step.revise            reviser called cost_what_if({"material": "ABS", "drop_secondary_ops": [], "remove_bumper": true}) -> {"what_if": {"material": "ABS", "drop_secondary_ops": [], "remove_bumper": true}, "total_cny": 10.8, "ceiling_
+02:33:22.240 [DONE       ] B1-v001        variant                REJECTED - off-brief: judge brief_adherence 2 < 4 (cost-led brief; 3/4 key brief signals present in the spec (pebble, textured_ligh) | BOM CNY 11.69 | judge 3.67 | 8 steps, 0 LLM rev, 1 autofix | 8146 tok
+02:33:22.265 [DONE       ] B2-v003        variant                REJECTED - off-brief: judge brief_adherence 3 < 4 (durability-led brief; 3/4 key brief signals present in the spec (chamfered_slab,) | BOM CNY 15.79 | judge 3.67 | 6 steps, 0 LLM rev, 0 autofix | 8601 tok
+02:33:22.267 [TOOL       ] B2-v001        step.revise            reviser called cost_what_if({"material": "ABS", "drop_secondary_ops": ["tpe_overmold"], "remove_bumper": true}) -> {"what_if": {"material": "ABS", "drop_secondary_ops": ["tpe_overmold"], "remove_bumper": true}, "total_cny": 1
+02:33:22.271 [DONE       ] B3-v001        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 12.86 | judge 4.67 | 8 steps, 0 LLM rev, 1 autofix | 8420 tok
+02:33:22.274 [DONE       ] B3-v002        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 15.69 | judge 4.50 | 6 steps, 0 LLM rev, 0 autofix | 8520 tok
+02:33:22.277 [DONE       ] B1-v002        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 10.86 | judge 4.00 | 10 steps, 1 LLM rev, 1 autofix | 13484 tok
+02:33:22.290 [DONE       ] B2-v002        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 16.25 | judge 4.17 | 8 steps, 1 LLM rev, 0 autofix | 14099 tok
+02:33:22.302 [DONE       ] B1-v003        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 10.80 | judge 4.00 | 9 steps, 1 LLM rev, 0 autofix | 19224 tok
+02:33:22.328 [DONE       ] B2-v001        variant                NEEDS_HUMAN - passed with caveats | BOM CNY 15.77 | judge 4.00 | 11 steps, 2 LLM rev, 0 autofix | 25677 tok
+02:33:22.350 [TOOL       ] B3-v003        step.revise            reviser called cost_what_if({"material": "ABS", "drop_secondary_ops": ["soft_touch"], "remove_bumper": true}) -> {"what_if": {"material": "ABS", "drop_secondary_ops": ["soft_touch"], "remove_bumper": true}, "total_cny": 12.
+02:33:22.390 [DONE       ] B4-v003        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 15.04 | judge 4.17 | 6 steps, 0 LLM rev, 0 autofix | 9811 tok
+02:33:22.395 [TOOL       ] B5-v001        step.revise            reviser called materials_lookup({"material": "rABS"}) -> {"material": "rABS", "density_g_cm3": 1.05, "price_cny_per_kg": 17.0, "recycled_content_pct": 70, "impact_rati
+02:33:22.416 [DONE       ] B4-v001        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 12.43 | judge 4.50 | 8 steps, 1 LLM rev, 0 autofix | 15360 tok
+02:33:22.430 [DONE       ] B3-v003        variant                NEEDS_HUMAN - passed with caveats | BOM CNY 16.21 | judge 4.00 | 11 steps, 1 LLM rev, 1 autofix | 20457 tok
+02:33:22.431 [DONE       ] B4-v002        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 12.66 | judge 4.50 | 10 steps, 1 LLM rev, 1 autofix | 15431 tok
+02:33:22.436 [DONE       ] B6-v002        variant                REJECTED - quality 3.33 (min criterion 3) below bar 3.5/2 | BOM CNY 11.91 | judge 3.33 | 8 steps, 0 LLM rev, 1 autofix | 8417 tok
+02:33:22.438 [DONE       ] B6-v001        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 10.83 | judge 4.33 | 8 steps, 1 LLM rev, 0 autofix | 13752 tok
+02:33:22.456 [TOOL       ] B5-v001        step.revise            reviser called materials_lookup({"material": "rABS"}) -> {"material": "rABS", "density_g_cm3": 1.05, "price_cny_per_kg": 17.0, "recycled_content_pct": 70, "impact_rati
+02:33:22.475 [TOOL       ] B5-v002        step.revise            reviser called cost_what_if({"material": "rABS", "drop_secondary_ops": ["tpe_overmold"], "remove_bumper": true}) -> {"what_if": {"material": "rABS", "drop_secondary_ops": ["tpe_overmold"], "remove_bumper": true}, "total_cny": 
+02:33:22.505 [DONE       ] B6-v003        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 14.23 | judge 4.33 | 8 steps, 0 LLM rev, 1 autofix | 8812 tok
+02:33:22.518 [TOOL       ] B5-v001        step.revise            reviser called cost_what_if({"material": "rABS", "drop_secondary_ops": ["tpe_overmold"], "remove_bumper": true}) -> {"what_if": {"material": "rABS", "drop_secondary_ops": ["tpe_overmold"], "remove_bumper": true}, "total_cny": 
+02:33:22.539 [DONE       ] B5-v002        variant                REJECTED - quality 3.33 (min criterion 2) below bar 3.5/2 | BOM CNY 15.62 | judge 3.33 | 15 steps, 2 LLM rev, 2 autofix | 33530 tok
+02:33:22.576 [DONE       ] B5-v001        variant                REJECTED - quality 2.67 (min criterion 1) below bar 3.5/2 | BOM CNY 15.61 | judge 2.67 | 17 steps, 3 LLM rev, 2 autofix | 54249 tok

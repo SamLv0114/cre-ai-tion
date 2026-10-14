@@ -1,0 +1,64 @@
+$ python -m creaition pending demo-faults
+# exit code 0, 0.2s
+
+B2-v001    needs_human       BOM CNY 15.77  caveats=['concept features changed in the final structure (checked by code): dropped tpe_overmold']
+B2-v002    pending_approval  BOM CNY 16.25  caveats=[]
+B2-v005    pending_approval  BOM CNY 15.79  caveats=[]
+
+
+$ python -m creaition approve demo-faults B2-v002 --reviewer lead.designer --note checked parting line and texture with tooling
+# exit code 0, 0.4s
+
+B2-v002: approved -> production_ready by lead.designer
+
+
+$ python -m creaition approve demo-faults B2-v001 --reviewer auto-bot
+# exit code 1, 0.2s
+
+
+B2-v001 has caveats and requires a human reviewer
+
+
+$ python -m creaition ask demo-faults Why does B2-v001 need a human?
+# exit code 0, 0.3s
+
+From the run record: B2-v001 [B2] status=needs_human reason='passed with caveats' concept='Rugged Bumper PC-ABS' material=PC-ABS finish=textured_heavy first-draft DFM failures=['MASS_MAX'] llm_revisions=2 autofixes=0 cost=CNY 15.77 judge=4.0 degraded=[] caveats=['concept features changed in the final structure (checked by code): dropped tpe_overmold']
+cited: B2-v001
+
+
+$ python -m creaition approve demo-faults B2-v001 --reviewer lead.designer --note re-priced against today's resin quote; snapshot was within 1%
+# exit code 0, 0.2s
+
+B2-v001: approved -> production_ready by lead.designer
+
+
+$ python -m creaition ask demo-faults Why was B2-v003 rejected?
+# exit code 0, 0.3s
+
+From the run record: B2-v003 [B2] status=rejected reason='off-brief: judge brief_adherence 3 < 4 (durability-led brief; 3/4 key brief signals present in the spec (chamfered_slab,)' concept='Monolith Slab ABS' material=ABS finish=textured_heavy first-draft DFM failures=['INNER_RADIUS', 'RIB_RATIO'] llm_revisions=0 autofixes=1 cost=CNY 15.79 judge=3.83 degraded=[] caveats=[]
+cited: B2-v003
+
+
+$ python -m creaition ask demo-resume Which variants are the best for B3?
+# exit code 0, 0.4s
+
+From the run record: B3-v001 [B3] status=pending_approval reason='all gates passed; awaiting approval' concept='Soft Pebble ABS' material=ABS finish=smooth_matte first-draft DFM failures=['VENT_OPEN_AREA'] llm_revisions=0 autofixes=1 cost=CNY 12.86 judge=4.67 degraded=[] caveats=[]; B3-v002 [B3] status=pending_approval reason='all gates passed; awaiting approval' concept='Monolith Slab PC-ABS' material=PC-ABS finish=smooth_matte first-draft DFM failures=[] llm_revisions=0 autofixes=0 cost=CNY 15.69 judge=4.5 degraded=[] caveats=[]; B3-v003 [B3] status=needs_human reason='passed with caveats' concept='Rugged Bumper PC-ABS' material=PC-ABS finish=smooth_gloss first-draft DFM failures=['UNDERCUT_DECLARED'] llm_revisions=1 autofixes=1 cost=CNY 16.21 judge=4.0 degraded=[] caveats=['concept features changed in the final structure (checked by code): dropped soft_touch']
+cited: B3-v001, B3-v002, B3-v003
+
+
+$ python -m creaition todos demo-faults
+# exit code 0, 0.2s
+
+[x] Plan run: 1 brief(s) x 5 variant(s), config 'fault_demo'
+[x] B2: interpret brief  (0 conflict(s) flagged by model)
+[x] B2: resolve constraints, ask/adopt defaults  (ceiling CNY 18, floor CNY 12.55, 0 relaxation(s), human resolution not needed)
+[x] B2: generate + critique 5 variants  (5/5 variants)
+[x] Apply approval policy (human-in-the-loop gate)  (0 auto-approved by policy 'never'; 3 awaiting a human)
+[x] Rank and shortlist per brief  (B2: B2-v005, B2-v002, B2-v001)
+[-] Distil lessons into memory  (0 new lesson(s))
+[x] Write run summary  (sample_outputs/runs/demo-faults/summary.json)
+  B2-v001    production_ready  approved by lead.designer: re-priced against today's resin quote; snapshot was within 1%
+  B2-v002    production_ready  approved by lead.designer: checked parting line and texture with tooling
+  B2-v003    rejected          off-brief: judge brief_adherence 3 < 4 (durability-led brief; 3/4 key brief signals present in the spec (chamfered_slab,)
+  B2-v004    rejected          off-brief: judge brief_adherence 3 < 4 (1 intent-affecting change(s) during revision)
+  B2-v005    pending_approval  all gates passed; awaiting approval

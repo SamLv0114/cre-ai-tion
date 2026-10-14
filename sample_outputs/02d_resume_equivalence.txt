@@ -1,0 +1,14 @@
+variant    resumed-run (status, BOM, adherence, steps)        uninterrupted-run
+B1-v001    ('rejected', 11.69, 2, 8)                        ('rejected', 11.69, 2, 8)  ==
+B1-v002    ('pending_approval', 10.86, 4, 10)               ('pending_approval', 10.86, 4, 10)  ==
+B1-v003    ('pending_approval', 10.8, 5, 9)                 ('pending_approval', 10.8, 5, 9)  ==
+B3-v001    ('pending_approval', 12.86, 5, 8)                ('pending_approval', 12.86, 5, 8)  ==
+B3-v002    ('pending_approval', 15.69, 5, 6)                ('pending_approval', 15.69, 5, 6)  ==
+B3-v003    ('needs_human', 16.21, 5, 11)                    ('needs_human', 16.21, 5, 11)  ==
+B4-v001    ('pending_approval', 12.43, 5, 8)                ('pending_approval', 12.43, 5, 8)  ==
+B4-v002    ('pending_approval', 12.66, 5, 10)               ('pending_approval', 12.66, 5, 10)  ==
+B4-v003    ('pending_approval', 15.04, 5, 6)                ('pending_approval', 15.04, 5, 6)  ==
+
+steps executed before the kill: 30 (committed checkpoints)
+on resume: finished variants skipped outright, 30 checkpointed steps replayed for in-flight variants (no model calls), 52 steps newly executed; the uninterrupted run executed 82
+RESULT: 9/9 variants identical to the uninterrupted run; 30 + 52 = 82 executed steps vs 82 without a crash (no committed step was re-run or re-billed)

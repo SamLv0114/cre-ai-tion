@@ -1,0 +1,9 @@
+$ python -m creaition teach Rugged briefs: keep PC-ABS walls at 2.5 mm and ribs at 1.25 mm (50%). --agent structural_modeler --tags durability --rule RIB_RATIO
+# exit code 0, 0.2s
+
+stored L-06cfce2abf for agent 'structural_modeler' tags=['durability'] rule=RIB_RATIO
+$ python -m creaition lessons
+# exit code 0, 0.3s
+
+L-06cfce2abf           human  structural_modeler   rule=RIB_RATIO tags=['durability']
+    Rugged briefs: keep PC-ABS walls at 2.5 mm and ribs at 1.25 mm (50%).

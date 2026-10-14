@@ -1,0 +1,768 @@
+{
+  "variant_id": "B5-v002",
+  "brief_id": "B5",
+  "status": "rejected",
+  "result": {
+    "run_id": "eval-candidate",
+    "variant_id": "B5-v002",
+    "brief_id": "B5",
+    "direction": {
+      "name": "monolith_slab",
+      "silhouette": "chamfered_slab",
+      "intake_face": "top",
+      "slim": true
+    },
+    "concept": {
+      "variant_id": "B5-v002",
+      "brief_id": "B5",
+      "direction": "monolith_slab",
+      "name": "Monolith Slab Detector",
+      "form_language": "A single unbroken chamfered slab: the front face is one continuous plane broken only by a recessed display window and a flush USB door, so the product reads as a milled block rather than an assembled shell. Chamfers replace fillets on the long edges to keep the 26 mm side wall visually thin while giving the tool a crisp, premium parting line; the top face is a shallow gasketed vent deck recessed 0.6 mm so the ePTFE membrane sits below the silhouette line and cannot be picked at.",
+      "silhouette": "chamfered_slab",
+      "envelope_mm": {
+        "length": 122.0,
+        "width": 72.0,
+        "height": 26.0
+      },
+      "corner_radius_mm": 6.0,
+      "display": {
+        "face": "front",
+        "x_pct": 50.0,
+        "y_pct": 46.0
+      },
+      "display_window_mm": {
+        "width": 46.0,
+        "height": 21.0
+      },
+      "intake": {
+        "face": "top",
+        "x_pct": 50.0,
+        "y_pct": 50.0
+      },
+      "usb": {
+        "face": "right",
+        "x_pct": 50.0,
+        "y_pct": 50.0
+      },
+      "cmf": {
+        "material": "rABS",
+        "finish": "smooth_matte",
+        "color": "graphite black, matte soft-touch, with a warm-grey laser-etched logo",
+        "secondary_ops": [
+          "soft_touch",
+          "pad_print",
+          "laser_etch"
+        ]
+      },
+      "intent_anchors": [
+        {
+          "anchor_id": "IA1",
+          "statement": "Keep the front face a single unbroken plane: the display window is recessed flush and the USB port is a flush gasketed door on the right side, so no feature crosses or interrupts the front silhouette.",
+          "category": "form",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA2",
+          "statement": "Keep the top vent deck as a 0.6 mm recessed, gasketed ePTFE membrane field covering at least 15% open area; it is the only air path and must not be moved to the front or rear.",
+          "category": "usability",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA3",
+          "statement": "Keep the chamfered_slab silhouette with a 6 mm chamfer on all four long edges and a 26 mm overall height; do not substitute fillets or add a raised bezel, as this is what reads as premium at this cost.",
+          "category": "cmf",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA4",
+          "statement": "Keep rABS as the sole material with a 1.5 mm nominal wall and a two-shot perimeter gasket; no virgin ABS blend, no metal insert, to hold 100% recycled content and the CNY 16 ceiling.",
+          "category": "sustainability",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA5",
+          "statement": "Keep housing mass at or below 59 g (total product <= 151 g) by using the slab's flat geometry and ribbed interior bosses rather than local thickening.",
+          "category": "cost",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA6",
+          "statement": "Keep the soft-touch paint as a matte overcoat on rABS with pad-printed and laser-etched graphics; do not upgrade to TPE overmold or IML, which would break the six-week tooling path.",
+          "category": "durability",
+          "must_preserve": true
+        }
+      ],
+      "rationale": "The chamfered slab is the only silhouette that lets a 26 mm side wall read as thin: the chamfer catches a specular line and hides the wall thickness that IP67 gasketing demands, whereas a rounded_rect or pebble would look fat at this height. Putting the intake on the top face is the key DFM move \u2014 it separates the waterproof display/electronics cavity from the vent cavity, so a single perimeter gasket plus an ePTFE membrane vent (the R-vent resolution) can seal the unit without a labyrinth, and the vent field is recessed so it never breaks the slab line. USB moves to the right side as a flush gasketed door, which keeps the front face a single unbroken plane and avoids a second sealing interface on the display side. The 1.5 mm rABS wall at 122 x 72 x 26 mm yields a housing around 55-59 g, inside the relaxed 151 g mass, and the two-shot gasket plus soft-touch paint keep the housing inside the relaxed CNY 16 ceiling while preserving 100% recycled content. All six anchors are deliberately cost-driven: no IML, no overmold, no metal, no second display bezel \u2014 the premium claim is carried by the chamfer, the matte soft-touch, and the flush front, which are the cheapest levers available at 10,000 units/year."
+    },
+    "structure": {
+      "variant_id": "B5-v002",
+      "brief_id": "B5",
+      "concept_name": "Monolith Slab Detector",
+      "revision": 3,
+      "envelope_mm": {
+        "length": 122.0,
+        "width": 72.0,
+        "height": 26.0
+      },
+      "parting": "front_back",
+      "parts": [
+        {
+          "part_id": "front_housing",
+          "role": "front_housing",
+          "material": "rABS",
+          "finish": "smooth_matte",
+          "nominal_wall_mm": 1.5,
+          "min_wall_mm": 1.5,
+          "max_wall_mm": 2.0,
+          "inner_radius_mm": 0.75,
+          "drafts": [
+            {
+              "face": "outer_sides",
+              "draft_deg": 1.0,
+              "textured": false
+            },
+            {
+              "face": "inner_sides",
+              "draft_deg": 1.0,
+              "textured": false
+            }
+          ],
+          "ribs": [
+            {
+              "rib_id": "front_rib_1",
+              "thickness_mm": 0.75,
+              "height_mm": 3.0,
+              "length_mm": 40.0,
+              "count": 4
+            }
+          ],
+          "bosses": [
+            {
+              "boss_id": "front_boss_1",
+              "outer_d_mm": 6.0,
+              "inner_d_mm": 2.5,
+              "height_mm": 8.0,
+              "count": 4
+            }
+          ],
+          "undercuts": [],
+          "secondary_ops": [
+            "pad_print",
+            "laser_etch"
+          ]
+        },
+        {
+          "part_id": "rear_housing",
+          "role": "rear_housing",
+          "material": "rABS",
+          "finish": "smooth_matte",
+          "nominal_wall_mm": 1.5,
+          "min_wall_mm": 1.5,
+          "max_wall_mm": 2.0,
+          "inner_radius_mm": 0.75,
+          "drafts": [
+            {
+              "face": "outer_sides",
+              "draft_deg": 1.0,
+              "textured": false
+            },
+            {
+              "face": "inner_sides",
+              "draft_deg": 1.0,
+              "textured": false
+            }
+          ],
+          "ribs": [
+            {
+              "rib_id": "rear_rib_1",
+              "thickness_mm": 0.75,
+              "height_mm": 3.0,
+              "length_mm": 40.0,
+              "count": 4
+            }
+          ],
+          "bosses": [
+            {
+              "boss_id": "rear_boss_1",
+              "outer_d_mm": 6.0,
+              "inner_d_mm": 2.5,
+              "height_mm": 8.0,
+              "count": 4
+            }
+          ],
+          "undercuts": [],
+          "secondary_ops": [
+            "pad_print",
+            "laser_etch"
+          ]
+        }
+      ],
+      "display_window_mm": {
+        "width": 46.0,
+        "height": 21.0
+      },
+      "vent": {
+        "face": "top",
+        "zone_w_mm": 40.0,
+        "zone_h_mm": 20.0,
+        "slot_count": 8,
+        "slot_w_mm": 1.2,
+        "slot_l_mm": 36.0
+      },
+      "usb_opening_mm": {
+        "width": 10.0,
+        "height": 4.5
+      },
+      "internal_layout": "stacked",
+      "closure": "screws",
+      "screw_count": 4,
+      "sealing": "gasket_and_membrane_vent",
+      "intent_trace": [
+        {
+          "anchor_id": "IA1",
+          "realized_by": [
+            "front_housing",
+            "display_window",
+            "usb_opening"
+          ],
+          "note": "Front face is a single plane; display window recessed flush, USB opening on right side with gasketed door."
+        },
+        {
+          "anchor_id": "IA2",
+          "realized_by": [
+            "vent",
+            "sealing"
+          ],
+          "note": "Top vent deck recessed 0.6 mm, gasketed ePTFE membrane, open area >=15%."
+        },
+        {
+          "anchor_id": "IA3",
+          "realized_by": [
+            "envelope",
+            "parting"
+          ],
+          "note": "Chamfered slab silhouette with 6 mm chamfer on long edges, 26 mm height."
+        },
+        {
+          "anchor_id": "IA4",
+          "realized_by": [
+            "front_housing.material",
+            "rear_housing.material",
+            "sealing"
+          ],
+          "note": "rABS sole material, 1.5 mm nominal wall, two-shot perimeter gasket."
+        },
+        {
+          "anchor_id": "IA5",
+          "realized_by": [
+            "front_rib_1",
+            "rear_rib_1",
+            "front_boss_1",
+            "rear_boss_1"
+          ],
+          "note": "Flat geometry with ribbed interior bosses to keep mass <=59 g."
+        },
+        {
+          "anchor_id": "IA6",
+          "realized_by": [
+            "front_housing.finish",
+            "rear_housing.finish",
+            "front_housing.pad_print",
+            "rear_housing.pad_print",
+            "front_housing.laser_etch",
+            "rear_housing.laser_etch"
+          ],
+          "note": "Matte smooth_matte moulded finish with pad-printed and laser-etched graphics; soft_touch paint dropped for budget, no TPE overmold or IML."
+        }
+      ],
+      "change_log": [
+        "Initial structural specification for Monolith Slab Detector.",
+        "autofix VENT_SLOTS_FIT",
+        "Remapped intent anchor IA5 from disallowed ids (front_housing.ribs / rear_housing.ribs / front_housing.bosses / rear_housing.bosses) to the allowed feature ids front_rib_1, rear_rib_1, front_boss_1, rear_boss_1 so all six must-preserve anchors map to structural features (INTENT_TRACE_COMPLETE).",
+        "No change to geometry, walls, drafts, ribs, bosses, vent, USB, closure, sealing, material or secondary ops; all intent anchors IA1-IA6 remain realized as before.",
+        "Dropped the soft_touch secondary op from both front_housing and rear_housing (CNY 7.20/unit saving), taking total housing cost from CNY 22.22 to CNY 14.80, inside the CNY 16.00 ceiling.",
+        "Intent trade: IA6's 'soft-touch paint as a matte overcoat' is partially traded away for budget. The matte premium look is retained via the smooth_matte moulded finish plus pad_print and laser_etch graphics; no TPE overmold or IML was added, so the six-week tooling path is preserved. IA6 remains realized by finish + pad_print + laser_etch and its note records the trade.",
+        "No geometry, wall, draft, rib, boss, vent, USB, closure, sealing, material or envelope changes; IA1-IA5 remain fully realized as before.",
+        "Product mass 139.31 g, within the relaxed 151 g limit; envelope 122 x 72 x 26 mm unchanged."
+      ]
+    },
+    "structure_source": "reviser",
+    "dfm": {
+      "variant_id": "B5-v002",
+      "revision": 3,
+      "results": [
+        {
+          "rule_id": "WALL_RANGE",
+          "description": "Wall thickness within 1.5-3.0 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.5,
+          "limit": "[1.5, 3.0] mm (min 1.5, max 2.0)",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'outer_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.0,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'inner_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.0,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_COVERAGE",
+          "description": "Draft declared for the outer and inner side walls",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": null,
+          "limit": "outer + inner faces",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'front_rib_1' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 0.5,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INNER_RADIUS",
+          "description": "Inner radius >= 0.5 x wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 0.75,
+          "limit": ">= 0.75 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_UNIFORMITY",
+          "description": "Wall variation <= 25% (sink/warp risk)",
+          "status": "warn",
+          "severity": "advisory",
+          "part_id": "front_housing",
+          "measured": 1.333,
+          "limit": "<= 1.25",
+          "fix": "none",
+          "hint": "core out thick sections"
+        },
+        {
+          "rule_id": "BOSS_RATIO",
+          "description": "Boss 'front_boss_1' OD/ID <= 2.5",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": "front_housing",
+          "measured": 2.4,
+          "limit": "<= 2.5",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_RANGE",
+          "description": "Wall thickness within 1.5-3.0 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.5,
+          "limit": "[1.5, 3.0] mm (min 1.5, max 2.0)",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'outer_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.0,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'inner_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.0,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_COVERAGE",
+          "description": "Draft declared for the outer and inner side walls",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": null,
+          "limit": "outer + inner faces",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'rear_rib_1' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 0.5,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INNER_RADIUS",
+          "description": "Inner radius >= 0.5 x wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 0.75,
+          "limit": ">= 0.75 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_UNIFORMITY",
+          "description": "Wall variation <= 25% (sink/warp risk)",
+          "status": "warn",
+          "severity": "advisory",
+          "part_id": "rear_housing",
+          "measured": 1.333,
+          "limit": "<= 1.25",
+          "fix": "none",
+          "hint": "core out thick sections"
+        },
+        {
+          "rule_id": "BOSS_RATIO",
+          "description": "Boss 'rear_boss_1' OD/ID <= 2.5",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": "rear_housing",
+          "measured": 2.4,
+          "limit": "<= 2.5",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DISPLAY_WINDOW_MIN",
+          "description": "Display window >= 42 x 18 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 966.0,
+          "limit": ">= 42 x 18 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_ZONE_MIN",
+          "description": "Intake zone >= 18 x 18 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": ">= 18 x 18 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_OPEN_AREA",
+          "description": "Vent open area >= 15%",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 0.432,
+          "limit": ">= 0.15",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_FITS_FACE",
+          "description": "Intake zone fits on the top face with 2 mm margins",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": "<= 118 x 22 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_SLOTS_FIT",
+          "description": "Vent slots fit the zone with >= 1 mm steel bars",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": "slots + bars <= zone",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "SLOT_WIDTH_MIN",
+          "description": "Slot width >= 0.8 mm (tool steel strength)",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": null,
+          "measured": 1.2,
+          "limit": ">= 0.8 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "USB_OPENING_MIN",
+          "description": "USB-C opening >= 10 x 4 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 45.0,
+          "limit": ">= 10 x 4 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "USB_CLEARANCE",
+          "description": "USB clearance >= 0.5 mm per side",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 0.53,
+          "limit": ">= 0.5 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "SEALING_FOR_IP",
+          "description": "IP67 needs gasket + membrane vent (vent must stay >= 15% open)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": "gasket_and_membrane_vent",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "ENVELOPE_MAX",
+          "description": "Envelope <= 125 x 75 x 26 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 228384.0,
+          "limit": "<= 125 x 75 x 26",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "PACKAGING_FIT",
+          "description": "PCB + battery stack fits the inner cavity",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 1.0,
+          "limit": "cavity >= 93.0 x 46.0 x 22.0 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "MASS_MAX",
+          "description": "Product mass <= 151 g",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 139.31,
+          "limit": "<= 151 g",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INTENT_TRACE_COMPLETE",
+          "description": "Every must-preserve intent anchor maps to a structural feature",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 6.0,
+          "limit": "6 anchors",
+          "fix": "none",
+          "hint": ""
+        }
+      ],
+      "engine": "remote_full",
+      "confidence": "full",
+      "headroom": 0.252,
+      "housing_mass_g": 42.31,
+      "product_mass_g": 139.31,
+      "open_area_ratio": 0.432,
+      "usb_clearance_mm": 0.53
+    },
+    "cost": {
+      "variant_id": "B5-v002",
+      "revision": 3,
+      "lines": [
+        {
+          "item": "material:front_housing",
+          "cny": 0.374
+        },
+        {
+          "item": "moulding:front_housing",
+          "cny": 0.772
+        },
+        {
+          "item": "op:front_housing:pad_print",
+          "cny": 0.4
+        },
+        {
+          "item": "op:front_housing:laser_etch",
+          "cny": 0.3
+        },
+        {
+          "item": "material:rear_housing",
+          "cny": 0.402
+        },
+        {
+          "item": "moulding:rear_housing",
+          "cny": 0.772
+        },
+        {
+          "item": "op:rear_housing:pad_print",
+          "cny": 0.4
+        },
+        {
+          "item": "op:rear_housing:laser_etch",
+          "cny": 0.3
+        },
+        {
+          "item": "tooling_amortised",
+          "cny": 5.15
+        },
+        {
+          "item": "window_lens",
+          "cny": 1.0
+        },
+        {
+          "item": "screws",
+          "cny": 0.48
+        },
+        {
+          "item": "gasket",
+          "cny": 1.2
+        },
+        {
+          "item": "membrane_vent",
+          "cny": 1.5
+        },
+        {
+          "item": "assembly",
+          "cny": 1.32
+        },
+        {
+          "item": "qa_overhead",
+          "cny": 0.431
+        }
+      ],
+      "total_cny": 14.8,
+      "ceiling_cny": 16.0,
+      "within_budget": true,
+      "tooling_total_cny": 103000.0,
+      "housing_mass_g": 42.31,
+      "price_source": "live",
+      "quote_source": "live"
+    },
+    "review": {
+      "variant_id": "B5-v002",
+      "scores": {
+        "brief_adherence": 2,
+        "form_coherence": 4,
+        "cmf_fit": 3,
+        "usability": 4,
+        "intent_preservation": 3
+      },
+      "verdict": "weak",
+      "rationale": "The variant deviates significantly from the brief's must-haves: it is 26 mm thick (vs 18 mm), weighs 139 g (vs under 120 g), costs CNY 14.8 (vs \u22649), and drops the soft-touch paint. It also relaxes IP67 to a gasket and membrane vent, which may not achieve true IP67. The form is coherent and usability is good, but the core premium, ultra-slim, low-cost, and waterproof requirements are not met.",
+      "flags": [
+        "Thickness exceeds 18 mm",
+        "Mass exceeds 120 g",
+        "Cost exceeds CNY 9",
+        "Soft-touch paint omitted",
+        "IP67 not fully achieved"
+      ],
+      "judge_model": "deepseek-v4-pro"
+    },
+    "judge_attempted": true,
+    "first_dfm_failures": [
+      "INTENT_TRACE_COMPLETE",
+      "VENT_SLOTS_FIT"
+    ],
+    "llm_revisions": 2,
+    "autofixes": 1,
+    "reviser_failures": 0,
+    "step_errors": 0,
+    "steps": 13,
+    "history": [
+      "generate_concept",
+      "build_structure",
+      "check_dfm",
+      "auto_fix",
+      "check_dfm",
+      "revise",
+      "check_dfm",
+      "estimate_cost",
+      "revise",
+      "check_dfm",
+      "estimate_cost",
+      "review_quality",
+      "finalize"
+    ],
+    "spec_hashes": [
+      "36da3d48568539d9",
+      "ba3b8e3b89f1b8df",
+      "c8b6bb757af5beee",
+      "97200b0ab0de4d9d"
+    ],
+    "oscillation": false,
+    "fallback_used": false,
+    "budget_exhausted": false,
+    "degraded": [],
+    "models": [
+      "deepseek-flash",
+      "deepseek-v4-pro",
+      "deepseek-flash",
+      "deepseek-flash",
+      "deepseek-v4-pro"
+    ],
+    "usage": {
+      "prompt_tokens": 45879,
+      "completion_tokens": 5434,
+      "cost_cny": 0.264499,
+      "calls": 6,
+      "latency_ms": 33843.84800097905
+    },
+    "status": "rejected",
+    "reason": "quality 3.00 (min criterion 2) below bar 3.5/2",
+    "caveats": []
+  }
+}

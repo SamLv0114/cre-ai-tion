@@ -1,0 +1,41 @@
+$ python -m creaition run --brief-ids B5 --variants 2 --run-id demo-ask-B5 --interactive
+# exit code 0, 0.4s
+
+
+[ASK] cheapest feasible housing costs CNY 12.59 > target CNY 9.
+      Relax cost_ceiling_cny from 9 to 16? [Y/n] y
+
+[ASK] PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls.
+      Relax max_height_mm from 18 to 26? [Y/n] y
+
+[ASK] lightest feasible product weighs 120.5 g > 120 g.
+      Relax max_mass_g from 120 to 151? [Y/n] n
+
+[ASK] Which requirement wins when they conflict?
+      (enter = 'Manufacturability and budget win; aesthetics adapts') > Manufacturability first; drop the paint, keep IP67
+
+=== run summary: demo-ask-B5 (config=baseline, mode=mock) ===
+variants: 0  status: {}
+first-pass DFM: 0%  avg LLM revisions: 0.0  avg autofixes: 0.0  fallback rate: 0%
+tokens: 0  model cost: CNY 0.0 (CNY 0.0/variant)  modelled latency p50/p95: 0.0s / 0.0s  wall: 0.0s
+steps executed: 2  replayed from checkpoint: 0  faults injected: none
+  B5 INFEASIBLE, no variants generated: designer kept max_mass_g at 120, but lightest feasible product weighs 120.5 g > 120 g
+
+todos:
+[x] Plan run: 1 brief(s) x 2 variant(s), config 'baseline'
+[x] B5: interpret brief  (3 conflict(s) flagged by model)
+[x] B5: resolve constraints, ask/adopt defaults  (ceiling CNY 16, floor CNY 12.59, 3 relaxation(s), human resolution required)
+[-] B5: generate + critique 2 variants  (infeasible: designer kept max_mass_g at 120, but lightest feasible product weighs 120.5 g > 120 g)
+[x] Apply approval policy (human-in-the-loop gate)  (0 auto-approved by policy 'never'; 0 awaiting a human)
+[x] Rank and shortlist per brief  (B5: -)
+[-] Distil lessons into memory  (0 new lesson(s))
+[x] Write run summary  (sample_outputs/runs/demo-ask-B5/summary.json)
+
+artifacts: sample_outputs/runs/demo-ask-B5
+design report (the final output): sample_outputs/runs/demo-ask-B5/report.md
+
+02:33:29.698 [TODO       ] -              -                      plan created with 8 items
+02:33:29.698 [RUN        ] -              -                      run demo-ask-B5 config='baseline' mode=mock prompts=v1 briefs=1 variants/brief=2 faults=off
+02:33:29.700 [CACHE      ] B5::brief      step.interpret_brief   reused interpretation of a near-identical brief (cosine 1.000, numeric guard matched)
+02:33:29.701 [ASK        ] B5::brief      brief                  B5: hard conflicts -> Target CNY 9/unit is unrealistic with premium finish or sealing; Infeasible as written: cheapest feasible housing costs CNY 12.59 > target CNY 9; Infeasible as written: PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls; Infeasible as written: lightest feasible product weighs 120.5 g 
+02:33:29.702 [GUARD      ] B5::brief      run                    B5 is infeasible, no variants generated: designer kept max_mass_g at 120, but lightest feasible product weighs 120.5 g > 120 g

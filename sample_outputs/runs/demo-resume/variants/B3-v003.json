@@ -1,0 +1,898 @@
+{
+  "variant_id": "B3-v003",
+  "brief_id": "B3",
+  "status": "needs_human",
+  "result": {
+    "run_id": "demo-resume",
+    "variant_id": "B3-v003",
+    "brief_id": "B3",
+    "direction": {
+      "name": "rugged_bumper",
+      "silhouette": "bumpered",
+      "intake_face": "front"
+    },
+    "concept": {
+      "variant_id": "B3-v003",
+      "brief_id": "B3",
+      "direction": "rugged_bumper",
+      "name": "Rugged Bumper PC-ABS",
+      "form_language": "rugged bumper form; premium, minimal, soft character with smooth gloss surfaces",
+      "silhouette": "bumpered",
+      "envelope_mm": {
+        "length": 122.0,
+        "width": 70.0,
+        "height": 25.6
+      },
+      "corner_radius_mm": 10.0,
+      "display": {
+        "face": "front",
+        "x_pct": 50.0,
+        "y_pct": 29.0
+      },
+      "display_window_mm": {
+        "width": 44.0,
+        "height": 20.0
+      },
+      "intake": {
+        "face": "front",
+        "x_pct": 50.0,
+        "y_pct": 78.0
+      },
+      "usb": {
+        "face": "bottom",
+        "x_pct": 50.0,
+        "y_pct": 50.0
+      },
+      "cmf": {
+        "material": "PC-ABS",
+        "finish": "smooth_gloss",
+        "color": "sand beige",
+        "secondary_ops": [
+          "iml",
+          "soft_touch"
+        ]
+      },
+      "intent_anchors": [
+        {
+          "anchor_id": "IA1",
+          "statement": "bumpered silhouette, 10 mm corner radius",
+          "category": "form",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA2",
+          "statement": "Display upper-centre on the front face, readable at arm's length",
+          "category": "usability",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA3",
+          "statement": "smooth gloss sand beige in PC-ABS with iml, soft_touch",
+          "category": "cmf",
+          "must_preserve": true
+        }
+      ],
+      "rationale": "Direction 'rugged_bumper' answers the aesthetics-led brief: Premium living-room air quality detector that sits on a sideboard next to design objects and books. Calm, minimal, furniture-like and elegant; soft-touch or fin"
+    },
+    "structure": {
+      "variant_id": "B3-v003",
+      "brief_id": "B3",
+      "concept_name": "Rugged Bumper PC-ABS",
+      "revision": 2,
+      "envelope_mm": {
+        "length": 122.0,
+        "width": 70.0,
+        "height": 25.6
+      },
+      "parting": "front_back",
+      "parts": [
+        {
+          "part_id": "front_housing",
+          "role": "front_housing",
+          "material": "PC-ABS",
+          "finish": "smooth_gloss",
+          "nominal_wall_mm": 1.8,
+          "min_wall_mm": 1.8,
+          "max_wall_mm": 1.8,
+          "inner_radius_mm": 1.08,
+          "drafts": [
+            {
+              "face": "outer_sides",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "inner_sides",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "ribs",
+              "draft_deg": 1.0,
+              "textured": false
+            }
+          ],
+          "ribs": [
+            {
+              "rib_id": "front_housing_rib",
+              "thickness_mm": 0.9,
+              "height_mm": 6.0,
+              "length_mm": 40.0,
+              "count": 4
+            }
+          ],
+          "bosses": [
+            {
+              "boss_id": "front_housing_boss",
+              "outer_d_mm": 5.0,
+              "inner_d_mm": 2.5,
+              "height_mm": 8.0,
+              "count": 2
+            }
+          ],
+          "undercuts": [],
+          "secondary_ops": [
+            "iml"
+          ]
+        },
+        {
+          "part_id": "rear_housing",
+          "role": "rear_housing",
+          "material": "PC-ABS",
+          "finish": "smooth_gloss",
+          "nominal_wall_mm": 1.8,
+          "min_wall_mm": 1.8,
+          "max_wall_mm": 1.8,
+          "inner_radius_mm": 1.08,
+          "drafts": [
+            {
+              "face": "outer_sides",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "inner_sides",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "ribs",
+              "draft_deg": 1.0,
+              "textured": false
+            }
+          ],
+          "ribs": [
+            {
+              "rib_id": "rear_housing_rib",
+              "thickness_mm": 0.9,
+              "height_mm": 6.0,
+              "length_mm": 40.0,
+              "count": 4
+            }
+          ],
+          "bosses": [
+            {
+              "boss_id": "rear_housing_boss",
+              "outer_d_mm": 5.0,
+              "inner_d_mm": 2.5,
+              "height_mm": 8.0,
+              "count": 2
+            }
+          ],
+          "undercuts": [
+            {
+              "undercut_id": "snap_1",
+              "feature": "snap-fit hook on rear housing lip",
+              "mechanism": "lifter",
+              "side_action_cost_cny": 9000.0
+            },
+            {
+              "undercut_id": "snap_2",
+              "feature": "snap-fit hook on rear housing lip",
+              "mechanism": "lifter",
+              "side_action_cost_cny": 9000.0
+            }
+          ],
+          "secondary_ops": []
+        },
+        {
+          "part_id": "bumper",
+          "role": "bumper",
+          "material": "PC-ABS",
+          "finish": "smooth_gloss",
+          "nominal_wall_mm": 1.8,
+          "min_wall_mm": 1.8,
+          "max_wall_mm": 1.8,
+          "inner_radius_mm": 1.08,
+          "drafts": [
+            {
+              "face": "outer_sides",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "inner_sides",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "ribs",
+              "draft_deg": 1.0,
+              "textured": false
+            }
+          ],
+          "ribs": [
+            {
+              "rib_id": "bumper_rib",
+              "thickness_mm": 0.9,
+              "height_mm": 6.0,
+              "length_mm": 40.0,
+              "count": 4
+            }
+          ],
+          "bosses": [
+            {
+              "boss_id": "bumper_boss",
+              "outer_d_mm": 5.0,
+              "inner_d_mm": 2.5,
+              "height_mm": 8.0,
+              "count": 2
+            }
+          ],
+          "undercuts": [],
+          "secondary_ops": []
+        }
+      ],
+      "display_window_mm": {
+        "width": 44.0,
+        "height": 20.0
+      },
+      "vent": {
+        "face": "front",
+        "zone_w_mm": 18.0,
+        "zone_h_mm": 18.0,
+        "slot_count": 6,
+        "slot_w_mm": 1.2,
+        "slot_l_mm": 14.0
+      },
+      "usb_opening_mm": {
+        "width": 11.0,
+        "height": 5.0
+      },
+      "internal_layout": "stacked",
+      "closure": "screws_and_snaps",
+      "screw_count": 2,
+      "sealing": "none",
+      "intent_trace": [
+        {
+          "anchor_id": "IA1",
+          "realized_by": [
+            "envelope"
+          ],
+          "note": "bumpered silhouette, 10 mm corner radius"
+        },
+        {
+          "anchor_id": "IA2",
+          "realized_by": [
+            "display_window"
+          ],
+          "note": "Display upper-centre on the front face, readable at arm's length"
+        },
+        {
+          "anchor_id": "IA3",
+          "realized_by": [
+            "front_housing.finish"
+          ],
+          "note": "smooth gloss sand beige in PC-ABS with iml, soft_touch"
+        }
+      ],
+      "change_log": [
+        "initial structural draft from concept",
+        "autofix UNDERCUT_DECLARED",
+        "dropped soft_touch to recover budget"
+      ]
+    },
+    "structure_source": "reviser",
+    "dfm": {
+      "variant_id": "B3-v003",
+      "revision": 2,
+      "results": [
+        {
+          "rule_id": "WALL_RANGE",
+          "description": "Wall thickness within 1.5-3.0 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.8,
+          "limit": "[1.5, 3.0] mm (min 1.8, max 1.8)",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'outer_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'inner_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'ribs' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.0,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_COVERAGE",
+          "description": "Draft declared for the outer and inner side walls",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": null,
+          "limit": "outer + inner faces",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'front_housing_rib' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 0.5,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INNER_RADIUS",
+          "description": "Inner radius >= 0.5 x wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.08,
+          "limit": ">= 0.90 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_UNIFORMITY",
+          "description": "Wall variation <= 25% (sink/warp risk)",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": "front_housing",
+          "measured": 1.0,
+          "limit": "<= 1.25",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "BOSS_RATIO",
+          "description": "Boss 'front_housing_boss' OD/ID <= 2.5",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": "front_housing",
+          "measured": 2.0,
+          "limit": "<= 2.5",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_RANGE",
+          "description": "Wall thickness within 1.5-3.0 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.8,
+          "limit": "[1.5, 3.0] mm (min 1.8, max 1.8)",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'outer_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'inner_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'ribs' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.0,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_COVERAGE",
+          "description": "Draft declared for the outer and inner side walls",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": null,
+          "limit": "outer + inner faces",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'rear_housing_rib' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 0.5,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INNER_RADIUS",
+          "description": "Inner radius >= 0.5 x wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.08,
+          "limit": ">= 0.90 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "UNDERCUT_DECLARED",
+          "description": "Undercut 'snap_1' declares side action and cost",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": null,
+          "limit": "mechanism + tooling cost declared",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "UNDERCUT_DECLARED",
+          "description": "Undercut 'snap_2' declares side action and cost",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": null,
+          "limit": "mechanism + tooling cost declared",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_UNIFORMITY",
+          "description": "Wall variation <= 25% (sink/warp risk)",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": "rear_housing",
+          "measured": 1.0,
+          "limit": "<= 1.25",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "BOSS_RATIO",
+          "description": "Boss 'rear_housing_boss' OD/ID <= 2.5",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": "rear_housing",
+          "measured": 2.0,
+          "limit": "<= 2.5",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_RANGE",
+          "description": "Wall thickness within 1.5-3.0 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "bumper",
+          "measured": 1.8,
+          "limit": "[1.5, 3.0] mm (min 1.8, max 1.8)",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'outer_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "bumper",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'inner_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "bumper",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'ribs' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "bumper",
+          "measured": 1.0,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_COVERAGE",
+          "description": "Draft declared for the outer and inner side walls",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "bumper",
+          "measured": null,
+          "limit": "outer + inner faces",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'bumper_rib' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "bumper",
+          "measured": 0.5,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INNER_RADIUS",
+          "description": "Inner radius >= 0.5 x wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "bumper",
+          "measured": 1.08,
+          "limit": ">= 0.90 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_UNIFORMITY",
+          "description": "Wall variation <= 25% (sink/warp risk)",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": "bumper",
+          "measured": 1.0,
+          "limit": "<= 1.25",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "BOSS_RATIO",
+          "description": "Boss 'bumper_boss' OD/ID <= 2.5",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": "bumper",
+          "measured": 2.0,
+          "limit": "<= 2.5",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DISPLAY_WINDOW_MIN",
+          "description": "Display window >= 42 x 18 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 880.0,
+          "limit": ">= 42 x 18 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_ZONE_MIN",
+          "description": "Intake zone >= 18 x 18 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": ">= 18 x 18 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_OPEN_AREA",
+          "description": "Vent open area >= 15%",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 0.311,
+          "limit": ">= 0.15",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_FITS_FACE",
+          "description": "Intake zone fits on the front face with 2 mm margins",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": "<= 118 x 66 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_SLOTS_FIT",
+          "description": "Vent slots fit the zone with >= 1 mm steel bars",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": "slots + bars <= zone",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "SLOT_WIDTH_MIN",
+          "description": "Slot width >= 0.8 mm (tool steel strength)",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": null,
+          "measured": 1.2,
+          "limit": ">= 0.8 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "USB_OPENING_MIN",
+          "description": "USB-C opening >= 10 x 4 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 55.0,
+          "limit": ">= 10 x 4 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "USB_CLEARANCE",
+          "description": "USB clearance >= 0.5 mm per side",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 0.87,
+          "limit": ">= 0.5 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "SNAP_FIT_UNDERCUT",
+          "description": "Snap-fit closure declares its hooks as undercuts",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": ">= 1 undercut",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "ENVELOPE_MAX",
+          "description": "Envelope <= 125 x 75 x 30 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 218624.0,
+          "limit": "<= 125 x 75 x 30",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "PACKAGING_FIT",
+          "description": "PCB + battery stack fits the inner cavity",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 0.0,
+          "limit": "cavity >= 93.0 x 46.0 x 22.0 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "MASS_MAX",
+          "description": "Product mass <= 180 g",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 158.66,
+          "limit": "<= 180 g",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INTENT_TRACE_COMPLETE",
+          "description": "Every must-preserve intent anchor maps to a structural feature",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 3.0,
+          "limit": "3 anchors",
+          "fix": "none",
+          "hint": ""
+        }
+      ],
+      "engine": "remote_full",
+      "confidence": "full",
+      "headroom": 0.4197,
+      "housing_mass_g": 64.66,
+      "product_mass_g": 158.66,
+      "open_area_ratio": 0.3111,
+      "usb_clearance_mm": 0.87
+    },
+    "cost": {
+      "variant_id": "B3-v003",
+      "revision": 2,
+      "lines": [
+        {
+          "item": "material:front_housing",
+          "cny": 0.666
+        },
+        {
+          "item": "moulding:front_housing",
+          "cny": 0.903
+        },
+        {
+          "item": "op:front_housing:iml",
+          "cny": 1.6
+        },
+        {
+          "item": "material:rear_housing",
+          "cny": 0.713
+        },
+        {
+          "item": "moulding:rear_housing",
+          "cny": 0.903
+        },
+        {
+          "item": "material:bumper",
+          "cny": 0.296
+        },
+        {
+          "item": "moulding:bumper",
+          "cny": 0.903
+        },
+        {
+          "item": "tooling_amortised",
+          "cny": 7.55
+        },
+        {
+          "item": "window_lens",
+          "cny": 1.0
+        },
+        {
+          "item": "screws",
+          "cny": 0.24
+        },
+        {
+          "item": "assembly",
+          "cny": 0.96
+        },
+        {
+          "item": "qa_overhead",
+          "cny": 0.472
+        }
+      ],
+      "total_cny": 16.21,
+      "ceiling_cny": 18.0,
+      "within_budget": true,
+      "tooling_total_cny": 151000.0,
+      "housing_mass_g": 64.66,
+      "price_source": "live",
+      "quote_source": "live"
+    },
+    "review": {
+      "variant_id": "B3-v003",
+      "scores": {
+        "brief_adherence": 5,
+        "form_coherence": 2,
+        "cmf_fit": 4,
+        "usability": 4,
+        "intent_preservation": 4
+      },
+      "verdict": "accept",
+      "rationale": "aesthetics-led brief; 4/4 key brief signals present in the spec (bumpered, smooth_gloss, PC-ABS, ops=['iml']).",
+      "flags": [
+        "1 intent-affecting change(s) during revision"
+      ],
+      "judge_model": "deepseek-v4-pro"
+    },
+    "judge_attempted": true,
+    "first_dfm_failures": [
+      "UNDERCUT_DECLARED"
+    ],
+    "llm_revisions": 1,
+    "autofixes": 1,
+    "reviser_failures": 0,
+    "step_errors": 0,
+    "steps": 11,
+    "history": [
+      "generate_concept",
+      "build_structure",
+      "check_dfm",
+      "auto_fix",
+      "check_dfm",
+      "estimate_cost",
+      "revise",
+      "check_dfm",
+      "estimate_cost",
+      "review_quality",
+      "finalize"
+    ],
+    "spec_hashes": [
+      "212f8c12f7f5f90e",
+      "12bca91197623277",
+      "104e7c879facc36d"
+    ],
+    "oscillation": false,
+    "fallback_used": false,
+    "budget_exhausted": false,
+    "degraded": [],
+    "models": [
+      "deepseek-flash",
+      "deepseek-v4-pro",
+      "deepseek-flash",
+      "deepseek-v4-pro"
+    ],
+    "usage": {
+      "prompt_tokens": 18101,
+      "completion_tokens": 2356,
+      "cost_cny": 0.119943,
+      "calls": 5,
+      "latency_ms": 51871.4
+    },
+    "status": "needs_human",
+    "reason": "passed with caveats",
+    "caveats": [
+      "concept features changed in the final structure (checked by code): dropped soft_touch"
+    ]
+  }
+}

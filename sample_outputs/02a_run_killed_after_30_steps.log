@@ -1,0 +1,13 @@
+$ python -m creaition run --brief-ids B1 B3 B4 --variants 3 --run-id demo-resume --crash-after-steps 30
+# exit code 137, 0.5s
+
+
+02:33:25.632 [TODO       ] -              -                      plan created with 14 items
+02:33:25.632 [RUN        ] -              -                      run demo-resume config='baseline' mode=mock prompts=v1 briefs=3 variants/brief=3 faults=off
+02:33:25.633 [CACHE      ] B1::brief      step.interpret_brief   reused interpretation of a near-identical brief (cosine 1.000, numeric guard matched)
+02:33:25.635 [CACHE      ] B3::brief      step.interpret_brief   reused interpretation of a near-identical brief (cosine 1.000, numeric guard matched)
+02:33:25.636 [ASK        ] B3::brief      step.resolve_contract  [batch default] Is there a unit cost target below the CNY 18 ceiling? -> Use the CNY 18 housing BOM ceiling
+02:33:25.637 [CACHE      ] B4::brief      step.interpret_brief   reused interpretation of a near-identical brief (cosine 1.000, numeric guard matched)
+02:33:25.638 [ASK        ] B4::brief      step.resolve_contract  [batch default] Is there a unit cost target below the CNY 18 ceiling? -> Use the CNY 18 housing BOM ceiling
+02:33:25.638 [ASK        ] B4::brief      step.resolve_contract  [batch default] Which requirement wins when they conflict? -> Manufacturability and budget win; aesthetics adapts
+02:33:25.769 [CRASH      ] B3-v001        variant                simulated hard kill (os._exit 137) - in-flight steps are lost, committed checkpoints survive

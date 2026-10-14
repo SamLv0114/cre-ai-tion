@@ -1,0 +1,794 @@
+{
+  "run_id": "demo-designs",
+  "config": "baseline",
+  "llm_mode": "mock",
+  "prompt_version": "v1",
+  "variants": 17,
+  "status_counts": {
+    "rejected": 5,
+    "pending_approval": 10,
+    "needs_human": 2
+  },
+  "production_ready": 0,
+  "briefs": {
+    "B1": {
+      "title": "Retail apartment detector (cost first)",
+      "conflict_detected": false,
+      "requires_human_resolution": false,
+      "cost_ceiling_cny": 12.0,
+      "floor_cost_cny": 9.36,
+      "assumptions": [],
+      "infeasible": false,
+      "infeasible_reasons": [],
+      "variants_planned": 3,
+      "quality_paused": null,
+      "statuses": {
+        "rejected": 1,
+        "pending_approval": 2
+      },
+      "shortlist": [
+        "B1-v003",
+        "B1-v002"
+      ]
+    },
+    "B2": {
+      "title": "Construction-site handheld (rugged)",
+      "conflict_detected": false,
+      "requires_human_resolution": false,
+      "cost_ceiling_cny": 18.0,
+      "floor_cost_cny": 12.55,
+      "assumptions": [
+        "Q1 default: Use the CNY 18 housing BOM ceiling"
+      ],
+      "infeasible": false,
+      "infeasible_reasons": [],
+      "variants_planned": 3,
+      "quality_paused": null,
+      "statuses": {
+        "needs_human": 1,
+        "pending_approval": 1,
+        "rejected": 1
+      },
+      "shortlist": [
+        "B2-v002",
+        "B2-v001"
+      ]
+    },
+    "B3": {
+      "title": "Living-room sideboard object (premium)",
+      "conflict_detected": false,
+      "requires_human_resolution": false,
+      "cost_ceiling_cny": 18.0,
+      "floor_cost_cny": 9.36,
+      "assumptions": [
+        "Q1 default: Use the CNY 18 housing BOM ceiling"
+      ],
+      "infeasible": false,
+      "infeasible_reasons": [],
+      "variants_planned": 3,
+      "quality_paused": null,
+      "statuses": {
+        "pending_approval": 2,
+        "needs_human": 1
+      },
+      "shortlist": [
+        "B3-v001",
+        "B3-v002",
+        "B3-v003"
+      ]
+    },
+    "B4": {
+      "title": "Circular edition (sustainable)",
+      "conflict_detected": false,
+      "requires_human_resolution": false,
+      "cost_ceiling_cny": 18.0,
+      "floor_cost_cny": 9.4,
+      "assumptions": [
+        "Q1 default: Use the CNY 18 housing BOM ceiling",
+        "Q2 default: Manufacturability and budget win; aesthetics adapts"
+      ],
+      "infeasible": false,
+      "infeasible_reasons": [],
+      "variants_planned": 3,
+      "quality_paused": null,
+      "statuses": {
+        "pending_approval": 3
+      },
+      "shortlist": [
+        "B4-v001",
+        "B4-v002",
+        "B4-v003"
+      ]
+    },
+    "B5": {
+      "title": "Flagship that wants everything (intentionally conflicting)",
+      "conflict_detected": true,
+      "requires_human_resolution": true,
+      "cost_ceiling_cny": 16.0,
+      "floor_cost_cny": 12.59,
+      "assumptions": [
+        "Relaxed cost_ceiling_cny: 9 -> 16 (cheapest feasible housing costs CNY 12.59 > target CNY 9)",
+        "Relaxed max_height_mm: 18 -> 26 (PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls)",
+        "Relaxed max_mass_g: 120 -> 151 (lightest feasible product weighs 120.5 g > 120 g)",
+        "Q2 default: Manufacturability and budget win; aesthetics adapts"
+      ],
+      "infeasible": false,
+      "infeasible_reasons": [],
+      "variants_planned": 2,
+      "quality_paused": null,
+      "statuses": {
+        "rejected": 2
+      },
+      "shortlist": []
+    },
+    "B6": {
+      "title": "Open-plan office desk unit (balanced control)",
+      "conflict_detected": false,
+      "requires_human_resolution": false,
+      "cost_ceiling_cny": 18.0,
+      "floor_cost_cny": 9.36,
+      "assumptions": [
+        "Q1 default: Use the CNY 18 housing BOM ceiling"
+      ],
+      "infeasible": false,
+      "infeasible_reasons": [],
+      "variants_planned": 3,
+      "quality_paused": null,
+      "statuses": {
+        "pending_approval": 2,
+        "rejected": 1
+      },
+      "shortlist": [
+        "B6-v001",
+        "B6-v003"
+      ]
+    }
+  },
+  "shortlist": {
+    "B1": [
+      "B1-v003",
+      "B1-v002"
+    ],
+    "B2": [
+      "B2-v002",
+      "B2-v001"
+    ],
+    "B3": [
+      "B3-v001",
+      "B3-v002",
+      "B3-v003"
+    ],
+    "B4": [
+      "B4-v001",
+      "B4-v002",
+      "B4-v003"
+    ],
+    "B5": [],
+    "B6": [
+      "B6-v001",
+      "B6-v003"
+    ]
+  },
+  "first_pass_dfm_rate": 0.235,
+  "avg_llm_revisions": 0.824,
+  "avg_autofixes": 0.647,
+  "fallback_rate": 0.0,
+  "tokens_total": 295472,
+  "llm_calls": 78,
+  "model_cost_cny_total": 1.9647,
+  "model_cost_cny_per_variant": 0.10825,
+  "modeled_latency_ms_p50": 40957.1,
+  "modeled_latency_ms_p95": 72171.5,
+  "wall_clock_s": 0.57,
+  "faults_injected": {},
+  "breakers": {
+    "llm:deepseek:deepseek-v4-pro": "closed",
+    "llm:deepseek:deepseek-flash": "closed",
+    "tool:materials_lookup": "closed",
+    "tool:dfm_validate": "closed",
+    "tool:tooling_quote": "closed"
+  },
+  "steps_executed": 169,
+  "steps_replayed": 0,
+  "lessons_learned": [],
+  "contracts": {
+    "B1": {
+      "brief_id": "B1",
+      "intent": {
+        "brief_id": "B1",
+        "summary": "Retail-channel air quality detector for rental apartments. Lowest possible unit cost is the top priority: target CNY 12 per housing at 10k units/year. Plain but tidy look in a colour that hides scuffs and fingerprints. It must survive knocks on a desk. Two-part shell, no decoration beyond a printed ",
+        "priorities": {
+          "cost": 1.0,
+          "durability": 0.25,
+          "aesthetics": 0.25,
+          "sustainability": 0.25
+        },
+        "environment": "indoor",
+        "allowed_materials": [
+          "ABS",
+          "rABS",
+          "PC-ABS"
+        ],
+        "preferred_finishes": [
+          "smooth_matte",
+          "textured_light"
+        ],
+        "style_keywords": [
+          "clean",
+          "compact"
+        ],
+        "target_unit_cost_cny": 12.0,
+        "max_thickness_mm": null,
+        "max_mass_g": null,
+        "ip_rating": "none",
+        "drop_height_m": null,
+        "must_haves": [
+          "survive knocks on a desk"
+        ],
+        "conflicts": [],
+        "open_questions": []
+      },
+      "cost_ceiling_cny": 12.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "max_mass_g": 180.0,
+      "allowed_materials": [
+        "ABS",
+        "rABS",
+        "PC-ABS"
+      ],
+      "ip_rating": "none",
+      "floor_cost_cny": 9.36,
+      "conflicts": [],
+      "open_questions": [],
+      "relaxations": [],
+      "platform_blockers": [],
+      "infeasible_reasons": [],
+      "assumptions": [],
+      "requires_human_resolution": false
+    },
+    "B2": {
+      "brief_id": "B2",
+      "intent": {
+        "brief_id": "B2",
+        "summary": "Rugged handheld air quality detector for construction-site supervisors who carry it all day outdoors. It must survive a 1.5 m drop onto concrete, dust and driving rain (IP65), UV exposure and use with work gloves. Tough, grippy textured surfaces, high-visibility colour, protected corners. Durable ov",
+        "priorities": {
+          "cost": 0.25,
+          "durability": 1.0,
+          "aesthetics": 0.25,
+          "sustainability": 0.25
+        },
+        "environment": "outdoor",
+        "allowed_materials": [
+          "PC-ABS",
+          "ABS"
+        ],
+        "preferred_finishes": [
+          "textured_heavy",
+          "textured_light"
+        ],
+        "style_keywords": [
+          "rugged",
+          "durable"
+        ],
+        "target_unit_cost_cny": null,
+        "max_thickness_mm": null,
+        "max_mass_g": null,
+        "ip_rating": "IP65",
+        "drop_height_m": 1.5,
+        "must_haves": [
+          "survive a 1"
+        ],
+        "conflicts": [],
+        "open_questions": [
+          {
+            "question_id": "Q1",
+            "question": "Is there a unit cost target below the CNY 18 ceiling?",
+            "default_assumption": "Use the CNY 18 housing BOM ceiling",
+            "blocking": false
+          }
+        ]
+      },
+      "cost_ceiling_cny": 18.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "max_mass_g": 180.0,
+      "allowed_materials": [
+        "PC-ABS",
+        "ABS"
+      ],
+      "ip_rating": "IP65",
+      "floor_cost_cny": 12.55,
+      "conflicts": [
+        {
+          "conflict_id": "R-vent",
+          "description": "IP65 sealing vs. >= 15% open intake",
+          "requirements": [
+            "ingress rating",
+            "vent open area"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "gasket + ePTFE membrane vent (adds ~CNY 2.7/unit)",
+          "source": "rule"
+        }
+      ],
+      "open_questions": [
+        {
+          "question_id": "Q1",
+          "question": "Is there a unit cost target below the CNY 18 ceiling?",
+          "default_assumption": "Use the CNY 18 housing BOM ceiling",
+          "blocking": false
+        }
+      ],
+      "relaxations": [],
+      "platform_blockers": [],
+      "infeasible_reasons": [],
+      "assumptions": [
+        "Q1 default: Use the CNY 18 housing BOM ceiling"
+      ],
+      "requires_human_resolution": false
+    },
+    "B3": {
+      "brief_id": "B3",
+      "intent": {
+        "brief_id": "B3",
+        "summary": "Premium living-room air quality detector that sits on a sideboard next to design objects and books. Calm, minimal, furniture-like and elegant; soft-touch or fine matte surfaces, hidden fasteners and a slim profile. The display must be readable from the sofa. Indoor only, design-led home brand.",
+        "priorities": {
+          "cost": 0.25,
+          "durability": 0.25,
+          "aesthetics": 1.0,
+          "sustainability": 0.25
+        },
+        "environment": "indoor",
+        "allowed_materials": [
+          "PC-ABS",
+          "ABS"
+        ],
+        "preferred_finishes": [
+          "smooth_matte",
+          "smooth_gloss"
+        ],
+        "style_keywords": [
+          "premium",
+          "minimal",
+          "soft",
+          "calm"
+        ],
+        "target_unit_cost_cny": null,
+        "max_thickness_mm": null,
+        "max_mass_g": null,
+        "ip_rating": "none",
+        "drop_height_m": null,
+        "must_haves": [
+          "be readable from the sofa"
+        ],
+        "conflicts": [],
+        "open_questions": [
+          {
+            "question_id": "Q1",
+            "question": "Is there a unit cost target below the CNY 18 ceiling?",
+            "default_assumption": "Use the CNY 18 housing BOM ceiling",
+            "blocking": false
+          }
+        ]
+      },
+      "cost_ceiling_cny": 18.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "max_mass_g": 180.0,
+      "allowed_materials": [
+        "PC-ABS",
+        "ABS"
+      ],
+      "ip_rating": "none",
+      "floor_cost_cny": 9.36,
+      "conflicts": [],
+      "open_questions": [
+        {
+          "question_id": "Q1",
+          "question": "Is there a unit cost target below the CNY 18 ceiling?",
+          "default_assumption": "Use the CNY 18 housing BOM ceiling",
+          "blocking": false
+        }
+      ],
+      "relaxations": [],
+      "platform_blockers": [],
+      "infeasible_reasons": [],
+      "assumptions": [
+        "Q1 default: Use the CNY 18 housing BOM ceiling"
+      ],
+      "requires_human_resolution": false
+    },
+    "B4": {
+      "brief_id": "B4",
+      "intent": {
+        "brief_id": "B4",
+        "summary": "Sustainable edition for an eco-conscious brand. Use only recycled ABS for every plastic part, no paint or coatings, a mono-material housing and screw-free disassembly so it can be repaired and recycled. Honest, warm, slightly speckled look; carbon footprint matters more than gloss.",
+        "priorities": {
+          "cost": 0.25,
+          "durability": 0.25,
+          "aesthetics": 0.25,
+          "sustainability": 1.0
+        },
+        "environment": "indoor",
+        "allowed_materials": [
+          "rABS"
+        ],
+        "preferred_finishes": [
+          "textured_light",
+          "smooth_matte"
+        ],
+        "style_keywords": [
+          "recycled",
+          "warm",
+          "honest"
+        ],
+        "target_unit_cost_cny": null,
+        "max_thickness_mm": null,
+        "max_mass_g": null,
+        "ip_rating": "none",
+        "drop_height_m": null,
+        "must_haves": [],
+        "conflicts": [
+          {
+            "conflict_id": "C3",
+            "description": "Paint / soft-touch coatings contaminate the recycling stream",
+            "requirements": [
+              "recycled content",
+              "coated finish"
+            ],
+            "severity": "soft",
+            "proposed_resolution": "Use moulded-in colour with texture instead of coatings",
+            "source": "llm"
+          }
+        ],
+        "open_questions": [
+          {
+            "question_id": "Q1",
+            "question": "Is there a unit cost target below the CNY 18 ceiling?",
+            "default_assumption": "Use the CNY 18 housing BOM ceiling",
+            "blocking": false
+          },
+          {
+            "question_id": "Q2",
+            "question": "Which requirement wins when they conflict?",
+            "default_assumption": "Manufacturability and budget win; aesthetics adapts",
+            "blocking": false
+          }
+        ]
+      },
+      "cost_ceiling_cny": 18.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "max_mass_g": 180.0,
+      "allowed_materials": [
+        "rABS"
+      ],
+      "ip_rating": "none",
+      "floor_cost_cny": 9.4,
+      "conflicts": [
+        {
+          "conflict_id": "C3",
+          "description": "Paint / soft-touch coatings contaminate the recycling stream",
+          "requirements": [
+            "recycled content",
+            "coated finish"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "Use moulded-in colour with texture instead of coatings",
+          "source": "llm"
+        }
+      ],
+      "open_questions": [
+        {
+          "question_id": "Q1",
+          "question": "Is there a unit cost target below the CNY 18 ceiling?",
+          "default_assumption": "Use the CNY 18 housing BOM ceiling",
+          "blocking": false
+        },
+        {
+          "question_id": "Q2",
+          "question": "Which requirement wins when they conflict?",
+          "default_assumption": "Manufacturability and budget win; aesthetics adapts",
+          "blocking": false
+        }
+      ],
+      "relaxations": [],
+      "platform_blockers": [],
+      "infeasible_reasons": [],
+      "assumptions": [
+        "Q1 default: Use the CNY 18 housing BOM ceiling",
+        "Q2 default: Manufacturability and budget win; aesthetics adapts"
+      ],
+      "requires_human_resolution": false
+    },
+    "B5": {
+      "brief_id": "B5",
+      "intent": {
+        "brief_id": "B5",
+        "summary": "Flagship model: premium soft-touch painted finish, fully waterproof to IP67, ultra-slim 18 mm thick profile, 100% recycled plastic, weighing under 120 g, and it must cost no more than CNY 9 per housing. Launch in six weeks.",
+        "priorities": {
+          "cost": 0.55,
+          "durability": 0.85,
+          "aesthetics": 0.85,
+          "sustainability": 0.55
+        },
+        "environment": "outdoor",
+        "allowed_materials": [
+          "rABS"
+        ],
+        "preferred_finishes": [
+          "textured_heavy",
+          "textured_light"
+        ],
+        "style_keywords": [
+          "premium",
+          "soft",
+          "recycled"
+        ],
+        "target_unit_cost_cny": 9.0,
+        "max_thickness_mm": 18.0,
+        "max_mass_g": 120.0,
+        "ip_rating": "IP67",
+        "drop_height_m": null,
+        "must_haves": [
+          "cost no more than CNY 9 per housing"
+        ],
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "description": "Target CNY 9/unit is unrealistic with premium finish or sealing",
+            "requirements": [
+              "unit cost",
+              "finish/sealing"
+            ],
+            "severity": "hard",
+            "proposed_resolution": "Raise the target to the CNY 18 ceiling or drop sealing/paint",
+            "source": "llm"
+          },
+          {
+            "conflict_id": "C2",
+            "description": "Sealed gasket housing at this slimness leaves no room for the gasket land",
+            "requirements": [
+              "ingress rating",
+              "thickness"
+            ],
+            "severity": "soft",
+            "proposed_resolution": "Relax thickness to the minimum feasible stack height",
+            "source": "llm"
+          },
+          {
+            "conflict_id": "C3",
+            "description": "Paint / soft-touch coatings contaminate the recycling stream",
+            "requirements": [
+              "recycled content",
+              "coated finish"
+            ],
+            "severity": "soft",
+            "proposed_resolution": "Use moulded-in colour with texture instead of coatings",
+            "source": "llm"
+          }
+        ],
+        "open_questions": [
+          {
+            "question_id": "Q2",
+            "question": "Which requirement wins when they conflict?",
+            "default_assumption": "Manufacturability and budget win; aesthetics adapts",
+            "blocking": true
+          }
+        ]
+      },
+      "cost_ceiling_cny": 16.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 26.0
+      },
+      "max_mass_g": 151.0,
+      "allowed_materials": [
+        "rABS"
+      ],
+      "ip_rating": "IP67",
+      "floor_cost_cny": 12.59,
+      "conflicts": [
+        {
+          "conflict_id": "C1",
+          "description": "Target CNY 9/unit is unrealistic with premium finish or sealing",
+          "requirements": [
+            "unit cost",
+            "finish/sealing"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "Raise the target to the CNY 18 ceiling or drop sealing/paint",
+          "source": "llm"
+        },
+        {
+          "conflict_id": "C2",
+          "description": "Sealed gasket housing at this slimness leaves no room for the gasket land",
+          "requirements": [
+            "ingress rating",
+            "thickness"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "Relax thickness to the minimum feasible stack height",
+          "source": "llm"
+        },
+        {
+          "conflict_id": "C3",
+          "description": "Paint / soft-touch coatings contaminate the recycling stream",
+          "requirements": [
+            "recycled content",
+            "coated finish"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "Use moulded-in colour with texture instead of coatings",
+          "source": "llm"
+        },
+        {
+          "conflict_id": "R1",
+          "description": "Infeasible as written: cheapest feasible housing costs CNY 12.59 > target CNY 9",
+          "requirements": [
+            "cost_ceiling_cny"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "relax cost_ceiling_cny to 16",
+          "source": "rule"
+        },
+        {
+          "conflict_id": "R2",
+          "description": "Infeasible as written: PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls",
+          "requirements": [
+            "max_height_mm"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "relax max_height_mm to 26",
+          "source": "rule"
+        },
+        {
+          "conflict_id": "R3",
+          "description": "Infeasible as written: lightest feasible product weighs 120.5 g > 120 g",
+          "requirements": [
+            "max_mass_g"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "relax max_mass_g to 151",
+          "source": "rule"
+        },
+        {
+          "conflict_id": "R-vent",
+          "description": "IP67 sealing vs. >= 15% open intake",
+          "requirements": [
+            "ingress rating",
+            "vent open area"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "gasket + ePTFE membrane vent (adds ~CNY 2.7/unit)",
+          "source": "rule"
+        }
+      ],
+      "open_questions": [
+        {
+          "question_id": "Q2",
+          "question": "Which requirement wins when they conflict?",
+          "default_assumption": "Manufacturability and budget win; aesthetics adapts",
+          "blocking": true
+        }
+      ],
+      "relaxations": [
+        {
+          "field": "cost_ceiling_cny",
+          "strict_value": 9.0,
+          "relaxed_value": 16.0,
+          "reason": "cheapest feasible housing costs CNY 12.59 > target CNY 9",
+          "accepted": true
+        },
+        {
+          "field": "max_height_mm",
+          "strict_value": 18.0,
+          "relaxed_value": 26.0,
+          "reason": "PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls",
+          "accepted": true
+        },
+        {
+          "field": "max_mass_g",
+          "strict_value": 120.0,
+          "relaxed_value": 151.0,
+          "reason": "lightest feasible product weighs 120.5 g > 120 g",
+          "accepted": true
+        }
+      ],
+      "platform_blockers": [],
+      "infeasible_reasons": [],
+      "assumptions": [
+        "Relaxed cost_ceiling_cny: 9 -> 16 (cheapest feasible housing costs CNY 12.59 > target CNY 9)",
+        "Relaxed max_height_mm: 18 -> 26 (PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls)",
+        "Relaxed max_mass_g: 120 -> 151 (lightest feasible product weighs 120.5 g > 120 g)",
+        "Q2 default: Manufacturability and budget win; aesthetics adapts"
+      ],
+      "requires_human_resolution": true
+    },
+    "B6": {
+      "brief_id": "B6",
+      "intent": {
+        "brief_id": "B6",
+        "summary": "Desk air quality detector for open-plan offices: friendly and approachable, light texture that hides fingerprints, readable at a glance from a neighbouring desk. Balanced priorities between budget, durability and looks; facilities teams buy these in bulk.",
+        "priorities": {
+          "cost": 0.55,
+          "durability": 0.25,
+          "aesthetics": 0.25,
+          "sustainability": 0.25
+        },
+        "environment": "indoor",
+        "allowed_materials": [
+          "ABS",
+          "rABS",
+          "PC-ABS"
+        ],
+        "preferred_finishes": [
+          "smooth_matte",
+          "textured_light"
+        ],
+        "style_keywords": [
+          "friendly"
+        ],
+        "target_unit_cost_cny": null,
+        "max_thickness_mm": null,
+        "max_mass_g": null,
+        "ip_rating": "none",
+        "drop_height_m": null,
+        "must_haves": [],
+        "conflicts": [],
+        "open_questions": [
+          {
+            "question_id": "Q1",
+            "question": "Is there a unit cost target below the CNY 18 ceiling?",
+            "default_assumption": "Use the CNY 18 housing BOM ceiling",
+            "blocking": false
+          }
+        ]
+      },
+      "cost_ceiling_cny": 18.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "max_mass_g": 180.0,
+      "allowed_materials": [
+        "ABS",
+        "rABS",
+        "PC-ABS"
+      ],
+      "ip_rating": "none",
+      "floor_cost_cny": 9.36,
+      "conflicts": [],
+      "open_questions": [
+        {
+          "question_id": "Q1",
+          "question": "Is there a unit cost target below the CNY 18 ceiling?",
+          "default_assumption": "Use the CNY 18 housing BOM ceiling",
+          "blocking": false
+        }
+      ],
+      "relaxations": [],
+      "platform_blockers": [],
+      "infeasible_reasons": [],
+      "assumptions": [
+        "Q1 default: Use the CNY 18 housing BOM ceiling"
+      ],
+      "requires_human_resolution": false
+    }
+  }
+}

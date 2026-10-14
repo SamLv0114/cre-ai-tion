@@ -1,0 +1,952 @@
+{
+  "variant_id": "B5-v001",
+  "brief_id": "B5",
+  "status": "rejected",
+  "result": {
+    "run_id": "eval-baseline",
+    "variant_id": "B5-v001",
+    "brief_id": "B5",
+    "direction": {
+      "name": "soft_pebble",
+      "silhouette": "pebble",
+      "intake_face": "front",
+      "slim": true
+    },
+    "concept": {
+      "variant_id": "B5-v001",
+      "brief_id": "B5",
+      "direction": "soft_pebble",
+      "name": "Pebble Soft-Touch Air Quality Detector",
+      "form_language": "A smooth, rounded pebble-like enclosure with a continuous soft-touch surface, subtly tapered edges, and a seamless front face. The form is slim and pocketable, with a matte finish that feels premium and warm. A large display window dominates the front, with a discreet intake grille below and a hidden USB-C port on the bottom edge.",
+      "silhouette": "pebble",
+      "envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 26.0
+      },
+      "corner_radius_mm": 12.0,
+      "display": {
+        "face": "front",
+        "x_pct": 50.0,
+        "y_pct": 40.0
+      },
+      "display_window_mm": {
+        "width": 60.0,
+        "height": 40.0
+      },
+      "intake": {
+        "face": "front",
+        "x_pct": 50.0,
+        "y_pct": 80.0
+      },
+      "usb": {
+        "face": "bottom",
+        "x_pct": 50.0,
+        "y_pct": 50.0
+      },
+      "cmf": {
+        "material": "rABS",
+        "finish": "smooth_matte",
+        "color": "Warm Grey (Pantone 2331 C)",
+        "secondary_ops": [
+          "soft_touch"
+        ]
+      },
+      "intent_anchors": [
+        {
+          "anchor_id": "IA1",
+          "statement": "The pebble silhouette with continuous curvature and no sharp edges must be preserved to maintain the premium soft-touch aesthetic.",
+          "category": "form",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA2",
+          "statement": "The front face layout: display centered at 40% height, intake grille below at 80% height, ensuring unobstructed airflow and user visibility.",
+          "category": "usability",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA3",
+          "statement": "Soft-touch paint only on visible exterior surfaces; sealing areas must remain unpainted for gasket adhesion and ultrasonic welding.",
+          "category": "durability",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA4",
+          "statement": "Use 100% recycled ABS (rABS) with smooth matte finish to meet sustainability and cost targets.",
+          "category": "sustainability",
+          "must_preserve": true
+        },
+        {
+          "anchor_id": "IA5",
+          "statement": "USB-C port on bottom edge, centered and recessed to maintain IP67 sealing with a gasketed cover.",
+          "category": "usability",
+          "must_preserve": true
+        }
+      ],
+      "rationale": "This concept balances the premium soft-touch aesthetic with the relaxed constraints of the design contract. The pebble silhouette and smooth matte finish deliver a high-end feel while the rABS material and soft-touch paint meet sustainability and cost targets. The front layout places the display prominently and the intake grille below, ensuring functionality. The USB-C port on the bottom allows for easy access while maintaining IP67 sealing through a gasketed cover. The 12 mm corner radius enhances the soft, rounded form. Intent anchors preserve critical design decisions for downstream engineering."
+    },
+    "structure": {
+      "variant_id": "B5-v001",
+      "brief_id": "B5",
+      "concept_name": "Pebble Soft-Touch Air Quality Detector",
+      "revision": 2,
+      "envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 26.0
+      },
+      "parting": "front_back",
+      "parts": [
+        {
+          "part_id": "front_housing",
+          "role": "front_housing",
+          "material": "rABS",
+          "finish": "smooth_matte",
+          "nominal_wall_mm": 1.6,
+          "min_wall_mm": 1.5,
+          "max_wall_mm": 2.0,
+          "inner_radius_mm": 6.0,
+          "drafts": [
+            {
+              "face": "outer_sides",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "front",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "back",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "top",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "bottom",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "left",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "right",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "inner_sides",
+              "draft_deg": 1.5,
+              "textured": false
+            }
+          ],
+          "ribs": [
+            {
+              "rib_id": "front_rib_1",
+              "thickness_mm": 0.8,
+              "height_mm": 3.0,
+              "length_mm": 60.0,
+              "count": 2
+            },
+            {
+              "rib_id": "front_rib_2",
+              "thickness_mm": 0.8,
+              "height_mm": 3.0,
+              "length_mm": 40.0,
+              "count": 2
+            }
+          ],
+          "bosses": [
+            {
+              "boss_id": "front_boss_1",
+              "outer_d_mm": 4.0,
+              "inner_d_mm": 2.0,
+              "height_mm": 5.0,
+              "count": 4
+            }
+          ],
+          "undercuts": [],
+          "secondary_ops": []
+        },
+        {
+          "part_id": "rear_housing",
+          "role": "rear_housing",
+          "material": "rABS",
+          "finish": "smooth_matte",
+          "nominal_wall_mm": 1.6,
+          "min_wall_mm": 1.5,
+          "max_wall_mm": 2.0,
+          "inner_radius_mm": 6.0,
+          "drafts": [
+            {
+              "face": "outer_sides",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "front",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "back",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "top",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "bottom",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "left",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "right",
+              "draft_deg": 1.5,
+              "textured": false
+            },
+            {
+              "face": "inner_sides",
+              "draft_deg": 1.5,
+              "textured": false
+            }
+          ],
+          "ribs": [
+            {
+              "rib_id": "rear_rib_1",
+              "thickness_mm": 0.8,
+              "height_mm": 3.0,
+              "length_mm": 60.0,
+              "count": 2
+            },
+            {
+              "rib_id": "rear_rib_2",
+              "thickness_mm": 0.8,
+              "height_mm": 3.0,
+              "length_mm": 40.0,
+              "count": 2
+            }
+          ],
+          "bosses": [
+            {
+              "boss_id": "rear_boss_1",
+              "outer_d_mm": 4.0,
+              "inner_d_mm": 2.0,
+              "height_mm": 5.0,
+              "count": 4
+            }
+          ],
+          "undercuts": [],
+          "secondary_ops": []
+        }
+      ],
+      "display_window_mm": {
+        "width": 60.0,
+        "height": 40.0
+      },
+      "vent": {
+        "face": "front",
+        "zone_w_mm": 50.0,
+        "zone_h_mm": 20.0,
+        "slot_count": 8,
+        "slot_w_mm": 1.2,
+        "slot_l_mm": 46.0
+      },
+      "usb_opening_mm": {
+        "width": 10.0,
+        "height": 5.0
+      },
+      "internal_layout": "stacked",
+      "closure": "screws",
+      "screw_count": 4,
+      "sealing": "gasket_and_membrane_vent",
+      "intent_trace": [
+        {
+          "anchor_id": "IA1",
+          "realized_by": [
+            "envelope",
+            "front_housing",
+            "rear_housing"
+          ],
+          "note": "Pebble silhouette with continuous curvature achieved by 12mm corner radius and smooth surfaces; no sharp edges."
+        },
+        {
+          "anchor_id": "IA2",
+          "realized_by": [
+            "display_window",
+            "vent"
+          ],
+          "note": "Display window centered at 40% height on front face; intake grille below at 80% height as vent slots."
+        },
+        {
+          "anchor_id": "IA3",
+          "realized_by": [
+            "front_housing.finish",
+            "rear_housing.finish",
+            "sealing"
+          ],
+          "note": "Sealing areas remain unpainted for gasket adhesion; soft-touch paint dropped for budget, so exterior now relies on the moulded smooth_matte rABS texture."
+        },
+        {
+          "anchor_id": "IA4",
+          "realized_by": [
+            "front_housing.material",
+            "rear_housing.material"
+          ],
+          "note": "100% recycled ABS (rABS) with smooth matte finish."
+        },
+        {
+          "anchor_id": "IA5",
+          "realized_by": [
+            "usb_opening",
+            "sealing"
+          ],
+          "note": "USB-C port on bottom edge, centered and recessed; gasketed cover for IP67 sealing."
+        }
+      ],
+      "change_log": [
+        "Initial structural specification for B5-v001.",
+        "autofix DRAFT_COVERAGE",
+        "autofix RIB_RATIO",
+        "autofix VENT_SLOTS_FIT",
+        "autofix VENT_ZONE_MIN",
+        "autofix WALL_RANGE",
+        "Dropped the soft_touch secondary operation from both front_housing and rear_housing (secondary_ops now empty) to bring housing cost from CNY 20.89 to CNY 13.47, inside the CNY 16 ceiling.",
+        "Intent trade-off declared: the 'premium soft-touch painted finish' must-have is sacrificed for budget; the smooth_matte moulded rABS finish and pebble form (IA1) carry the premium aesthetic instead. IA3 note updated to reflect that sealing areas stay unpainted and no paint is applied at all.",
+        "All other geometry, walls (1.5-2.0 mm), drafts (1.5 deg), ribs (0.8 mm = 50% of nominal wall), bosses, vent (50x20 mm zone, 8 slots at 1.2x46 mm = 44% open area), USB-C opening (10x5 mm), display window (60x40 mm), gasket + membrane vent sealing and 4-screw closure are unchanged and remain DFM-compliant."
+      ]
+    },
+    "structure_source": "reviser",
+    "dfm": {
+      "variant_id": "B5-v001",
+      "revision": 2,
+      "results": [
+        {
+          "rule_id": "WALL_RANGE",
+          "description": "Wall thickness within 1.5-3.0 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.6,
+          "limit": "[1.5, 3.0] mm (min 1.5, max 2.0)",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'outer_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'front' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'back' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'top' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'bottom' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'left' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'right' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'inner_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_COVERAGE",
+          "description": "Draft declared for the outer and inner side walls",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": null,
+          "limit": "outer + inner faces",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'front_rib_1' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 0.5,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'front_rib_2' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 0.5,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INNER_RADIUS",
+          "description": "Inner radius >= 0.5 x wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "front_housing",
+          "measured": 6.0,
+          "limit": ">= 0.80 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_UNIFORMITY",
+          "description": "Wall variation <= 25% (sink/warp risk)",
+          "status": "warn",
+          "severity": "advisory",
+          "part_id": "front_housing",
+          "measured": 1.333,
+          "limit": "<= 1.25",
+          "fix": "none",
+          "hint": "core out thick sections"
+        },
+        {
+          "rule_id": "BOSS_RATIO",
+          "description": "Boss 'front_boss_1' OD/ID <= 2.5",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": "front_housing",
+          "measured": 2.0,
+          "limit": "<= 2.5",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_RANGE",
+          "description": "Wall thickness within 1.5-3.0 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.6,
+          "limit": "[1.5, 3.0] mm (min 1.5, max 2.0)",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'outer_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'front' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'back' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'top' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'bottom' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'left' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'right' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_MIN",
+          "description": "Draft on 'inner_sides' >= 1.0 deg (smooth)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 1.5,
+          "limit": ">= 1.0 deg",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DRAFT_COVERAGE",
+          "description": "Draft declared for the outer and inner side walls",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": null,
+          "limit": "outer + inner faces",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'rear_rib_1' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 0.5,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "RIB_RATIO",
+          "description": "Rib 'rear_rib_2' thickness 40-60% of wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 0.5,
+          "limit": "[0.40, 0.60] x wall",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INNER_RADIUS",
+          "description": "Inner radius >= 0.5 x wall",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": "rear_housing",
+          "measured": 6.0,
+          "limit": ">= 0.80 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "WALL_UNIFORMITY",
+          "description": "Wall variation <= 25% (sink/warp risk)",
+          "status": "warn",
+          "severity": "advisory",
+          "part_id": "rear_housing",
+          "measured": 1.333,
+          "limit": "<= 1.25",
+          "fix": "none",
+          "hint": "core out thick sections"
+        },
+        {
+          "rule_id": "BOSS_RATIO",
+          "description": "Boss 'rear_boss_1' OD/ID <= 2.5",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": "rear_housing",
+          "measured": 2.0,
+          "limit": "<= 2.5",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "DISPLAY_WINDOW_MIN",
+          "description": "Display window >= 42 x 18 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 2400.0,
+          "limit": ">= 42 x 18 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_ZONE_MIN",
+          "description": "Intake zone >= 18 x 18 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": ">= 18 x 18 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_OPEN_AREA",
+          "description": "Vent open area >= 15%",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 0.442,
+          "limit": ">= 0.15",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_FITS_FACE",
+          "description": "Intake zone fits on the front face with 2 mm margins",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": "<= 121 x 71 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "VENT_SLOTS_FIT",
+          "description": "Vent slots fit the zone with >= 1 mm steel bars",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": "slots + bars <= zone",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "SLOT_WIDTH_MIN",
+          "description": "Slot width >= 0.8 mm (tool steel strength)",
+          "status": "pass",
+          "severity": "advisory",
+          "part_id": null,
+          "measured": 1.2,
+          "limit": ">= 0.8 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "USB_OPENING_MIN",
+          "description": "USB-C opening >= 10 x 4 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 50.0,
+          "limit": ">= 10 x 4 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "USB_CLEARANCE",
+          "description": "USB clearance >= 0.5 mm per side",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 0.53,
+          "limit": ">= 0.5 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "SEALING_FOR_IP",
+          "description": "IP67 needs gasket + membrane vent (vent must stay >= 15% open)",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": null,
+          "limit": "gasket_and_membrane_vent",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "ENVELOPE_MAX",
+          "description": "Envelope <= 125 x 75 x 26 mm",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 243750.0,
+          "limit": "<= 125 x 75 x 26",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "PACKAGING_FIT",
+          "description": "PCB + battery stack fits the inner cavity",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 0.8,
+          "limit": "cavity >= 93.0 x 46.0 x 22.0 mm",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "MASS_MAX",
+          "description": "Product mass <= 151 g",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 140.95,
+          "limit": "<= 151 g",
+          "fix": "none",
+          "hint": ""
+        },
+        {
+          "rule_id": "INTENT_TRACE_COMPLETE",
+          "description": "Every must-preserve intent anchor maps to a structural feature",
+          "status": "pass",
+          "severity": "hard",
+          "part_id": null,
+          "measured": 5.0,
+          "limit": "5 anchors",
+          "fix": "none",
+          "hint": ""
+        }
+      ],
+      "engine": "remote_full",
+      "confidence": "full",
+      "headroom": 0.54,
+      "housing_mass_g": 43.95,
+      "product_mass_g": 140.95,
+      "open_area_ratio": 0.4416,
+      "usb_clearance_mm": 0.53
+    },
+    "cost": {
+      "variant_id": "B5-v001",
+      "revision": 2,
+      "lines": [
+        {
+          "item": "material:front_housing",
+          "cny": 0.366
+        },
+        {
+          "item": "moulding:front_housing",
+          "cny": 0.813
+        },
+        {
+          "item": "material:rear_housing",
+          "cny": 0.44
+        },
+        {
+          "item": "moulding:rear_housing",
+          "cny": 0.813
+        },
+        {
+          "item": "tooling_amortised",
+          "cny": 5.15
+        },
+        {
+          "item": "window_lens",
+          "cny": 1.0
+        },
+        {
+          "item": "screws",
+          "cny": 0.48
+        },
+        {
+          "item": "gasket",
+          "cny": 1.2
+        },
+        {
+          "item": "membrane_vent",
+          "cny": 1.5
+        },
+        {
+          "item": "assembly",
+          "cny": 1.32
+        },
+        {
+          "item": "qa_overhead",
+          "cny": 0.392
+        }
+      ],
+      "total_cny": 13.47,
+      "ceiling_cny": 16.0,
+      "within_budget": true,
+      "tooling_total_cny": 103000.0,
+      "housing_mass_g": 43.95,
+      "price_source": "live",
+      "quote_source": "live"
+    },
+    "review": {
+      "variant_id": "B5-v001",
+      "scores": {
+        "brief_adherence": 2,
+        "form_coherence": 4,
+        "cmf_fit": 3,
+        "usability": 4,
+        "intent_preservation": 3
+      },
+      "verdict": "weak",
+      "rationale": "The variant fails to meet several hard must-haves from the brief: it drops the premium soft-touch painted finish (a must-have), exceeds the 18 mm thickness (26 mm), exceeds the 120 g mass limit (likely, given 26 mm height and rABS), and the housing cost of CNY 13.47 exceeds the CNY 9 target. While the pebble form is coherent and the front intake is unobstructed, the core premium and slim requirements are not met. The intent anchors are partially preserved, but the soft-touch finish anchor is explicitly sacrificed. Overall, the design does not deliver the brief's priorities.",
+      "flags": [
+        "soft-touch finish dropped",
+        "thickness exceeds 18 mm",
+        "mass likely exceeds 120 g",
+        "cost exceeds CNY 9",
+        "IP67 not explicitly verified"
+      ],
+      "judge_model": "deepseek-v4-pro"
+    },
+    "judge_attempted": true,
+    "first_dfm_failures": [
+      "DRAFT_COVERAGE",
+      "RIB_RATIO",
+      "VENT_SLOTS_FIT",
+      "VENT_ZONE_MIN",
+      "WALL_RANGE"
+    ],
+    "llm_revisions": 1,
+    "autofixes": 1,
+    "reviser_failures": 0,
+    "step_errors": 0,
+    "steps": 11,
+    "history": [
+      "generate_concept",
+      "build_structure",
+      "check_dfm",
+      "auto_fix",
+      "check_dfm",
+      "estimate_cost",
+      "revise",
+      "check_dfm",
+      "estimate_cost",
+      "review_quality",
+      "finalize"
+    ],
+    "spec_hashes": [
+      "a0a1071de18578e4",
+      "700c03e9bc8e8e96",
+      "19ac176549d8b243"
+    ],
+    "oscillation": false,
+    "fallback_used": false,
+    "budget_exhausted": false,
+    "degraded": [],
+    "models": [
+      "deepseek-flash",
+      "deepseek-v4-pro",
+      "deepseek-flash",
+      "deepseek-v4-pro"
+    ],
+    "usage": {
+      "prompt_tokens": 52869,
+      "completion_tokens": 6337,
+      "cost_cny": 0.279155,
+      "calls": 7,
+      "latency_ms": 37155.883457977325
+    },
+    "status": "rejected",
+    "reason": "quality 3.00 (min criterion 2) below bar 3.5/2",
+    "caveats": []
+  }
+}

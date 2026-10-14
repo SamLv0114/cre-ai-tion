@@ -1,0 +1,117 @@
+$ python -m creaition run --config configs/fault_demo.json --brief-ids B2 --variants 5 --run-id demo-faults
+# exit code 0, 2.1s
+
+
+=== run summary: demo-faults (config=fault_demo, mode=mock) ===
+variants: 5  status: {'needs_human': 1, 'pending_approval': 2, 'rejected': 2}
+first-pass DFM: 0%  avg LLM revisions: 1.2  avg autofixes: 0.8  fallback rate: 0%
+tokens: 95602  model cost: CNY 0.294 (CNY 0.0588/variant)  modelled latency p50/p95: 34.5s / 50.7s  wall: 1.86s
+steps executed: 54  replayed from checkpoint: 0  faults injected: {'malformed_prose': 1, 'malformed_truncated': 1, 'server_error': 18, 'tool_error': 1, 'rate_limit': 4, 'malformed_types': 2, 'timeout': 3}
+  B2: ceiling CNY 18.0 | {'needs_human': 1, 'pending_approval': 2, 'rejected': 2} | shortlist ['B2-v005', 'B2-v002', 'B2-v001']
+
+todos:
+[x] Plan run: 1 brief(s) x 5 variant(s), config 'fault_demo'
+[x] B2: interpret brief  (0 conflict(s) flagged by model)
+[x] B2: resolve constraints, ask/adopt defaults  (ceiling CNY 18, floor CNY 12.55, 0 relaxation(s), human resolution not needed)
+[x] B2: generate + critique 5 variants  (5/5 variants)
+[x] Apply approval policy (human-in-the-loop gate)  (0 auto-approved by policy 'never'; 3 awaiting a human)
+[x] Rank and shortlist per brief  (B2: B2-v005, B2-v002, B2-v001)
+[-] Distil lessons into memory  (0 new lesson(s))
+[x] Write run summary  (sample_outputs/runs/demo-faults/summary.json)
+
+artifacts: sample_outputs/runs/demo-faults
+design report (the final output): sample_outputs/runs/demo-faults/report.md
+
+02:33:22.914 [TODO       ] -              -                      plan created with 8 items
+02:33:22.914 [RUN        ] -              -                      run demo-faults config='fault_demo' mode=mock prompts=v1 briefs=1 variants/brief=5 faults=on
+02:33:22.916 [CACHE      ] B2::brief      step.interpret_brief   reused interpretation of a near-identical brief (cosine 1.000, numeric guard matched)
+02:33:22.916 [ASK        ] B2::brief      step.resolve_contract  [batch default] Is there a unit cost target below the CNY 18 ceiling? -> Use the CNY 18 housing BOM ceiling
+02:33:22.920 [FAULT      ] B2-v001        llm.call               malformed_prose on concept_generator via deepseek-flash (attempt 1)
+02:33:22.925 [FAULT      ] B2-v002        llm.call               malformed_truncated on concept_generator via deepseek-flash (attempt 1)
+02:33:22.934 [RECOVERED  ] B2-v001        llm.call               JSON recovered from prose/code fence by the parser; no repair call
+02:33:22.941 [FAULT      ] B2-v001        llm.call               server_error on structural_modeler via deepseek-v4-pro (attempt 1)
+02:33:22.941 [RETRY      ] B2-v001        llm.call               deepseek-v4-pro attempt 1 failed (LLMServerError); backoff 14 ms
+02:33:22.941 [REPAIR     ] B2-v002        llm.call               deepseek-flash reply rejected: invalid JSON (Unterminated string starting at at char 684) -> repair 1/2
+02:33:22.954 [RECOVERED  ] B2-v002        llm.call               deepseek-flash returned valid ConceptSpec after 1 repair(s)
+02:33:22.965 [FAULT      ] B2-v002        llm.call               server_error on structural_modeler via deepseek-v4-pro (attempt 1)
+02:33:22.965 [RETRY      ] B2-v002        llm.call               deepseek-v4-pro attempt 1 failed (LLMServerError); backoff 20 ms
+02:33:22.966 [FAULT      ] B2-v001        llm.call               server_error on structural_modeler via deepseek-v4-pro (attempt 2)
+02:33:22.966 [RETRY      ] B2-v001        llm.call               deepseek-v4-pro attempt 2 failed (LLMServerError); backoff 30 ms
+02:33:22.986 [FAULT      ] B2-v002        llm.call               server_error on structural_modeler via deepseek-v4-pro (attempt 2)
+02:33:22.986 [RETRY      ] B2-v002        llm.call               deepseek-v4-pro attempt 2 failed (LLMServerError); backoff 14 ms
+02:33:22.998 [FAULT      ] B2-v001        llm.call               server_error on structural_modeler via deepseek-v4-pro (attempt 3)
+02:33:22.998 [FALLBACK   ] B2-v001        llm.call               deepseek:deepseek-v4-pro gave up (LLMServerError) -> next route in 'structural_modeler' chain
+02:33:23.001 [FAULT      ] B2-v002        llm.call               server_error on structural_modeler via deepseek-v4-pro (attempt 3)
+02:33:23.001 [FALLBACK   ] B2-v002        llm.call               deepseek:deepseek-v4-pro gave up (LLMServerError) -> next route in 'structural_modeler' chain
+02:33:23.023 [RECOVERED  ] B2-v002        llm.call               served by fallback route #1 (deepseek:deepseek-flash)
+02:33:23.024 [RECOVERED  ] B2-v001        llm.call               served by fallback route #1 (deepseek:deepseek-flash)
+02:33:23.026 [FAULT      ] B2-v002        tool.call              tool_error on tool 'dfm_validate' (attempt 1)
+02:33:23.026 [RETRY      ] B2-v002        tool.call              tool 'dfm_validate' attempt 1 failed (ToolError); backoff 7 ms
+02:33:23.035 [FAULT      ] B2-v001        llm.call               rate_limit on reviser via deepseek-flash (attempt 1)
+02:33:23.035 [THROTTLE   ] B2-v001        llm.call               429 from deepseek-flash: in-flight limit -> 2
+02:33:23.035 [RETRY      ] B2-v001        llm.call               deepseek-flash attempt 1 failed (LLMRateLimited); backoff 9 ms
+02:33:23.038 [RECOVERED  ] B2-v002        tool.call              tool 'dfm_validate' succeeded on attempt 2
+02:33:23.048 [FAULT      ] B2-v002        llm.call               rate_limit on reviser via deepseek-flash (attempt 1)
+02:33:23.048 [THROTTLE   ] B2-v002        llm.call               429 from deepseek-flash: in-flight limit -> 1
+02:33:23.048 [RETRY      ] B2-v002        llm.call               deepseek-flash attempt 1 failed (LLMRateLimited); backoff 15 ms
+02:33:23.102 [TOOL       ] B2-v001        step.revise            reviser called cost_what_if({"material": "ABS", "drop_secondary_ops": ["tpe_overmold"], "remove_bumper": true}) -> {"what_if": {"material": "ABS", "drop_secondary_ops": ["tpe_overmold"], "remove_bumper": true}, "total_cny": 1
+02:33:23.116 [FAULT      ] B2-v002        llm.call               server_error on quality_judge via deepseek-v4-pro (attempt 1)
+02:33:23.116 [RETRY      ] B2-v002        llm.call               deepseek-v4-pro attempt 1 failed (LLMServerError); backoff 28 ms
+02:33:23.149 [FAULT      ] B2-v002        llm.call               server_error on quality_judge via deepseek-v4-pro (attempt 2)
+02:33:23.149 [RETRY      ] B2-v002        llm.call               deepseek-v4-pro attempt 2 failed (LLMServerError); backoff 70 ms
+02:33:23.200 [FAULT      ] B2-v001        llm.call               malformed_types on quality_judge via deepseek-v4-pro (attempt 1)
+02:33:23.211 [REPAIR     ] B2-v001        llm.call               deepseek-v4-pro reply rejected: schema validation failed -> scores.brief_adherence: Input should be a valid integer, unable to parse string as an integer -> repair 1/2
+02:33:23.211 [FAULT      ] B2-v001        llm.call               server_error on quality_judge via deepseek-v4-pro (attempt 1)
+02:33:23.212 [RETRY      ] B2-v001        llm.call               deepseek-v4-pro attempt 1 failed (LLMServerError); backoff 9 ms
+02:33:23.220 [FAULT      ] B2-v002        llm.call               server_error on quality_judge via deepseek-v4-pro (attempt 3)
+02:33:23.220 [FALLBACK   ] B2-v002        llm.call               deepseek:deepseek-v4-pro gave up (LLMServerError) -> next route in 'quality_judge' chain
+02:33:23.221 [FAULT      ] B2-v001        llm.call               server_error on quality_judge via deepseek-v4-pro (attempt 2)
+02:33:23.221 [RETRY      ] B2-v001        llm.call               deepseek-v4-pro attempt 2 failed (LLMServerError); backoff 47 ms
+02:33:23.224 [RECOVERED  ] B2-v002        llm.call               served by fallback route #1 (deepseek:deepseek-flash)
+02:33:23.225 [DONE       ] B2-v002        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 16.25 | judge 3.83 | 10 steps, 1 LLM rev, 1 autofix | 16637 tok
+02:33:23.244 [FAULT      ] B2-v003        llm.call               server_error on structural_modeler via deepseek-v4-pro (attempt 1)
+02:33:23.244 [RETRY      ] B2-v003        llm.call               deepseek-v4-pro attempt 1 failed (LLMServerError); backoff 16 ms
+02:33:23.260 [FAULT      ] B2-v003        llm.call               server_error on structural_modeler via deepseek-v4-pro (attempt 2)
+02:33:23.261 [RETRY      ] B2-v003        llm.call               deepseek-v4-pro attempt 2 failed (LLMServerError); backoff 67 ms
+02:33:23.269 [FAULT      ] B2-v001        llm.call               server_error on quality_judge via deepseek-v4-pro (attempt 3)
+02:33:23.270 [FALLBACK   ] B2-v001        llm.call               deepseek:deepseek-v4-pro gave up (LLMServerError) -> next route in 'quality_judge' chain
+02:33:23.270 [FAULT      ] B2-v001        llm.call               malformed_types on quality_judge via deepseek-flash (attempt 1)
+02:33:23.274 [REPAIR     ] B2-v001        llm.call               deepseek-flash reply rejected: schema validation failed -> scores.brief_adherence: Input should be a valid integer, unable to parse string as an integer -> repair 1/2
+02:33:23.279 [RECOVERED  ] B2-v001        llm.call               deepseek-flash returned valid JudgeOutput after 1 repair(s)
+02:33:23.279 [RECOVERED  ] B2-v001        llm.call               served by fallback route #1 (deepseek:deepseek-flash)
+02:33:23.280 [DONE       ] B2-v001        variant                NEEDS_HUMAN - passed with caveats | BOM CNY 15.77 | judge 4.00 | 11 steps, 2 LLM rev, 0 autofix | 30974 tok
+02:33:23.299 [FAULT      ] B2-v004        llm.call               server_error on structural_modeler via deepseek-v4-pro (attempt 1)
+02:33:23.299 [RETRY      ] B2-v004        llm.call               deepseek-v4-pro attempt 1 failed (LLMServerError); backoff 14 ms
+02:33:23.315 [FAULT      ] B2-v004        llm.call               server_error on structural_modeler via deepseek-v4-pro (attempt 2)
+02:33:23.315 [RETRY      ] B2-v004        llm.call               deepseek-v4-pro attempt 2 failed (LLMServerError); backoff 43 ms
+02:33:23.329 [FAULT      ] B2-v003        llm.call               server_error on structural_modeler via deepseek-v4-pro (attempt 3)
+02:33:23.329 [CIRCUIT    ] B2-v003        llm.call               breaker llm:deepseek:deepseek-v4-pro: closed -> open
+02:33:23.329 [FALLBACK   ] B2-v003        llm.call               deepseek:deepseek-v4-pro gave up (LLMServerError) -> next route in 'structural_modeler' chain
+02:33:23.351 [RECOVERED  ] B2-v003        llm.call               served by fallback route #1 (deepseek:deepseek-flash)
+02:33:23.358 [FAULT      ] B2-v004        llm.call               server_error on structural_modeler via deepseek-v4-pro (attempt 3)
+02:33:23.358 [FALLBACK   ] B2-v004        llm.call               deepseek:deepseek-v4-pro gave up (LLMServerError) -> next route in 'structural_modeler' chain
+02:33:23.371 [CIRCUIT    ] B2-v003        llm.call               deepseek:deepseek-v4-pro circuit open -> next route
+02:33:23.375 [RECOVERED  ] B2-v003        llm.call               served by fallback route #1 (deepseek:deepseek-flash)
+02:33:23.376 [DONE       ] B2-v003        variant                REJECTED - off-brief: judge brief_adherence 3 < 4 (durability-led brief; 3/4 key brief signals present in the spec (chamfered_slab,) | BOM CNY 15.79 | judge 3.83 | 8 steps, 0 LLM rev, 1 autofix | 8617 tok
+02:33:23.378 [RECOVERED  ] B2-v004        llm.call               served by fallback route #1 (deepseek:deepseek-flash)
+02:33:23.379 [FAULT      ] B2-v004        tool.call              timeout on tool 'materials_lookup' (attempt 1)
+02:33:23.395 [CIRCUIT    ] B2-v005        llm.call               deepseek:deepseek-v4-pro circuit open -> next route
+02:33:23.417 [RECOVERED  ] B2-v005        llm.call               served by fallback route #1 (deepseek:deepseek-flash)
+02:33:23.433 [FAULT      ] B2-v005        llm.call               rate_limit on reviser via deepseek-flash (attempt 1)
+02:33:23.433 [THROTTLE   ] B2-v005        llm.call               429 from deepseek-flash: in-flight limit -> 1
+02:33:23.433 [RETRY      ] B2-v005        llm.call               deepseek-flash attempt 1 failed (LLMRateLimited); backoff 37 ms
+02:33:23.508 [CIRCUIT    ] B2-v005        llm.call               deepseek:deepseek-v4-pro circuit open -> next route
+02:33:23.512 [RECOVERED  ] B2-v005        llm.call               served by fallback route #1 (deepseek:deepseek-flash)
+02:33:23.513 [DONE       ] B2-v005        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 15.79 | judge 4.33 | 10 steps, 1 LLM rev, 1 autofix | 14276 tok
+02:33:23.780 [RETRY      ] B2-v004        tool.call              tool 'materials_lookup' attempt 1 failed (ToolTimeout); backoff 8 ms
+02:33:23.789 [FAULT      ] B2-v004        tool.call              timeout on tool 'materials_lookup' (attempt 2)
+02:33:24.191 [RETRY      ] B2-v004        tool.call              tool 'materials_lookup' attempt 2 failed (ToolTimeout); backoff 5 ms
+02:33:24.196 [FAULT      ] B2-v004        tool.call              timeout on tool 'materials_lookup' (attempt 3)
+02:33:24.597 [DEGRADED   ] B2-v004        tool.call              'materials_lookup' unavailable (ToolTimeout: attempt 3 exceeded 0.40s) -> bundled price snapshot (stale prices flagged)
+02:33:24.622 [FAULT      ] B2-v004        llm.call               rate_limit on reviser via deepseek-flash (attempt 1)
+02:33:24.623 [THROTTLE   ] B2-v004        llm.call               429 from deepseek-flash: in-flight limit -> 1
+02:33:24.623 [RETRY      ] B2-v004        llm.call               deepseek-flash attempt 1 failed (LLMRateLimited); backoff 36 ms
+02:33:24.716 [TOOL       ] B2-v004        step.revise            reviser called cost_what_if({"material": "ABS", "drop_secondary_ops": ["tpe_overmold"], "remove_bumper": true}) -> {"what_if": {"material": "ABS", "drop_secondary_ops": ["tpe_overmold"], "remove_bumper": true}, "total_cny": 1
+02:33:24.763 [CIRCUIT    ] B2-v004        llm.call               deepseek:deepseek-v4-pro circuit open -> next route
+02:33:24.768 [RECOVERED  ] B2-v004        llm.call               served by fallback route #1 (deepseek:deepseek-flash)
+02:33:24.769 [DONE       ] B2-v004        variant                REJECTED - off-brief: judge brief_adherence 3 < 4 (1 intent-affecting change(s) during revision) | BOM CNY 15.52 | judge 3.50 | 13 steps, 2 LLM rev, 1 autofix | 25098 tok

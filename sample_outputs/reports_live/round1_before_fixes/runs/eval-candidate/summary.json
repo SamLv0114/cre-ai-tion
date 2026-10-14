@@ -1,0 +1,1154 @@
+{
+  "run_id": "eval-candidate",
+  "config": "candidate_prompt_v2",
+  "llm_mode": "live",
+  "prompt_version": "v2",
+  "variants": 12,
+  "status_counts": {
+    "production_ready": 7,
+    "needs_human": 3,
+    "rejected": 2
+  },
+  "production_ready": 7,
+  "briefs": {
+    "B1": {
+      "title": "Retail apartment detector (cost first)",
+      "conflict_detected": false,
+      "requires_human_resolution": false,
+      "cost_ceiling_cny": 12.0,
+      "floor_cost_cny": 9.36,
+      "assumptions": [
+        "Q1 default: 0.75 m (typical desk height)",
+        "Q2 default: No IP rating (indoor use only)",
+        "Q3 default: Dark grey or matte black",
+        "Q4 default: Light texture (e.g., VDI 24) to hide fingerprints"
+      ],
+      "statuses": {
+        "production_ready": 2
+      },
+      "shortlist": [
+        "B1-v001",
+        "B1-v002"
+      ]
+    },
+    "B2": {
+      "title": "Construction-site handheld (rugged)",
+      "conflict_detected": false,
+      "requires_human_resolution": false,
+      "cost_ceiling_cny": 18.0,
+      "floor_cost_cny": 12.55,
+      "assumptions": [
+        "Q1 default: Assume -10\u00b0C to 50\u00b0C, typical for outdoor handheld devices.",
+        "Q2 default: Assume safety orange (Pantone 152C) for high visibility.",
+        "Q3 default: Assume UV resistance per ASTM G154 for 500 hours without significant color change or mechanical degradation.",
+        "Q4 default: Assume rechargeable Li-ion battery with USB-C charging, typical for portable devices."
+      ],
+      "statuses": {
+        "needs_human": 2
+      },
+      "shortlist": [
+        "B2-v002",
+        "B2-v001"
+      ]
+    },
+    "B3": {
+      "title": "Living-room sideboard object (premium)",
+      "conflict_detected": false,
+      "requires_human_resolution": false,
+      "cost_ceiling_cny": 18.0,
+      "floor_cost_cny": 9.36,
+      "assumptions": [
+        "Q1 default: Assume a typical living room viewing distance of 2-3 meters, requiring a display with sufficient size and contrast.",
+        "Q2 default: Assume a soft-touch paint or a matte texture achieved through mold finishing, avoiding additional coatings if possible.",
+        "Q3 default: Assume basic design for disassembly is preferred, but not a hard requirement."
+      ],
+      "statuses": {
+        "production_ready": 2
+      },
+      "shortlist": [
+        "B3-v002",
+        "B3-v001"
+      ]
+    },
+    "B4": {
+      "title": "Circular edition (sustainable)",
+      "conflict_detected": false,
+      "requires_human_resolution": false,
+      "cost_ceiling_cny": 18.0,
+      "floor_cost_cny": 9.4,
+      "assumptions": [
+        "Q1 default: No IP rating required (indoor use).",
+        "Q2 default: Standard consumer electronics drop height of 1.0 m onto concrete.",
+        "Q3 default: 100% post-consumer recycled ABS.",
+        "Q4 default: Prioritize lowest feasible carbon footprint without specific numeric target."
+      ],
+      "statuses": {
+        "needs_human": 1,
+        "production_ready": 1
+      },
+      "shortlist": [
+        "B4-v002",
+        "B4-v001"
+      ]
+    },
+    "B5": {
+      "title": "Flagship that wants everything (intentionally conflicting)",
+      "conflict_detected": true,
+      "requires_human_resolution": true,
+      "cost_ceiling_cny": 18.0,
+      "floor_cost_cny": 12.59,
+      "assumptions": [
+        "Relaxed cost_ceiling_cny: 9 -> 18 (cheapest feasible housing costs CNY 12.59 > target CNY 9)",
+        "Relaxed max_height_mm: 18 -> 26 (PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls)",
+        "Relaxed max_mass_g: 120 -> 180 (lightest feasible product weighs 120.5 g > 120 g)",
+        "Q1 default: Total product thickness.",
+        "Q2 default: Total product mass including internals.",
+        "Q3 default: 1 meter for 30 minutes.",
+        "Q4 default: Exterior only, standard soft-touch polyurethane paint.",
+        "Q5 default: Molded-in matte texture."
+      ],
+      "statuses": {
+        "rejected": 2
+      },
+      "shortlist": []
+    },
+    "B6": {
+      "title": "Open-plan office desk unit (balanced control)",
+      "conflict_detected": false,
+      "requires_human_resolution": false,
+      "cost_ceiling_cny": 18.0,
+      "floor_cost_cny": 9.36,
+      "assumptions": [
+        "Q1 default: Display size sufficient for readability at 1.5 m distance, with high contrast and appropriate font size.",
+        "Q2 default: Standard office use durability, no specific drop test required.",
+        "Q3 default: Cost is primary; rABS considered only if cost-competitive."
+      ],
+      "statuses": {
+        "production_ready": 2
+      },
+      "shortlist": [
+        "B6-v002",
+        "B6-v001"
+      ]
+    }
+  },
+  "shortlist": {
+    "B1": [
+      "B1-v001",
+      "B1-v002"
+    ],
+    "B2": [
+      "B2-v002",
+      "B2-v001"
+    ],
+    "B3": [
+      "B3-v002",
+      "B3-v001"
+    ],
+    "B4": [
+      "B4-v002",
+      "B4-v001"
+    ],
+    "B5": [],
+    "B6": [
+      "B6-v002",
+      "B6-v001"
+    ]
+  },
+  "first_pass_dfm_rate": 0.0,
+  "avg_llm_revisions": 0.583,
+  "avg_autofixes": 1.0,
+  "fallback_rate": 0.25,
+  "tokens_total": 283462,
+  "llm_calls": 51,
+  "model_cost_cny_total": 2.4526,
+  "model_cost_cny_per_variant": 0.18871,
+  "modeled_latency_ms_p50": 21237.6,
+  "modeled_latency_ms_p95": 31793.6,
+  "wall_clock_s": 116.43,
+  "faults_injected": {},
+  "breakers": {
+    "llm:deepseek:deepseek-v4-pro": "closed",
+    "llm:deepseek:deepseek-flash": "closed",
+    "tool:materials_lookup": "closed",
+    "tool:dfm_validate": "closed",
+    "tool:tooling_quote": "closed"
+  },
+  "steps_executed": 128,
+  "steps_replayed": 0,
+  "lessons_learned": [],
+  "contracts": {
+    "B1": {
+      "brief_id": "B1",
+      "intent": {
+        "brief_id": "B1",
+        "summary": "Retail-channel air quality detector for rental apartments. Lowest possible unit cost is the top priority: target CNY 12 per housing at 10k units/year. Plain but tidy look in a colour that hides scuffs and fingerprints. It must survive knocks on a desk. Two-part shell, no decoration beyond a printed logo, budget tooling.",
+        "priorities": {
+          "cost": 1.0,
+          "durability": 0.7,
+          "aesthetics": 0.4,
+          "sustainability": 0.2
+        },
+        "environment": "indoor",
+        "allowed_materials": [
+          "ABS",
+          "rABS"
+        ],
+        "preferred_finishes": [
+          "textured_light",
+          "textured_heavy"
+        ],
+        "style_keywords": [
+          "plain",
+          "tidy",
+          "utilitarian",
+          "scuff-hiding"
+        ],
+        "target_unit_cost_cny": 12.0,
+        "max_thickness_mm": null,
+        "max_mass_g": 180.0,
+        "ip_rating": "none",
+        "drop_height_m": 0.75,
+        "must_haves": [
+          "Two-part shell",
+          "Printed logo only, no other decoration",
+          "Budget tooling",
+          "Colour that hides scuffs and fingerprints",
+          "Survive knocks on a desk"
+        ],
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "description": "Target housing cost of CNY 12 may be difficult to achieve with ABS or rABS at 10k units/year, especially with budget tooling and a two-part shell requiring assembly.",
+            "requirements": [
+              "target_unit_cost_cny = 12",
+              "allowed_materials includes ABS or rABS",
+              "two-part shell",
+              "budget tooling"
+            ],
+            "severity": "soft",
+            "proposed_resolution": "Consider simplifying part geometry, reducing wall thickness, using a single-cavity family mould, or negotiating material pricing; if cost cannot be met, revisit target or material choice.",
+            "source": "llm"
+          }
+        ],
+        "open_questions": [
+          {
+            "question_id": "Q1",
+            "question": "What is the required drop height for desk knocks?",
+            "default_assumption": "0.75 m (typical desk height)",
+            "blocking": false
+          },
+          {
+            "question_id": "Q2",
+            "question": "Is any IP rating required for the housing?",
+            "default_assumption": "No IP rating (indoor use only)",
+            "blocking": false
+          },
+          {
+            "question_id": "Q3",
+            "question": "What specific colour is preferred to hide scuffs and fingerprints?",
+            "default_assumption": "Dark grey or matte black",
+            "blocking": false
+          },
+          {
+            "question_id": "Q4",
+            "question": "Are there any specific texture requirements for the finish?",
+            "default_assumption": "Light texture (e.g., VDI 24) to hide fingerprints",
+            "blocking": false
+          }
+        ]
+      },
+      "cost_ceiling_cny": 12.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "max_mass_g": 180.0,
+      "allowed_materials": [
+        "ABS",
+        "rABS"
+      ],
+      "ip_rating": "none",
+      "floor_cost_cny": 9.36,
+      "conflicts": [
+        {
+          "conflict_id": "C1",
+          "description": "Target housing cost of CNY 12 may be difficult to achieve with ABS or rABS at 10k units/year, especially with budget tooling and a two-part shell requiring assembly.",
+          "requirements": [
+            "target_unit_cost_cny = 12",
+            "allowed_materials includes ABS or rABS",
+            "two-part shell",
+            "budget tooling"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "Consider simplifying part geometry, reducing wall thickness, using a single-cavity family mould, or negotiating material pricing; if cost cannot be met, revisit target or material choice.",
+          "source": "llm"
+        }
+      ],
+      "open_questions": [
+        {
+          "question_id": "Q1",
+          "question": "What is the required drop height for desk knocks?",
+          "default_assumption": "0.75 m (typical desk height)",
+          "blocking": false
+        },
+        {
+          "question_id": "Q2",
+          "question": "Is any IP rating required for the housing?",
+          "default_assumption": "No IP rating (indoor use only)",
+          "blocking": false
+        },
+        {
+          "question_id": "Q3",
+          "question": "What specific colour is preferred to hide scuffs and fingerprints?",
+          "default_assumption": "Dark grey or matte black",
+          "blocking": false
+        },
+        {
+          "question_id": "Q4",
+          "question": "Are there any specific texture requirements for the finish?",
+          "default_assumption": "Light texture (e.g., VDI 24) to hide fingerprints",
+          "blocking": false
+        }
+      ],
+      "relaxations": [],
+      "assumptions": [
+        "Q1 default: 0.75 m (typical desk height)",
+        "Q2 default: No IP rating (indoor use only)",
+        "Q3 default: Dark grey or matte black",
+        "Q4 default: Light texture (e.g., VDI 24) to hide fingerprints"
+      ],
+      "requires_human_resolution": false
+    },
+    "B2": {
+      "brief_id": "B2",
+      "intent": {
+        "brief_id": "B2",
+        "summary": "Rugged handheld air quality detector for outdoor construction-site use, prioritizing durability, IP65 sealing, drop survival, UV resistance, and glove-friendly grippy textured surfaces with high-visibility color and protected corners.",
+        "priorities": {
+          "cost": 0.4,
+          "durability": 1.0,
+          "aesthetics": 0.3,
+          "sustainability": 0.2
+        },
+        "environment": "outdoor",
+        "allowed_materials": [
+          "ABS",
+          "PC-ABS",
+          "rABS"
+        ],
+        "preferred_finishes": [
+          "textured_heavy",
+          "textured_light"
+        ],
+        "style_keywords": [
+          "rugged",
+          "high-visibility",
+          "grippy",
+          "protected corners",
+          "glove-friendly"
+        ],
+        "target_unit_cost_cny": 18.0,
+        "max_thickness_mm": null,
+        "max_mass_g": 180.0,
+        "ip_rating": "IP65",
+        "drop_height_m": 1.5,
+        "must_haves": [
+          "Survive 1.5 m drop onto concrete",
+          "IP65 dust and water resistance",
+          "UV exposure resistance",
+          "Usable with work gloves",
+          "Tough, grippy textured surfaces",
+          "High-visibility color",
+          "Protected corners"
+        ],
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "description": "Achieving IP65 sealing and 1.5 m drop survival with a BOM cost ceiling of CNY 18 may be challenging, especially with recycled ABS (rABS) which may have lower impact strength and UV stability.",
+            "requirements": [
+              "IP65 rating",
+              "1.5 m drop onto concrete",
+              "BOM cost <= CNY 18",
+              "Allowed materials include rABS"
+            ],
+            "severity": "soft",
+            "proposed_resolution": "Prioritize PC-ABS for better impact and UV resistance; use rABS only if testing confirms compliance; consider design features like thick walls, gaskets, and corner bumpers to meet durability within cost.",
+            "source": "llm"
+          }
+        ],
+        "open_questions": [
+          {
+            "question_id": "Q1",
+            "question": "What is the required operating temperature range for the device?",
+            "default_assumption": "Assume -10\u00b0C to 50\u00b0C, typical for outdoor handheld devices.",
+            "blocking": false
+          },
+          {
+            "question_id": "Q2",
+            "question": "Is there a specific high-visibility color required (e.g., safety orange or yellow)?",
+            "default_assumption": "Assume safety orange (Pantone 152C) for high visibility.",
+            "blocking": false
+          },
+          {
+            "question_id": "Q3",
+            "question": "Are there any specific UV resistance standards or test durations required?",
+            "default_assumption": "Assume UV resistance per ASTM G154 for 500 hours without significant color change or mechanical degradation.",
+            "blocking": false
+          },
+          {
+            "question_id": "Q4",
+            "question": "What is the expected battery life or power source?",
+            "default_assumption": "Assume rechargeable Li-ion battery with USB-C charging, typical for portable devices.",
+            "blocking": false
+          }
+        ]
+      },
+      "cost_ceiling_cny": 18.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "max_mass_g": 180.0,
+      "allowed_materials": [
+        "ABS",
+        "PC-ABS",
+        "rABS"
+      ],
+      "ip_rating": "IP65",
+      "floor_cost_cny": 12.55,
+      "conflicts": [
+        {
+          "conflict_id": "C1",
+          "description": "Achieving IP65 sealing and 1.5 m drop survival with a BOM cost ceiling of CNY 18 may be challenging, especially with recycled ABS (rABS) which may have lower impact strength and UV stability.",
+          "requirements": [
+            "IP65 rating",
+            "1.5 m drop onto concrete",
+            "BOM cost <= CNY 18",
+            "Allowed materials include rABS"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "Prioritize PC-ABS for better impact and UV resistance; use rABS only if testing confirms compliance; consider design features like thick walls, gaskets, and corner bumpers to meet durability within cost.",
+          "source": "llm"
+        },
+        {
+          "conflict_id": "R-vent",
+          "description": "IP65 sealing vs. >= 15% open intake",
+          "requirements": [
+            "ingress rating",
+            "vent open area"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "gasket + ePTFE membrane vent (adds ~CNY 2.7/unit)",
+          "source": "rule"
+        }
+      ],
+      "open_questions": [
+        {
+          "question_id": "Q1",
+          "question": "What is the required operating temperature range for the device?",
+          "default_assumption": "Assume -10\u00b0C to 50\u00b0C, typical for outdoor handheld devices.",
+          "blocking": false
+        },
+        {
+          "question_id": "Q2",
+          "question": "Is there a specific high-visibility color required (e.g., safety orange or yellow)?",
+          "default_assumption": "Assume safety orange (Pantone 152C) for high visibility.",
+          "blocking": false
+        },
+        {
+          "question_id": "Q3",
+          "question": "Are there any specific UV resistance standards or test durations required?",
+          "default_assumption": "Assume UV resistance per ASTM G154 for 500 hours without significant color change or mechanical degradation.",
+          "blocking": false
+        },
+        {
+          "question_id": "Q4",
+          "question": "What is the expected battery life or power source?",
+          "default_assumption": "Assume rechargeable Li-ion battery with USB-C charging, typical for portable devices.",
+          "blocking": false
+        }
+      ],
+      "relaxations": [],
+      "assumptions": [
+        "Q1 default: Assume -10\u00b0C to 50\u00b0C, typical for outdoor handheld devices.",
+        "Q2 default: Assume safety orange (Pantone 152C) for high visibility.",
+        "Q3 default: Assume UV resistance per ASTM G154 for 500 hours without significant color change or mechanical degradation.",
+        "Q4 default: Assume rechargeable Li-ion battery with USB-C charging, typical for portable devices."
+      ],
+      "requires_human_resolution": false
+    },
+    "B3": {
+      "brief_id": "B3",
+      "intent": {
+        "brief_id": "B3",
+        "summary": "Premium living-room air quality detector with a calm, minimal, furniture-like design. It should sit elegantly on a sideboard, with soft-touch or fine matte surfaces, hidden fasteners, and a slim profile. The display must be readable from the sofa. Indoor use only, targeting a design-led home brand.",
+        "priorities": {
+          "cost": 0.4,
+          "durability": 0.5,
+          "aesthetics": 0.9,
+          "sustainability": 0.6
+        },
+        "environment": "indoor",
+        "allowed_materials": [
+          "ABS",
+          "PC-ABS",
+          "rABS"
+        ],
+        "preferred_finishes": [
+          "smooth_matte",
+          "textured_light"
+        ],
+        "style_keywords": [
+          "calm",
+          "minimal",
+          "furniture-like",
+          "elegant",
+          "soft-touch",
+          "slim",
+          "hidden fasteners"
+        ],
+        "target_unit_cost_cny": 18.0,
+        "max_thickness_mm": 30.0,
+        "max_mass_g": 180.0,
+        "ip_rating": "none",
+        "drop_height_m": null,
+        "must_haves": [
+          "Display readable from sofa",
+          "Hidden fasteners",
+          "Slim profile",
+          "Soft-touch or fine matte surface"
+        ],
+        "conflicts": [],
+        "open_questions": [
+          {
+            "question_id": "Q1",
+            "question": "What is the required viewing distance from the sofa to the display?",
+            "default_assumption": "Assume a typical living room viewing distance of 2-3 meters, requiring a display with sufficient size and contrast.",
+            "blocking": false
+          },
+          {
+            "question_id": "Q2",
+            "question": "Is there a preference for a specific soft-touch coating or overmolding process?",
+            "default_assumption": "Assume a soft-touch paint or a matte texture achieved through mold finishing, avoiding additional coatings if possible.",
+            "blocking": false
+          },
+          {
+            "question_id": "Q3",
+            "question": "Should the product be designed for disassembly or recycling at end of life?",
+            "default_assumption": "Assume basic design for disassembly is preferred, but not a hard requirement.",
+            "blocking": false
+          }
+        ]
+      },
+      "cost_ceiling_cny": 18.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "max_mass_g": 180.0,
+      "allowed_materials": [
+        "ABS",
+        "PC-ABS",
+        "rABS"
+      ],
+      "ip_rating": "none",
+      "floor_cost_cny": 9.36,
+      "conflicts": [],
+      "open_questions": [
+        {
+          "question_id": "Q1",
+          "question": "What is the required viewing distance from the sofa to the display?",
+          "default_assumption": "Assume a typical living room viewing distance of 2-3 meters, requiring a display with sufficient size and contrast.",
+          "blocking": false
+        },
+        {
+          "question_id": "Q2",
+          "question": "Is there a preference for a specific soft-touch coating or overmolding process?",
+          "default_assumption": "Assume a soft-touch paint or a matte texture achieved through mold finishing, avoiding additional coatings if possible.",
+          "blocking": false
+        },
+        {
+          "question_id": "Q3",
+          "question": "Should the product be designed for disassembly or recycling at end of life?",
+          "default_assumption": "Assume basic design for disassembly is preferred, but not a hard requirement.",
+          "blocking": false
+        }
+      ],
+      "relaxations": [],
+      "assumptions": [
+        "Q1 default: Assume a typical living room viewing distance of 2-3 meters, requiring a display with sufficient size and contrast.",
+        "Q2 default: Assume a soft-touch paint or a matte texture achieved through mold finishing, avoiding additional coatings if possible.",
+        "Q3 default: Assume basic design for disassembly is preferred, but not a hard requirement."
+      ],
+      "requires_human_resolution": false
+    },
+    "B4": {
+      "brief_id": "B4",
+      "intent": {
+        "brief_id": "B4",
+        "summary": "Sustainable edition for an eco-conscious brand using only recycled ABS, no paint or coatings, mono-material housing, screw-free disassembly for repair and recycling, with an honest, warm, slightly speckled look prioritizing carbon footprint over gloss.",
+        "priorities": {
+          "cost": 0.4,
+          "durability": 0.6,
+          "aesthetics": 0.5,
+          "sustainability": 1.0
+        },
+        "environment": "indoor",
+        "allowed_materials": [
+          "rABS"
+        ],
+        "preferred_finishes": [
+          "textured_light"
+        ],
+        "style_keywords": [
+          "honest",
+          "warm",
+          "slightly speckled",
+          "eco-conscious",
+          "mono-material",
+          "repairable",
+          "recyclable"
+        ],
+        "target_unit_cost_cny": 18.0,
+        "max_thickness_mm": null,
+        "max_mass_g": 180.0,
+        "ip_rating": "none",
+        "drop_height_m": null,
+        "must_haves": [
+          "Use only recycled ABS for every plastic part",
+          "No paint or coatings",
+          "Mono-material housing",
+          "Screw-free disassembly",
+          "Repairable and recyclable",
+          "Honest, warm, slightly speckled look",
+          "Carbon footprint matters more than gloss"
+        ],
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "description": "Screw-free disassembly may conflict with durability and IP rating requirements if any, but no IP rating specified. Recycled ABS may have lower impact strength than virgin ABS, affecting drop performance.",
+            "requirements": [
+              "Screw-free disassembly",
+              "Durability",
+              "Recycled ABS"
+            ],
+            "severity": "soft",
+            "proposed_resolution": "Use snap-fit features designed for repeated disassembly, and select high-quality rABS with impact modifiers; validate with drop tests.",
+            "source": "llm"
+          },
+          {
+            "conflict_id": "C2",
+            "description": "No paint or coatings may limit color consistency and surface finish, but speckled look is desired; recycled ABS may have batch-to-batch color variation.",
+            "requirements": [
+              "No paint or coatings",
+              "Slightly speckled look",
+              "Color consistency"
+            ],
+            "severity": "soft",
+            "proposed_resolution": "Specify rABS with controlled regrind content and masterbatch speckles; accept natural variation as part of the aesthetic.",
+            "source": "llm"
+          }
+        ],
+        "open_questions": [
+          {
+            "question_id": "Q1",
+            "question": "What is the required IP rating or environmental sealing?",
+            "default_assumption": "No IP rating required (indoor use).",
+            "blocking": false
+          },
+          {
+            "question_id": "Q2",
+            "question": "What is the expected drop height or impact resistance?",
+            "default_assumption": "Standard consumer electronics drop height of 1.0 m onto concrete.",
+            "blocking": false
+          },
+          {
+            "question_id": "Q3",
+            "question": "Are there any specific recycled content percentage requirements for rABS?",
+            "default_assumption": "100% post-consumer recycled ABS.",
+            "blocking": false
+          },
+          {
+            "question_id": "Q4",
+            "question": "Is there a target for carbon footprint reduction or specific LCA metrics?",
+            "default_assumption": "Prioritize lowest feasible carbon footprint without specific numeric target.",
+            "blocking": false
+          }
+        ]
+      },
+      "cost_ceiling_cny": 18.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "max_mass_g": 180.0,
+      "allowed_materials": [
+        "rABS"
+      ],
+      "ip_rating": "none",
+      "floor_cost_cny": 9.4,
+      "conflicts": [
+        {
+          "conflict_id": "C1",
+          "description": "Screw-free disassembly may conflict with durability and IP rating requirements if any, but no IP rating specified. Recycled ABS may have lower impact strength than virgin ABS, affecting drop performance.",
+          "requirements": [
+            "Screw-free disassembly",
+            "Durability",
+            "Recycled ABS"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "Use snap-fit features designed for repeated disassembly, and select high-quality rABS with impact modifiers; validate with drop tests.",
+          "source": "llm"
+        },
+        {
+          "conflict_id": "C2",
+          "description": "No paint or coatings may limit color consistency and surface finish, but speckled look is desired; recycled ABS may have batch-to-batch color variation.",
+          "requirements": [
+            "No paint or coatings",
+            "Slightly speckled look",
+            "Color consistency"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "Specify rABS with controlled regrind content and masterbatch speckles; accept natural variation as part of the aesthetic.",
+          "source": "llm"
+        }
+      ],
+      "open_questions": [
+        {
+          "question_id": "Q1",
+          "question": "What is the required IP rating or environmental sealing?",
+          "default_assumption": "No IP rating required (indoor use).",
+          "blocking": false
+        },
+        {
+          "question_id": "Q2",
+          "question": "What is the expected drop height or impact resistance?",
+          "default_assumption": "Standard consumer electronics drop height of 1.0 m onto concrete.",
+          "blocking": false
+        },
+        {
+          "question_id": "Q3",
+          "question": "Are there any specific recycled content percentage requirements for rABS?",
+          "default_assumption": "100% post-consumer recycled ABS.",
+          "blocking": false
+        },
+        {
+          "question_id": "Q4",
+          "question": "Is there a target for carbon footprint reduction or specific LCA metrics?",
+          "default_assumption": "Prioritize lowest feasible carbon footprint without specific numeric target.",
+          "blocking": false
+        }
+      ],
+      "relaxations": [],
+      "assumptions": [
+        "Q1 default: No IP rating required (indoor use).",
+        "Q2 default: Standard consumer electronics drop height of 1.0 m onto concrete.",
+        "Q3 default: 100% post-consumer recycled ABS.",
+        "Q4 default: Prioritize lowest feasible carbon footprint without specific numeric target."
+      ],
+      "requires_human_resolution": false
+    },
+    "B5": {
+      "brief_id": "B5",
+      "intent": {
+        "brief_id": "B5",
+        "summary": "Flagship portable air-quality detector housing with premium soft-touch painted finish, IP67 waterproof, ultra-slim 18 mm profile, 100% recycled plastic, under 120 g total mass, and housing cost \u2264 CNY 9, launching in six weeks.",
+        "priorities": {
+          "cost": 0.9,
+          "durability": 0.8,
+          "aesthetics": 0.9,
+          "sustainability": 0.9
+        },
+        "environment": "outdoor",
+        "allowed_materials": [
+          "rABS"
+        ],
+        "preferred_finishes": [
+          "smooth_matte"
+        ],
+        "style_keywords": [
+          "premium",
+          "soft-touch",
+          "ultra-slim",
+          "waterproof",
+          "recycled"
+        ],
+        "target_unit_cost_cny": 9.0,
+        "max_thickness_mm": 18.0,
+        "max_mass_g": 120.0,
+        "ip_rating": "IP67",
+        "drop_height_m": null,
+        "must_haves": [
+          "IP67 waterproof",
+          "18 mm max thickness",
+          "100% recycled plastic",
+          "total mass < 120 g",
+          "housing cost \u2264 CNY 9",
+          "soft-touch painted finish",
+          "launch in six weeks"
+        ],
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "description": "IP67 waterproofing typically requires sealing features, gaskets, and thicker walls, making an 18 mm ultra-slim profile extremely challenging, especially with recycled ABS which may have lower flow and strength.",
+            "requirements": [
+              "IP67 waterproof",
+              "18 mm max thickness"
+            ],
+            "severity": "hard",
+            "proposed_resolution": "Relax thickness to at least 22-25 mm or reduce waterproof rating to IP54; alternatively use overmolded gaskets and ultrasonic welding but still likely exceeds 18 mm.",
+            "source": "llm"
+          },
+          {
+            "conflict_id": "C2",
+            "description": "Achieving total mass under 120 g with internals weighing ~92 g leaves only 28 g for the housing. An IP67 enclosure with soft-touch paint and recycled ABS is unlikely to be that light.",
+            "requirements": [
+              "total mass < 120 g",
+              "internals ~92 g",
+              "IP67 waterproof",
+              "soft-touch painted finish"
+            ],
+            "severity": "hard",
+            "proposed_resolution": "Increase mass budget to at least 150 g or reduce internal weight; use thinner walls only if waterproofing is relaxed.",
+            "source": "llm"
+          },
+          {
+            "conflict_id": "C3",
+            "description": "Housing cost \u2264 CNY 9 with 100% recycled ABS, soft-touch painting, and IP67 sealing is likely infeasible at 10k units/year; painting and sealing add significant cost.",
+            "requirements": [
+              "housing cost \u2264 CNY 9",
+              "100% recycled plastic",
+              "soft-touch painted finish",
+              "IP67 waterproof"
+            ],
+            "severity": "hard",
+            "proposed_resolution": "Increase cost ceiling to at least CNY 15-18 or drop painting/IP67; consider molded-in texture instead of paint.",
+            "source": "llm"
+          },
+          {
+            "conflict_id": "C4",
+            "description": "Launch in six weeks is very aggressive for tooling, testing (especially IP67), and painting process validation with recycled material.",
+            "requirements": [
+              "launch in six weeks",
+              "IP67 waterproof",
+              "soft-touch painted finish",
+              "100% recycled plastic"
+            ],
+            "severity": "hard",
+            "proposed_resolution": "Extend timeline to at least 12-16 weeks or simplify requirements (e.g., IP54, no paint).",
+            "source": "llm"
+          }
+        ],
+        "open_questions": [
+          {
+            "question_id": "Q1",
+            "question": "Is the 18 mm thickness the total product thickness or just the housing wall thickness?",
+            "default_assumption": "Total product thickness.",
+            "blocking": true
+          },
+          {
+            "question_id": "Q2",
+            "question": "Does the 120 g mass limit include the internals (~92 g) or only the housing?",
+            "default_assumption": "Total product mass including internals.",
+            "blocking": true
+          },
+          {
+            "question_id": "Q3",
+            "question": "What is the exact IP67 test requirement (immersion depth and duration)?",
+            "default_assumption": "1 meter for 30 minutes.",
+            "blocking": false
+          },
+          {
+            "question_id": "Q4",
+            "question": "Is the soft-touch paint required to be on the exterior only, and is there a specific paint chemistry that must be compatible with recycled ABS?",
+            "default_assumption": "Exterior only, standard soft-touch polyurethane paint.",
+            "blocking": false
+          },
+          {
+            "question_id": "Q5",
+            "question": "What is the acceptable surface finish if painting is removed due to cost?",
+            "default_assumption": "Molded-in matte texture.",
+            "blocking": false
+          }
+        ]
+      },
+      "cost_ceiling_cny": 18.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 26.0
+      },
+      "max_mass_g": 180.0,
+      "allowed_materials": [
+        "rABS"
+      ],
+      "ip_rating": "IP67",
+      "floor_cost_cny": 12.59,
+      "conflicts": [
+        {
+          "conflict_id": "C1",
+          "description": "IP67 waterproofing typically requires sealing features, gaskets, and thicker walls, making an 18 mm ultra-slim profile extremely challenging, especially with recycled ABS which may have lower flow and strength.",
+          "requirements": [
+            "IP67 waterproof",
+            "18 mm max thickness"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "Relax thickness to at least 22-25 mm or reduce waterproof rating to IP54; alternatively use overmolded gaskets and ultrasonic welding but still likely exceeds 18 mm.",
+          "source": "llm"
+        },
+        {
+          "conflict_id": "C2",
+          "description": "Achieving total mass under 120 g with internals weighing ~92 g leaves only 28 g for the housing. An IP67 enclosure with soft-touch paint and recycled ABS is unlikely to be that light.",
+          "requirements": [
+            "total mass < 120 g",
+            "internals ~92 g",
+            "IP67 waterproof",
+            "soft-touch painted finish"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "Increase mass budget to at least 150 g or reduce internal weight; use thinner walls only if waterproofing is relaxed.",
+          "source": "llm"
+        },
+        {
+          "conflict_id": "C3",
+          "description": "Housing cost \u2264 CNY 9 with 100% recycled ABS, soft-touch painting, and IP67 sealing is likely infeasible at 10k units/year; painting and sealing add significant cost.",
+          "requirements": [
+            "housing cost \u2264 CNY 9",
+            "100% recycled plastic",
+            "soft-touch painted finish",
+            "IP67 waterproof"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "Increase cost ceiling to at least CNY 15-18 or drop painting/IP67; consider molded-in texture instead of paint.",
+          "source": "llm"
+        },
+        {
+          "conflict_id": "C4",
+          "description": "Launch in six weeks is very aggressive for tooling, testing (especially IP67), and painting process validation with recycled material.",
+          "requirements": [
+            "launch in six weeks",
+            "IP67 waterproof",
+            "soft-touch painted finish",
+            "100% recycled plastic"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "Extend timeline to at least 12-16 weeks or simplify requirements (e.g., IP54, no paint).",
+          "source": "llm"
+        },
+        {
+          "conflict_id": "R1",
+          "description": "Infeasible as written: cheapest feasible housing costs CNY 12.59 > target CNY 9",
+          "requirements": [
+            "cost_ceiling_cny"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "relax cost_ceiling_cny to 18",
+          "source": "rule"
+        },
+        {
+          "conflict_id": "R2",
+          "description": "Infeasible as written: PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls",
+          "requirements": [
+            "max_height_mm"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "relax max_height_mm to 26",
+          "source": "rule"
+        },
+        {
+          "conflict_id": "R3",
+          "description": "Infeasible as written: lightest feasible product weighs 120.5 g > 120 g",
+          "requirements": [
+            "max_mass_g"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "relax max_mass_g to 180",
+          "source": "rule"
+        },
+        {
+          "conflict_id": "R-vent",
+          "description": "IP67 sealing vs. >= 15% open intake",
+          "requirements": [
+            "ingress rating",
+            "vent open area"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "gasket + ePTFE membrane vent (adds ~CNY 2.7/unit)",
+          "source": "rule"
+        }
+      ],
+      "open_questions": [
+        {
+          "question_id": "Q1",
+          "question": "Is the 18 mm thickness the total product thickness or just the housing wall thickness?",
+          "default_assumption": "Total product thickness.",
+          "blocking": true
+        },
+        {
+          "question_id": "Q2",
+          "question": "Does the 120 g mass limit include the internals (~92 g) or only the housing?",
+          "default_assumption": "Total product mass including internals.",
+          "blocking": true
+        },
+        {
+          "question_id": "Q3",
+          "question": "What is the exact IP67 test requirement (immersion depth and duration)?",
+          "default_assumption": "1 meter for 30 minutes.",
+          "blocking": false
+        },
+        {
+          "question_id": "Q4",
+          "question": "Is the soft-touch paint required to be on the exterior only, and is there a specific paint chemistry that must be compatible with recycled ABS?",
+          "default_assumption": "Exterior only, standard soft-touch polyurethane paint.",
+          "blocking": false
+        },
+        {
+          "question_id": "Q5",
+          "question": "What is the acceptable surface finish if painting is removed due to cost?",
+          "default_assumption": "Molded-in matte texture.",
+          "blocking": false
+        }
+      ],
+      "relaxations": [
+        {
+          "field": "cost_ceiling_cny",
+          "strict_value": 9.0,
+          "relaxed_value": 18.0,
+          "reason": "cheapest feasible housing costs CNY 12.59 > target CNY 9",
+          "accepted": true
+        },
+        {
+          "field": "max_height_mm",
+          "strict_value": 18.0,
+          "relaxed_value": 26.0,
+          "reason": "PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls",
+          "accepted": true
+        },
+        {
+          "field": "max_mass_g",
+          "strict_value": 120.0,
+          "relaxed_value": 180.0,
+          "reason": "lightest feasible product weighs 120.5 g > 120 g",
+          "accepted": true
+        }
+      ],
+      "assumptions": [
+        "Relaxed cost_ceiling_cny: 9 -> 18 (cheapest feasible housing costs CNY 12.59 > target CNY 9)",
+        "Relaxed max_height_mm: 18 -> 26 (PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls)",
+        "Relaxed max_mass_g: 120 -> 180 (lightest feasible product weighs 120.5 g > 120 g)",
+        "Q1 default: Total product thickness.",
+        "Q2 default: Total product mass including internals.",
+        "Q3 default: 1 meter for 30 minutes.",
+        "Q4 default: Exterior only, standard soft-touch polyurethane paint.",
+        "Q5 default: Molded-in matte texture."
+      ],
+      "requires_human_resolution": true
+    },
+    "B6": {
+      "brief_id": "B6",
+      "intent": {
+        "brief_id": "B6",
+        "summary": "Desk air quality detector for open-plan offices with a friendly, approachable design, light texture to hide fingerprints, and readable display from a neighbouring desk. Balanced priorities among budget, durability, and aesthetics for bulk purchase by facilities teams.",
+        "priorities": {
+          "cost": 0.33,
+          "durability": 0.33,
+          "aesthetics": 0.34,
+          "sustainability": 0.0
+        },
+        "environment": "indoor",
+        "allowed_materials": [
+          "ABS",
+          "PC-ABS",
+          "rABS"
+        ],
+        "preferred_finishes": [
+          "textured_light"
+        ],
+        "style_keywords": [
+          "friendly",
+          "approachable",
+          "light texture",
+          "readable at a glance"
+        ],
+        "target_unit_cost_cny": 18.0,
+        "max_thickness_mm": null,
+        "max_mass_g": 180.0,
+        "ip_rating": "none",
+        "drop_height_m": null,
+        "must_haves": [
+          "Light texture to hide fingerprints",
+          "Readable display from neighbouring desk",
+          "Friendly and approachable design"
+        ],
+        "conflicts": [],
+        "open_questions": [
+          {
+            "question_id": "Q1",
+            "question": "What is the required display size or viewing distance for readability from a neighbouring desk?",
+            "default_assumption": "Display size sufficient for readability at 1.5 m distance, with high contrast and appropriate font size.",
+            "blocking": false
+          },
+          {
+            "question_id": "Q2",
+            "question": "Are there any specific durability requirements such as drop resistance or expected lifespan?",
+            "default_assumption": "Standard office use durability, no specific drop test required.",
+            "blocking": false
+          },
+          {
+            "question_id": "Q3",
+            "question": "Is there a preference for recycled ABS (rABS) for sustainability, or is cost the primary driver?",
+            "default_assumption": "Cost is primary; rABS considered only if cost-competitive.",
+            "blocking": false
+          }
+        ]
+      },
+      "cost_ceiling_cny": 18.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 30.0
+      },
+      "max_mass_g": 180.0,
+      "allowed_materials": [
+        "ABS",
+        "PC-ABS",
+        "rABS"
+      ],
+      "ip_rating": "none",
+      "floor_cost_cny": 9.36,
+      "conflicts": [],
+      "open_questions": [
+        {
+          "question_id": "Q1",
+          "question": "What is the required display size or viewing distance for readability from a neighbouring desk?",
+          "default_assumption": "Display size sufficient for readability at 1.5 m distance, with high contrast and appropriate font size.",
+          "blocking": false
+        },
+        {
+          "question_id": "Q2",
+          "question": "Are there any specific durability requirements such as drop resistance or expected lifespan?",
+          "default_assumption": "Standard office use durability, no specific drop test required.",
+          "blocking": false
+        },
+        {
+          "question_id": "Q3",
+          "question": "Is there a preference for recycled ABS (rABS) for sustainability, or is cost the primary driver?",
+          "default_assumption": "Cost is primary; rABS considered only if cost-competitive.",
+          "blocking": false
+        }
+      ],
+      "relaxations": [],
+      "assumptions": [
+        "Q1 default: Display size sufficient for readability at 1.5 m distance, with high contrast and appropriate font size.",
+        "Q2 default: Standard office use durability, no specific drop test required.",
+        "Q3 default: Cost is primary; rABS considered only if cost-competitive."
+      ],
+      "requires_human_resolution": false
+    }
+  }
+}

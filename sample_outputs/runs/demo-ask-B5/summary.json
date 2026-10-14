@@ -1,0 +1,260 @@
+{
+  "run_id": "demo-ask-B5",
+  "config": "baseline",
+  "llm_mode": "mock",
+  "prompt_version": "v1",
+  "variants": 0,
+  "status_counts": {},
+  "production_ready": 0,
+  "briefs": {
+    "B5": {
+      "title": "Flagship that wants everything (intentionally conflicting)",
+      "conflict_detected": true,
+      "requires_human_resolution": true,
+      "cost_ceiling_cny": 16.0,
+      "floor_cost_cny": 12.59,
+      "assumptions": [
+        "Relaxed cost_ceiling_cny: 9 -> 16 (cheapest feasible housing costs CNY 12.59 > target CNY 9)",
+        "Relaxed max_height_mm: 18 -> 26 (PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls)",
+        "Kept (designer refused relaxation) max_mass_g: 120 -> 120 (lightest feasible product weighs 120.5 g > 120 g)",
+        "Q2 answered by designer: Manufacturability first; drop the paint, keep IP67"
+      ],
+      "infeasible": true,
+      "infeasible_reasons": [
+        "designer kept max_mass_g at 120, but lightest feasible product weighs 120.5 g > 120 g"
+      ],
+      "variants_planned": 0,
+      "quality_paused": null,
+      "statuses": {},
+      "shortlist": []
+    }
+  },
+  "shortlist": {
+    "B5": []
+  },
+  "first_pass_dfm_rate": 0.0,
+  "avg_llm_revisions": 0.0,
+  "avg_autofixes": 0.0,
+  "fallback_rate": 0.0,
+  "tokens_total": 0,
+  "llm_calls": 0,
+  "model_cost_cny_total": 0.0,
+  "model_cost_cny_per_variant": 0.0,
+  "modeled_latency_ms_p50": 0.0,
+  "modeled_latency_ms_p95": 0.0,
+  "wall_clock_s": 0.0,
+  "faults_injected": {},
+  "breakers": {},
+  "steps_executed": 2,
+  "steps_replayed": 0,
+  "lessons_learned": [],
+  "contracts": {
+    "B5": {
+      "brief_id": "B5",
+      "intent": {
+        "brief_id": "B5",
+        "summary": "Flagship model: premium soft-touch painted finish, fully waterproof to IP67, ultra-slim 18 mm thick profile, 100% recycled plastic, weighing under 120 g, and it must cost no more than CNY 9 per housing. Launch in six weeks.",
+        "priorities": {
+          "cost": 0.55,
+          "durability": 0.85,
+          "aesthetics": 0.85,
+          "sustainability": 0.55
+        },
+        "environment": "outdoor",
+        "allowed_materials": [
+          "rABS"
+        ],
+        "preferred_finishes": [
+          "textured_heavy",
+          "textured_light"
+        ],
+        "style_keywords": [
+          "premium",
+          "soft",
+          "recycled"
+        ],
+        "target_unit_cost_cny": 9.0,
+        "max_thickness_mm": 18.0,
+        "max_mass_g": 120.0,
+        "ip_rating": "IP67",
+        "drop_height_m": null,
+        "must_haves": [
+          "cost no more than CNY 9 per housing"
+        ],
+        "conflicts": [
+          {
+            "conflict_id": "C1",
+            "description": "Target CNY 9/unit is unrealistic with premium finish or sealing",
+            "requirements": [
+              "unit cost",
+              "finish/sealing"
+            ],
+            "severity": "hard",
+            "proposed_resolution": "Raise the target to the CNY 18 ceiling or drop sealing/paint",
+            "source": "llm"
+          },
+          {
+            "conflict_id": "C2",
+            "description": "Sealed gasket housing at this slimness leaves no room for the gasket land",
+            "requirements": [
+              "ingress rating",
+              "thickness"
+            ],
+            "severity": "soft",
+            "proposed_resolution": "Relax thickness to the minimum feasible stack height",
+            "source": "llm"
+          },
+          {
+            "conflict_id": "C3",
+            "description": "Paint / soft-touch coatings contaminate the recycling stream",
+            "requirements": [
+              "recycled content",
+              "coated finish"
+            ],
+            "severity": "soft",
+            "proposed_resolution": "Use moulded-in colour with texture instead of coatings",
+            "source": "llm"
+          }
+        ],
+        "open_questions": [
+          {
+            "question_id": "Q2",
+            "question": "Which requirement wins when they conflict?",
+            "default_assumption": "Manufacturability and budget win; aesthetics adapts",
+            "blocking": true
+          }
+        ]
+      },
+      "cost_ceiling_cny": 16.0,
+      "max_envelope_mm": {
+        "length": 125.0,
+        "width": 75.0,
+        "height": 26.0
+      },
+      "max_mass_g": 120.0,
+      "allowed_materials": [
+        "rABS"
+      ],
+      "ip_rating": "IP67",
+      "floor_cost_cny": 12.59,
+      "conflicts": [
+        {
+          "conflict_id": "C1",
+          "description": "Target CNY 9/unit is unrealistic with premium finish or sealing",
+          "requirements": [
+            "unit cost",
+            "finish/sealing"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "Raise the target to the CNY 18 ceiling or drop sealing/paint",
+          "source": "llm"
+        },
+        {
+          "conflict_id": "C2",
+          "description": "Sealed gasket housing at this slimness leaves no room for the gasket land",
+          "requirements": [
+            "ingress rating",
+            "thickness"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "Relax thickness to the minimum feasible stack height",
+          "source": "llm"
+        },
+        {
+          "conflict_id": "C3",
+          "description": "Paint / soft-touch coatings contaminate the recycling stream",
+          "requirements": [
+            "recycled content",
+            "coated finish"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "Use moulded-in colour with texture instead of coatings",
+          "source": "llm"
+        },
+        {
+          "conflict_id": "R1",
+          "description": "Infeasible as written: cheapest feasible housing costs CNY 12.59 > target CNY 9",
+          "requirements": [
+            "cost_ceiling_cny"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "relax cost_ceiling_cny to 16",
+          "source": "rule"
+        },
+        {
+          "conflict_id": "R2",
+          "description": "Infeasible as written: PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls",
+          "requirements": [
+            "max_height_mm"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "relax max_height_mm to 26",
+          "source": "rule"
+        },
+        {
+          "conflict_id": "R3",
+          "description": "Infeasible as written: lightest feasible product weighs 120.5 g > 120 g",
+          "requirements": [
+            "max_mass_g"
+          ],
+          "severity": "hard",
+          "proposed_resolution": "relax max_mass_g to 151",
+          "source": "rule"
+        },
+        {
+          "conflict_id": "R-vent",
+          "description": "IP67 sealing vs. >= 15% open intake",
+          "requirements": [
+            "ingress rating",
+            "vent open area"
+          ],
+          "severity": "soft",
+          "proposed_resolution": "gasket + ePTFE membrane vent (adds ~CNY 2.7/unit)",
+          "source": "rule"
+        }
+      ],
+      "open_questions": [
+        {
+          "question_id": "Q2",
+          "question": "Which requirement wins when they conflict?",
+          "default_assumption": "Manufacturability and budget win; aesthetics adapts",
+          "blocking": true
+        }
+      ],
+      "relaxations": [
+        {
+          "field": "cost_ceiling_cny",
+          "strict_value": 9.0,
+          "relaxed_value": 16.0,
+          "reason": "cheapest feasible housing costs CNY 12.59 > target CNY 9",
+          "accepted": true
+        },
+        {
+          "field": "max_height_mm",
+          "strict_value": 18.0,
+          "relaxed_value": 26.0,
+          "reason": "PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls",
+          "accepted": true
+        },
+        {
+          "field": "max_mass_g",
+          "strict_value": 120.0,
+          "relaxed_value": 151.0,
+          "reason": "lightest feasible product weighs 120.5 g > 120 g",
+          "accepted": false
+        }
+      ],
+      "platform_blockers": [],
+      "infeasible_reasons": [
+        "designer kept max_mass_g at 120, but lightest feasible product weighs 120.5 g > 120 g"
+      ],
+      "assumptions": [
+        "Relaxed cost_ceiling_cny: 9 -> 16 (cheapest feasible housing costs CNY 12.59 > target CNY 9)",
+        "Relaxed max_height_mm: 18 -> 26 (PCB+battery stack needs >= 25.0 mm overall height at 1.5 mm walls)",
+        "Kept (designer refused relaxation) max_mass_g: 120 -> 120 (lightest feasible product weighs 120.5 g > 120 g)",
+        "Q2 answered by designer: Manufacturability first; drop the paint, keep IP67"
+      ],
+      "requires_human_resolution": true
+    }
+  }
+}

@@ -1,0 +1,13 @@
+[project]
+name = "creaition"
+version = "0.1.0"
+description = "cre[ai]tion multi-agent design pipeline prototype (brief -> 2D concept -> 3D-ready spec -> DFM/cost/quality critique)"
+requires-python = ">=3.9"
+dependencies = ["pydantic>=2.6,<3", "eval_type_backport; python_version < '3.10'"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

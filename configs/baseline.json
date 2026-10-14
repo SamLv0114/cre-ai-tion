@@ -1,0 +1,5 @@
+{
+  "name": "baseline",
+  "description": "v1 prompts, default DeepSeek routing (flash concepts, v4-pro structure + judge, flash reviser)",
+  "prompt_version": "v1"
+}

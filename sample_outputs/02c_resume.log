@@ -1,0 +1,41 @@
+$ python -m creaition resume demo-resume
+# exit code 0, 0.6s
+
+
+=== run summary: demo-resume (config=baseline, mode=mock) ===
+variants: 9  status: {'rejected': 1, 'pending_approval': 7, 'needs_human': 1}
+first-pass DFM: 33%  avg LLM revisions: 0.556  avg autofixes: 0.556  fallback rate: 0%
+tokens: 118853  model cost: CNY 0.8747 (CNY 0.09719/variant)  modelled latency p50/p95: 41.1s / 51.9s  wall: 0.2s
+steps executed: 52  replayed from checkpoint: 30  faults injected: none
+  B1: ceiling CNY 12.0 | {'rejected': 1, 'pending_approval': 2} | shortlist ['B1-v003', 'B1-v002']
+  B3: ceiling CNY 18.0 | {'pending_approval': 2, 'needs_human': 1} | shortlist ['B3-v001', 'B3-v002', 'B3-v003']
+  B4: ceiling CNY 18.0 | {'pending_approval': 3} | shortlist ['B4-v001', 'B4-v002', 'B4-v003']
+
+todos:
+[x] Plan run: 3 brief(s) x 3 variant(s), config 'baseline'
+[x] B1: interpret brief  (0 conflict(s) flagged by model)
+[x] B1: resolve constraints, ask/adopt defaults  (ceiling CNY 12, floor CNY 9.36, 0 relaxation(s), human resolution not needed)
+[x] B1: generate + critique 3 variants  (3/3 variants)
+[x] B3: interpret brief  (0 conflict(s) flagged by model)
+[x] B3: resolve constraints, ask/adopt defaults  (ceiling CNY 18, floor CNY 9.36, 0 relaxation(s), human resolution not needed)
+[x] B3: generate + critique 3 variants  (3/3 variants)
+[x] B4: interpret brief  (1 conflict(s) flagged by model)
+[x] B4: resolve constraints, ask/adopt defaults  (ceiling CNY 18, floor CNY 9.40, 0 relaxation(s), human resolution not needed)
+[x] B4: generate + critique 3 variants  (3/3 variants)
+[x] Apply approval policy (human-in-the-loop gate)  (0 auto-approved by policy 'never'; 8 awaiting a human)
+[x] Rank and shortlist per brief  (B1: B1-v003, B1-v002; B3: B3-v001, B3-v002, B3-v003; B4: B4-v001, B4-v002, B4-v003)
+[-] Distil lessons into memory  (0 new lesson(s))
+[x] Write run summary  (sample_outputs/runs/demo-resume/summary.json)
+
+02:33:26.273 [RESUME     ] -              -                      resuming run demo-resume: 30 checkpointed steps on disk; finished variants are skipped, in-flight ones replay from their last step
+02:33:26.335 [DONE       ] B1-v001        variant                REJECTED - off-brief: judge brief_adherence 2 < 4 (cost-led brief; 3/4 key brief signals present in the spec (pebble, textured_ligh) | BOM CNY 11.69 | judge 3.67 | 8 steps, 0 LLM rev, 1 autofix | 8146 tok
+02:33:26.339 [TOOL       ] B1-v003        step.revise            reviser called cost_what_if({"material": "ABS", "drop_secondary_ops": [], "remove_bumper": true}) -> {"what_if": {"material": "ABS", "drop_secondary_ops": [], "remove_bumper": true}, "total_cny": 10.8, "ceiling_
+02:33:26.371 [DONE       ] B3-v001        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 12.86 | judge 4.67 | 8 steps, 0 LLM rev, 1 autofix | 8420 tok
+02:33:26.381 [DONE       ] B1-v002        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 10.86 | judge 4.00 | 10 steps, 1 LLM rev, 1 autofix | 13484 tok
+02:33:26.390 [DONE       ] B3-v002        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 15.69 | judge 4.50 | 6 steps, 0 LLM rev, 0 autofix | 8520 tok
+02:33:26.394 [DONE       ] B1-v003        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 10.80 | judge 4.00 | 9 steps, 1 LLM rev, 0 autofix | 19224 tok
+02:33:26.406 [TOOL       ] B3-v003        step.revise            reviser called cost_what_if({"material": "ABS", "drop_secondary_ops": ["soft_touch"], "remove_bumper": true}) -> {"what_if": {"material": "ABS", "drop_secondary_ops": ["soft_touch"], "remove_bumper": true}, "total_cny": 12.
+02:33:26.444 [DONE       ] B4-v001        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 12.43 | judge 4.50 | 8 steps, 1 LLM rev, 0 autofix | 15360 tok
+02:33:26.451 [DONE       ] B4-v003        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 15.04 | judge 4.17 | 6 steps, 0 LLM rev, 0 autofix | 9811 tok
+02:33:26.464 [DONE       ] B3-v003        variant                NEEDS_HUMAN - passed with caveats | BOM CNY 16.21 | judge 4.00 | 11 steps, 1 LLM rev, 1 autofix | 20457 tok
+02:33:26.470 [DONE       ] B4-v002        variant                PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 12.66 | judge 4.50 | 10 steps, 1 LLM rev, 1 autofix | 15431 tok

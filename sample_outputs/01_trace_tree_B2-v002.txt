@@ -1,0 +1,63 @@
+$ python -m creaition trace demo-faults --variant B2-v002
+# exit code 0, 0.2s
+
+- variant [304 ms] tokens=16637 cost_cny=0.04977 status_out=pending_approval
+  * plan: -> generate_concept: no concept yet
+  * plan: -> build_structure: no structural spec yet
+  * plan: -> check_dfm: structure r0 not yet checked
+  * plan: -> auto_fix: closed-form fixes for ['VENT_OPEN_AREA']; ['PACKAGING_FIT'] need design
+  * plan: -> check_dfm: structure r1 not yet checked
+  * plan: -> revise: design trade-off needed for ['PACKAGING_FIT']
+  * plan: -> check_dfm: structure r2 not yet checked
+  * plan: -> estimate_cost: DFM passed; cost next
+  * plan: -> review_quality: all deterministic gates passed; judge quality
+  * plan: -> finalize: all checks complete
+  * variant.done: PENDING_APPROVAL - all gates passed; awaiting approval | BOM CNY 16.25 | judge 3.83 | 10 steps, 1 LLM rev, 1 autofix | 16637 tok
+  - step.generate_concept [33 ms] model=deepseek-flash tokens=4767 cost_cny=0.014946 replayed=False degraded=None status_out=ok
+    - llm.call [16 ms] model=deepseek-flash tokens=2253 cost_cny=0.007195 fallback_depth=0
+      * fault.injected: malformed_truncated on concept_generator via deepseek-flash (attempt 1)
+      * schema.invalid: deepseek-flash reply rejected: invalid JSON (Unterminated string starting at at char 684) -> repair 1/2
+    - llm.call [13 ms] model=deepseek-flash tokens=2514 cost_cny=0.007751 fallback_depth=0
+      * repair.ok: deepseek-flash returned valid ConceptSpec after 1 repair(s)
+  - step.build_structure [69 ms] model=deepseek-flash tokens=3863 cost_cny=0.012567 replayed=False degraded=None status_out=ok
+    - llm.call [36 ms] model=deepseek-v4-pro fallback_depth=0
+      * fault.injected: server_error on structural_modeler via deepseek-v4-pro (attempt 1)
+      * retry: deepseek-v4-pro attempt 1 failed (LLMServerError); backoff 20 ms
+      * fault.injected: server_error on structural_modeler via deepseek-v4-pro (attempt 2)
+      * retry: deepseek-v4-pro attempt 2 failed (LLMServerError); backoff 14 ms
+      * fault.injected: server_error on structural_modeler via deepseek-v4-pro (attempt 3)
+      * fallback: deepseek:deepseek-v4-pro gave up (LLMServerError) -> next route in 'structural_modeler' chain
+    - llm.call [22 ms] model=deepseek-flash tokens=3863 cost_cny=0.012567 fallback_depth=1
+      * repair.ok: served by fallback route #1 (deepseek:deepseek-flash)
+  - step.check_dfm [14 ms] model=None tokens=0 cost_cny=0.0 replayed=False degraded=None status_out=ok
+    - tool.call [2 ms] tool=materials_lookup attempts=1 source=live
+    - tool.call [12 ms] tool=dfm_validate attempts=2 source=live
+      * fault.injected: tool_error on tool 'dfm_validate' (attempt 1)
+      * retry: tool 'dfm_validate' attempt 1 failed (ToolError); backoff 7 ms
+      * repair.ok: tool 'dfm_validate' succeeded on attempt 2
+  - step.auto_fix [0 ms] model=None tokens=0 cost_cny=0.0 replayed=False degraded=None status_out=ok
+  - step.check_dfm [5 ms] model=None tokens=0 cost_cny=0.0 replayed=False degraded=None status_out=ok
+    - tool.call [2 ms] tool=materials_lookup attempts=1 source=live
+    - tool.call [2 ms] tool=dfm_validate attempts=1 source=live
+  - step.revise [54 ms] model=deepseek-flash tokens=5506 cost_cny=0.016444 replayed=False degraded=None status_out=ok
+    - llm.call [49 ms] model=deepseek-flash tokens=5506 cost_cny=0.016444 fallback_depth=0
+      * fault.injected: rate_limit on reviser via deepseek-flash (attempt 1)
+      * throttle: 429 from deepseek-flash: in-flight limit -> 1
+      * retry: deepseek-flash attempt 1 failed (LLMRateLimited); backoff 15 ms
+  - step.check_dfm [11 ms] model=None tokens=0 cost_cny=0.0 replayed=False degraded=None status_out=ok
+    - tool.call [2 ms] tool=materials_lookup attempts=1 source=live
+    - tool.call [8 ms] tool=dfm_validate attempts=1 source=live
+  - step.estimate_cost [5 ms] model=None tokens=0 cost_cny=0.0 replayed=False degraded=None status_out=ok
+    - tool.call [2 ms] tool=materials_lookup attempts=1 source=live
+    - tool.call [2 ms] tool=tooling_quote attempts=1 source=live
+  - step.review_quality [110 ms] model=deepseek-flash tokens=2501 cost_cny=0.005813 replayed=False degraded=None status_out=ok
+    - llm.call [104 ms] model=deepseek-v4-pro fallback_depth=0
+      * fault.injected: server_error on quality_judge via deepseek-v4-pro (attempt 1)
+      * retry: deepseek-v4-pro attempt 1 failed (LLMServerError); backoff 28 ms
+      * fault.injected: server_error on quality_judge via deepseek-v4-pro (attempt 2)
+      * retry: deepseek-v4-pro attempt 2 failed (LLMServerError); backoff 70 ms
+      * fault.injected: server_error on quality_judge via deepseek-v4-pro (attempt 3)
+      * fallback: deepseek:deepseek-v4-pro gave up (LLMServerError) -> next route in 'quality_judge' chain
+    - llm.call [4 ms] model=deepseek-flash tokens=2501 cost_cny=0.005813 fallback_depth=1
+      * repair.ok: served by fallback route #1 (deepseek:deepseek-flash)
+  - step.finalize [0 ms] model=None tokens=0 cost_cny=0.0 replayed=False degraded=None status_out=ok

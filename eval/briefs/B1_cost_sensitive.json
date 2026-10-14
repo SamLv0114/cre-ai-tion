@@ -1,0 +1,7 @@
+{
+  "brief_id": "B1",
+  "archetype": "cost_sensitive",
+  "title": "Retail apartment detector (cost first)",
+  "text": "Retail-channel air quality detector for rental apartments. Lowest possible unit cost is the top priority: target CNY 12 per housing at 10k units/year. Plain but tidy look in a colour that hides scuffs and fingerprints. It must survive knocks on a desk. Two-part shell, no decoration beyond a printed logo, budget tooling.",
+  "expect": {"conflict": false}
+}

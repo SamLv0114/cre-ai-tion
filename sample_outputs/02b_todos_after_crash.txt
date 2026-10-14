@@ -1,0 +1,25 @@
+$ python -m creaition todos demo-resume
+# exit code 0, 0.3s
+
+[x] Plan run: 3 brief(s) x 3 variant(s), config 'baseline'
+[x] B1: interpret brief  (0 conflict(s) flagged by model)
+[x] B1: resolve constraints, ask/adopt defaults  (ceiling CNY 12, floor CNY 9.36, 0 relaxation(s), human resolution not needed)
+[ ] B1: generate + critique 3 variants
+[x] B3: interpret brief  (0 conflict(s) flagged by model)
+[x] B3: resolve constraints, ask/adopt defaults  (ceiling CNY 18, floor CNY 9.36, 0 relaxation(s), human resolution not needed)
+[ ] B3: generate + critique 3 variants
+[x] B4: interpret brief  (1 conflict(s) flagged by model)
+[x] B4: resolve constraints, ask/adopt defaults  (ceiling CNY 18, floor CNY 9.40, 0 relaxation(s), human resolution not needed)
+[ ] B4: generate + critique 3 variants
+[ ] Apply approval policy (human-in-the-loop gate)
+[ ] Rank and shortlist per brief
+[ ] Distil lessons into memory
+[ ] Write run summary
+  B1-v001    running           
+  B1-v002    running           
+  B1-v003    running           
+  B3-v001    running           
+  B3-v002    running           
+  B3-v003    running           
+  B4-v001    running           
+  B4-v002    running           
